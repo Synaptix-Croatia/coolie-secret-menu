@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/colors.css">
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/typography.css">
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/shape.css">
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/motion.css">
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/patterns.css">
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/base.css">
+<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/styles.css">
+<script src="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/_ds_bundle.js"></script>
+<script src="data/coolie-recipes.js"></script>
+<style>
+body{margin:0;background:var(--csm-paper)}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--text-link-hover)}
+@keyframes csm-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes csm-tick-enter{from{transform:translateX(100vw)}to{transform:translateX(0)}}
+@keyframes csm-bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-16px) rotate(var(--r,0deg))}}
+@font-face{font-family:'Remock';src:url('assets/fonts/REMOCK.ttf') format('truetype');font-weight:400;font-display:swap}
+</style>
+</helmet>
+
+<div ref="{{ setViewport }}" style="width:100%;overflow-x:auto;overflow-y:hidden">
+<div ref="{{ setShell }}" style="width: 100%; min-width: 1024px; --hs: 1; --track: min(1440px, calc(100% - 80px)); --gutter: max(40px, calc((100vw - min(1440px, calc(100vw - 80px))) / 2)); font-family: 'Roboto',sans-serif; color: var(--csm-ink); --macro-p: {{ macroP }}; --macro-c: {{ macroC }}; --macro-f: {{ macroF }}; --macro-p-text: {{ macroPText }}; --macro-c-text: {{ macroCText }}; --macro-f-text: {{ macroFText }}; background: {{ paper }}">
+
+
+  <div style="position: relative; height: calc(100vh * var(--hs, 1)); min-height: 820px; box-sizing: border-box; background-image: {{ bandGrid }}; background-color: {{ band }}; border-bottom: 3px solid var(--csm-ink); overflow: hidden; display: flex; flex-direction: column">
+
+    <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden">
+      <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
+      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 80px; right: max(-90px, calc(50% - 860px)); width: 215px; color: var(--csm-ink); animation: csm-spin 26s linear infinite; height: 215px"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
+      <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;top:22%;left:max(-72px, calc(50% - 800px));width:120px;color:{{ shp4 }};transform:rotate(-12deg)"><polygon points="245.79 313.12 453.55 453.55 313.12 245.79 482.63 17.37 254.21 186.88 46.45 46.45 186.88 254.21 17.37 482.63 245.79 313.12"></polygon><polygon points="220.57 279.43 237.29 440.63 275.75 275.75 440.63 237.29 279.43 220.57 262.71 59.37 224.25 224.25 59.37 262.71 220.57 279.43"></polygon></svg>
+      <img src="assets/y2k/disko-rola.webp" alt="" style="position: absolute; top: 7%; left: 25%; width: 324px; --r: 12deg; animation: csm-bob 10s ease-in-out infinite; height: 324px">
+      <img src="assets/food/mango.webp" alt="" style="position: absolute; top: 10%; left: 720px; width: 153px; --r: -8deg; animation: csm-bob 7s ease-in-out infinite; height: 153px">
+      
+      <img src="assets/food/food-03.webp" alt="" style="position: absolute; top: 3.5%; left: 25%; width: 115px; --r: 14deg; animation: csm-bob 8s ease-in-out infinite; height: 115px">
+      <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;bottom:206px;right:max(660px, calc(50% - 20px));width:150px;color:var(--csm-ink);animation:csm-spin 17s linear infinite"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
+      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; bottom: -50px; left: max(-175px, calc(50% - 950px)); width: 205px; color: {{ shp3 }}; animation: csm-spin 34s linear infinite"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
+
+    <div style="position: absolute; bottom: 0; right: max(-70px, calc(50% - 716px)); width: min(840px, 88%); height: 88%; pointer-events: none; top: 120px">
+      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; bottom: -8%; right: 0; width: 66%; color: {{ shp4 }}; animation: csm-spin 44s linear infinite"><path d="M276.04,163c72.07-174-144.14-174-72.07,0-72.07-174-224.96-21.11-50.96,50.96-174-72.07-174,144.14,0,72.07-174,72.07-21.11,224.96,50.96,50.96-72.07,174,144.14,174,72.07,0,72.07,174,224.96,21.11,50.96-50.96,174,72.07,174-144.14,0-72.07,174-72.07,21.11-224.96-50.96-50.96Z"></path></svg>
+      <img src="assets/character/coolie-cutout.webp" alt="Coolie" style="position: absolute; bottom: 0; right: 2%; width: min(100%, 807px); height: auto; max-height: 100%; object-fit: contain; object-position: bottom right">
+      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; bottom: 4%; right: 20%; width: 26%; color: var(--csm-ink); animation: csm-spin 21s linear infinite reverse; fill: #D9FF3F"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
+      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 4%; right: 1%; width: 23%; color: {{ shp3 }}; animation: csm-spin 15s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
+      <img src="assets/y2k/kazeta.webp" alt="" style="position: absolute; bottom: 30.5%; left: -39px; width: 216px; --r: -11deg; animation: csm-bob 8.5s ease-in-out infinite; height: 202px">
+    </div>
+    </div>
+    </div>
+
+    <div style="position:relative;z-index:1;width:var(--track);margin:0 auto;padding:30px 42px 0;display:flex;justify-content:space-between;align-items:flex-start;box-sizing:border-box">
+      <div style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:10px 20px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.18em;transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</div>
+      <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.18em;padding-top:10px">CSM · EDITION 001</div>
+    </div>
+
+    <div style="position: relative; z-index: 1; flex: 1; width: var(--track); margin: 0 auto; padding: 0 42px; box-sizing: border-box; display: flex; align-items: center; justify-content: flex-start; gap: 40px">
+      <div style="max-width:1000px">
+        <div style="font-weight:800;font-size:96px;line-height:.82;letter-spacing:-.045em;color:var(--csm-ink);margin-top:-20px">Coolie</div>
+        <div style="font-family:'Remock',sans-serif;font-size:196px;line-height:.73;letter-spacing:.005em;color:var(--csm-ink);margin-top:20px">SECRET MENU</div>
+        <div style="display:flex;gap:18px;align-items:center;margin-top:30px;flex-wrap:wrap">
+          <span style="background:{{ shp3 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;transform:rotate(-2deg)">BRZO.</span>
+          <span style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;transform:rotate(1.5deg)">JEDNOSTAVNO.</span>
+          <span style="background:{{ shp2 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;transform:rotate(-1deg)">BALANSIRANO.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="position: relative; z-index: 1; width: var(--track); margin: 0 auto; padding: 0 600px 44px 42px; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: flex-end; gap: 40px">
+      <a href="#menu" style="flex:none;display:flex;align-items:center;gap:16px;background:{{ ctaBg }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:8px 8px 0 var(--csm-ink);padding:16px 20px 16px 30px;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--csm-ink)">
+        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;letter-spacing:.16em;color:{{ ctaFg }}">UĐI U MENU</span>
+        <span style="width:38px;height:38px;flex:none;background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:var(--csm-ink)">↓</span>
+      </a>
+    </div>
+  </div>
+
+  <div style="position: relative; background-color: {{ endBand }}; background-image: radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px); background-size: 18px 18px; overflow: hidden">
+
+    <div style="position: relative; width: 100%; background: var(--csm-ink); overflow: hidden; padding: 18px 0">
+      <div style="display:flex;width:max-content;animation:csm-tick 30s linear infinite;font-weight:800;font-size:34px;letter-spacing:-.015em;color:#FFFFFF;white-space:nowrap">
+        <div style="display:flex;gap:64px;width:max-content;flex:none;padding-right:64px"><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span></div>
+        <div style="display:flex;gap:64px;width:max-content;flex:none;padding-right:64px"><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span></div>
+      </div>
+    </div>
+
+    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+      <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
+        <img src="assets/y2k/mikser.webp" alt="" style="position: absolute; top: 45%; right: calc(-1 * max(290px, min(290px + (var(--gutter) - 40px) * 0.5, var(--gutter) / 2 + 200px))); width: 400px; --r: -40deg; transform: translateY(-50%); animation: csm-bob 11s ease-in-out infinite">
+        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;bottom:-90px;left:calc(-1 * max(85px, min(85px + (var(--gutter) - 40px) * 0.7, var(--gutter) / 2 + 130px)));width:260px;color:{{ accent }};animation:csm-spin 26s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
+      </div>
+    </div>
+
+    <div style="position:relative;z-index:1;width:var(--track);margin:0 auto;padding:96px 42px 104px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <div style="align-self:flex-start;background:{{ accent }};border:3px solid var(--csm-ink);border-radius:999px;padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--csm-ink)">ŠTO DANAS KUHAŠ?</div>
+        <div style="font-weight:800;font-size:32px;line-height:1.35;letter-spacing:-.005em;color:var(--csm-ink);text-wrap:pretty">Kasniš, a već te lovi glad? Trebaš više proteina i vlakana da ne zaspiš nad tipkovnicom? Želiš da Air fryer odradi sav posao dok ti odmaraš? Trebaš jači gut-brain connection? Tražiš laganu večeru s malo sastojaka? Planiraš nedjeljni ručak za cijelu obitelj?</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 70px">
+        <div style="font-size:20px;line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Najvažniji meni ove sezone skuhali su <strong>Coolie by Coolinarika</strong> i vodeća hrvatska nutricionistica <strong>Sandra Krstev Barać</strong>, osnivačica Funkcionalne medicine.</div>
+        <div style="font-size:20px;line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Brzo, jednostavno, balansirano. Vlakna, proteini, ugljikohidrati, vitamini. Svi nude recepte, a Coolie ti donosi rješenje za problem, intent i trenutak.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="menu" style="position:relative;background-image:{{ bandGrid }};background-color:{{ band }};border-bottom:3px solid var(--csm-ink);padding:56px 0 190px;overflow:hidden">
+    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+      <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
+        
+        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;top:36px;right:calc(-1 * max(80px, min(80px + (var(--gutter) - 40px) * 0.7, var(--gutter) / 2 + 125px)));width:250px;color:var(--csm-ink);animation:csm-spin 19s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
+        
+      </div>
+<svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 773px; width: 220px; color: var(--csm-ink); animation: csm-spin 30s linear infinite; right: 141px"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg><img src="assets/y2k/nokia.webp" alt="" style="position: absolute; top: 574px; width: 291px; --r: 80deg; animation: csm-bob 9s ease-in-out infinite; height: 305px; right: 104px; transform: rotate(80deg)">
+<img src="assets/y2k/mlinac.webp" alt="" style="position: absolute; top: 884px; left: 104px; width: 200px; --r: -8deg; animation: csm-bob 12s ease-in-out infinite"><svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 1069px; left: 141px; width: 190px; color: var(--csm-ink); animation: csm-spin 22s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg></div>
+
+    <div style="width: var(--track); margin: 0 auto; padding: 0 42px; position: relative; z-index: 1; display: flex; justify-content: flex-start; padding-top: 60px; padding-bottom: 0px">
+      <div style="max-width:430px;background:{{ heroFill }};border:3px solid var(--csm-ink);border-radius:14px;box-shadow:8px 8px 0 var(--csm-ink);padding:22px 26px;transform:rotate(-1.5deg);margin-bottom:80px;margin-left:{{ labelPad }}">
+        <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ bandEyebrow }}">KAKO OVO RADI</div>
+        <div style="font-size:17px;line-height:1.5;margin-top:10px">Odaberi obrok, pa točno ono stanje u kojem jesi. Dajem ti jedno jelo, hackove i put do tanjura.</div>
+      </div>
+    </div>
+
+    <div style="width:var(--track);margin:0 auto;padding:0 42px;position:relative;z-index:1">
+      <div style="font-weight:800;font-size:132px;line-height:.86;letter-spacing:-.045em;color:{{ labelColor }};-webkit-text-stroke:{{ labelStroke }} var(--csm-ink);paint-order:stroke fill;padding-bottom:14px;padding-left:{{ labelPad }}">{{ openTitle }}</div>
+    <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 18px; left: -86px; width: 230px; color: var(--csm-ink); animation: csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg></div>
+
+    <div style="width:var(--track);margin:0 auto;padding:0 42px;display:flex;align-items:stretch;position:relative;z-index:1;height:{{ panelHeight }}">
+    <sc-for list="{{ cats }}" as="cat" hint-placeholder-count="4">
+      <div style="display:flex;align-items:stretch;min-width:0;flex:{{ cat.flex }}">
+
+        <div onClick="{{ cat.toggle }}" style="width:{{ cat.spineW }};flex:none;background:{{ cat.color }};border:3px solid var(--csm-ink);border-radius:{{ cat.radius }};margin-left:{{ cat.ml }};display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 0 16px;cursor:{{ cat.cursor }};transition:background 140ms var(--ease-snap,ease)" style-hover="background:{{ cat.hover }}">
+          <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.1em;color:{{ cat.fg }}">{{ cat.num }}</span>
+          <div style="flex:1;width:100%;display:flex;align-items:center;justify-content:center;transition:transform 140ms var(--ease-snap,ease)" style-hover="transform:translateY(-11px)">
+            <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;letter-spacing:.2em;color:{{ cat.fg }}">{{ cat.label }}</div>
+          </div>
+          <span style="width:28px;height:28px;flex:none;border:2px solid {{ cat.fg }};border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;color:{{ cat.fg }};opacity:{{ cat.signOp }}">{{ cat.sign }}</span>
+        </div>
+
+        <sc-if value="{{ cat.open }}" hint-placeholder-val="{{ true }}">
+          <div style="flex:1;min-width:0;border:3px solid var(--csm-ink);margin-left:-3px;background:var(--csm-white);display:flex;overflow:hidden;box-shadow:10px 10px 0 var(--csm-ink)">
+
+            <div style="width:238px;flex:none;border-right:3px solid var(--csm-ink);background:{{ cat.color }};padding:20px 16px;display:flex;flex-direction:column;gap:7px;overflow-y:auto">
+              <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ cat.fg }};margin-bottom:5px">U KAKVOM SI STANJU</div>
+              <sc-for list="{{ cat.subs }}" as="sub" hint-placeholder-count="6">
+                <div onClick="{{ sub.pick }}" style="border:3px solid var(--csm-ink);border-radius:6px;flex:none;background:{{ sub.bg }};color:{{ sub.fg }};padding:11px 12px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12.5px;letter-spacing:.06em;line-height:1.25;cursor:pointer;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--csm-ink)">
+                  {{ sub.label }}
+                  <sc-if value="{{ sub.active }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;letter-spacing:.14em;opacity:.7;margin-top:5px">{{ sub.count }}</div></sc-if>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="flex:1;display:flex;flex-direction:column;min-width:0">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 24px;border-bottom:3px solid var(--csm-ink);background:{{ topBar }};flex:none">
+                <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em">{{ counterText }}</div>
+                <div style="display:flex;gap:7px;align-items:center">
+                  <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+                    <span style="width:12px;height:12px;flex:none;border:2px solid var(--csm-ink);border-radius:999px;background:{{ d.bg }}"></span>
+                  </sc-for>
+                  <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.14em;margin-left:8px">SCROLL ↓</span>
+                </div>
+              </div>
+
+              <div style="flex:1;position:relative;overflow:hidden">
+                <div onScroll="{{ handleScroll }}" ref="{{ setScroller }}" style="position:absolute;inset:0;overflow-y:auto;padding:24px 26px 40px;display:flex;flex-direction:column;gap:30px">
+                  <sc-for list="{{ recipes }}" as="r" hint-placeholder-count="3">
+                    <div style="border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:22px 26px;display:flex;flex-direction:column;gap:16px;flex:none">
+
+                      <div style="display:flex;gap:13px;align-items:center">
+                        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:{{ recipeNum }};flex:none">{{ r.no }}</span>
+                        <div style="font-weight:800;font-size:36px;line-height:.95;letter-spacing:-.02em">{{ r.title }}</div>
+                      </div>
+
+                      <div style="display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start">
+                        <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:14px">
+                          <div style="font-size:17px;line-height:1.55;max-width:60ch">{{ r.desc }}</div>
+                          <sc-for list="{{ r.hacks }}" as="h" hint-placeholder-count="2">
+                            <div style="border:3px solid var(--csm-ink);border-radius:6px;box-shadow:3px 3px 0 var(--csm-ink);padding:14px 16px;background:var(--csm-white)">
+                              <div style="display:flex;gap:8px;align-items:center">
+                                <sc-if value="{{ h.isFiber }}" hint-placeholder-val="{{ false }}"><img src="assets/shapes/sparkle-6.svg" alt="" style="width:14px"></sc-if>
+                                <sc-if value="{{ h.isProtein }}" hint-placeholder-val="{{ false }}"><img src="assets/shapes/crosshair-sparkle.svg" alt="" style="width:14px"></sc-if>
+                                <sc-if value="{{ h.isVitamin }}" hint-placeholder-val="{{ false }}"><img src="assets/shapes/star-8.svg" alt="" style="width:14px"></sc-if>
+                                <sc-if value="{{ h.isMineral }}" hint-placeholder-val="{{ false }}"><img src="assets/shapes/blob-star.svg" alt="" style="width:14px"></sc-if>
+                                <sc-if value="{{ h.isSos }}" hint-placeholder-val="{{ false }}"><img src="assets/shapes/asterisk-solid.svg" alt="" style="width:14px"></sc-if>
+                                <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em">{{ h.label }}</span>
+                              </div>
+                              <div style="font-size:15.5px;line-height:1.5;margin-top:7px">{{ h.text }}</div>
+                            </div>
+                          </sc-for>
+                        </div>
+
+                        <div style="flex:1 1 300px;min-width:0;max-width:330px;display:flex;flex-direction:column;align-items:center;gap:12px">
+                          <div style="position:relative;width:min(100%, {{ pieBox }});aspect-ratio:1">
+                            <div style="position:absolute;inset:0;border-radius:999px;border:3px solid var(--csm-ink);background:{{ r.pie.grad }}"></div>
+                            <div style="position:absolute;left:50%;top:50%;width:3px;height:50%;background:var(--csm-ink);transform-origin:top center;transform:{{ r.pie.t1 }}"></div>
+                            <div style="position:absolute;left:50%;top:50%;width:3px;height:50%;background:var(--csm-ink);transform-origin:top center;transform:{{ r.pie.t2 }}"></div>
+                            <div style="position:absolute;left:50%;top:50%;width:3px;height:50%;background:var(--csm-ink);transform-origin:top center;transform:{{ r.pie.t3 }}"></div>
+                            <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44%;height:44%;border-radius:999px;background:var(--csm-white);border:3px solid var(--csm-ink)"></div>
+                            <sc-for list="{{ r.pie.labels }}" as="L" hint-placeholder-count="3">
+                              <div style="position:absolute;transform:translate(-50%,-50%);font-family:'Roboto Mono',monospace;font-weight:700;left:{{ L.l }};top:{{ L.t }};font-size:{{ L.fs }};color:{{ L.col }}">{{ L.txt }}</div>
+                            </sc-for>
+                          </div>
+
+                          <div style="text-align:center">
+                            <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.16em">NUTRITIVNI PROFIL</div>
+                            <sc-if value="{{ r.foot }}" hint-placeholder-val="{{ true }}"><div style="font-size:14px;color:var(--text-muted);margin-top:3px">{{ r.foot }}</div></sc-if>
+                          </div>
+
+                          <div style="width:100%;display:flex;flex-direction:column">
+                            <div style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-p);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.pRaw }}</span></div>
+                            <div style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-c);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.cRaw }}</span></div>
+                            <div style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-f);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.fRaw }}</span></div>
+                            <sc-if value="{{ r.fib }}" hint-placeholder-val="{{ true }}">
+                              <div style="display:flex;gap:11px;align-items:center;padding:8px 2px"><span style="width:16px;height:16px;border:2px dashed var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--text-muted)">{{ r.fib }}</span></div>
+                            </sc-if>
+                            <sc-if value="{{ r.extra }}" hint-placeholder-val="{{ false }}">
+                              <div style="font-size:12.5px;line-height:1.45;color:var(--text-muted);border-top:1px solid var(--line-soft);padding-top:8px;margin-top:4px">{{ r.extra }}</div>
+                            </sc-if>
+                          </div>
+                        </div>
+                      </div>
+
+                      <a href="{{ r.link }}" target="_blank" style="border:3px solid var(--csm-ink);border-radius:999px;background:{{ ctaBg }};box-shadow:6px 6px 0 var(--csm-ink);padding:16px 26px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--csm-ink)">
+                        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:14px;letter-spacing:.16em;color:{{ ctaFg }}">PUT DO TANJURA — COOLINARIKA.COM</span>
+                        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:{{ ctaFg }}">→</span>
+                      </a>
+                    </div>
+                  </sc-for>
+
+                  <div style="flex:none;display:flex;justify-content:center;align-items:center;gap:12px;padding:10px 0 4px">
+                    <img src="assets/shapes/asterisk-solid.svg" alt="" style="width:16px">
+                    <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:var(--text-muted)">{{ endText }}</span>
+                    <img src="assets/shapes/asterisk-solid.svg" alt="" style="width:16px">
+                  </div>
+                </div>
+
+                <div style="position:absolute;left:0;right:0;bottom:0;height:44px;background:linear-gradient(rgba(255,255,255,0),var(--csm-white) 70%);pointer-events:none"></div>
+
+              </div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    </div>
+  </div>
+
+  <div style="position:relative;background:{{ paper }};padding:0 0 190px;overflow:hidden">
+    <div style="width:var(--track);margin:0 auto;padding:0 42px;box-sizing:border-box">
+      <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 34px; margin-top: 150px">
+        
+        <svg viewBox="0 0 500 500" fill="currentColor" style="width:18px;height:18px;color:{{ bandEyebrow }};align-self:center"><polygon points="245.79 313.12 453.55 453.55 313.12 245.79 482.63 17.37 254.21 186.88 46.45 46.45 186.88 254.21 17.37 482.63 245.79 313.12"></polygon><polygon points="220.57 279.43 237.29 440.63 275.75 275.75 440.63 237.29 279.43 220.57 262.71 59.37 224.25 224.25 59.37 262.71 220.57 279.43"></polygon></svg><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ bandEyebrow }}">BONUS · KRENI OD PROBLEMA</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
+          <div onClick="{{ c.go }}" onMouseEnter="{{ c.enter }}" onMouseLeave="{{ c.leave }}" style="perspective:1400px;height:280px;cursor:pointer">
+            <div style="position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 700ms cubic-bezier(.22,.61,.36,1);transform:{{ c.flip }}">
+
+              <div style="position:absolute;inset:0;backface-visibility:hidden;border:3px solid var(--csm-ink);border-radius:14px;background:{{ c.bg }};color:{{ c.fg }};box-shadow:6px 6px 0 var(--csm-ink);padding:24px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
+                <div style="width:34px;height:34px">{{ c.iconEl }}</div>
+                <div>
+                  <div style="font-weight:800;font-size:26px;line-height:1.02;letter-spacing:-.02em;text-wrap:pretty">{{ c.title }}</div>
+                  <div style="margin-top:16px">
+                    <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;opacity:.72">{{ c.section }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="position:absolute;inset:0;backface-visibility:hidden;transform:rotateY(180deg);border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
+                <div style="font-size:15.5px;line-height:1.48;text-wrap:pretty">{{ c.text }}</div>
+                <div style="border-top:3px solid var(--csm-ink);padding-top:12px">
+                  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--csm-purple)"><span>VODI NA</span><span style="font-size:16px">↗</span></div>
+                  <div style="font-weight:800;font-size:17px;line-height:1.12;letter-spacing:-.01em;margin-top:5px;text-wrap:pretty">{{ c.recipe }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative;background-color:{{ endBand }};background-image:radial-gradient(rgba(20,26,27,.22) 1.6px,transparent 1.7px);background-size:18px 18px;padding:70px 60px 34px;overflow:hidden;border-bottom:3px solid var(--csm-ink)">
+
+    <div style="width:var(--track);margin:0 auto;padding:0 18px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;position:relative">
+
+      <div style="justify-self:center;max-width:460px">
+        <div style="display:inline-block;background:var(--csm-acid);border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 24px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--csm-ink);transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</div>
+        <div style="font-weight:800;font-size:76px;line-height:.86;letter-spacing:-.045em;color:var(--csm-ink);margin-top:26px">Coolie</div>
+        <div style="font-family:'Remock',sans-serif;font-size:132px;line-height:.74;letter-spacing:.005em;color:var(--csm-ink);margin-top:14px;max-width:380px">SECRET MENU</div>
+        <div style="margin-top:34px;display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:16px;font-weight:600;color:var(--csm-acid)">110 recepata za svaku situaciju u tvom danu</div>
+          <div style="font-size:16px;font-weight:600;color:#FFFFFF">220 foodhackova koji mijenjaju sve</div>
+        </div>
+      </div>
+
+      <div style="position:relative;height:620px">
+        <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 122px; left: 57px; width: 210px; color: var(--csm-purple); animation: csm-spin 30s linear infinite"><path d="M250,486.87c-59.83,0-92.12-122.04-92.12-236.87S190.17,13.13,250,13.13s92.12,122.04,92.12,236.87-32.28,236.87-92.12,236.87ZM250,36.53c-32.5,0-68.72,87.67-68.72,213.47s36.22,213.47,68.72,213.47,68.72-87.67,68.72-213.47-36.22-213.47-68.72-213.47Z"></path><path d="M137.72,449.54c-10.45,0-19.87-2.71-27.91-8.62-48.23-35.41-2.02-152.89,65.94-245.44C243.71,102.92,341.96,23.67,390.19,59.07c48.23,35.41,2.02,152.89-65.94,245.45-56.63,77.13-134.3,145.03-186.53,145.03ZM361.93,73.83c-34.82,0-103.5,48.59-167.32,135.5-74.45,101.4-97.15,193.5-70.95,212.74,26.17,19.22,107.27-30,181.73-131.4,74.45-101.4,97.15-193.5,70.95-212.74-3.74-2.75-8.61-4.1-14.41-4.1Z"></path><path d="M137.78,358.25c-9.85,0-19.33-.39-28.35-1.17-50.29-4.35-81.73-21.02-88.54-46.94-15.19-57.87,94.65-120.08,205.72-149.24,59.44-15.61,117.68-22,163.96-17.98,50.29,4.35,81.73,21.02,88.54,46.94,15.19,57.87-94.65,120.08-205.72,149.24-47.85,12.56-94.92,19.15-135.61,19.15ZM362.09,165.15c-38.61,0-83.58,6.33-129.53,18.39-121.68,31.94-197.27,89.23-189.02,120.66,3.98,15.18,29.38,26.23,67.92,29.57,43.71,3.79,99.1-2.36,156-17.3,121.68-31.94,197.27-89.23,189.02-120.67-3.98-15.18-29.37-26.23-67.92-29.57-8.41-.73-17.26-1.09-26.47-1.09Z"></path><path d="M394.97,391.62c-52.03,0-125.29-25.44-189.58-61.02C104.93,274.99,13.79,187.65,42.76,135.3c12.98-23.45,47.55-31.86,97.37-23.69,45.85,7.52,100.72,28.04,154.48,57.8,100.46,55.6,191.6,142.95,162.63,195.3-10.43,18.85-33,26.91-62.27,26.91ZM105.34,131.92c-21.72,0-36.78,5.07-42.11,14.71-15.74,28.44,43.43,102.58,153.49,163.5,110.07,60.92,204.31,71.69,220.04,43.25,15.74-28.44-43.43-102.58-153.49-163.5-51.48-28.49-103.66-48.09-146.94-55.19-11.37-1.86-21.79-2.78-31-2.78Z"></path><path d="M351.25,457.59c-52.34,0-127.31-75.38-179.39-158.81-32.54-52.13-55.92-105.84-65.84-151.24-10.77-49.31-4.18-84.29,18.55-98.47,22.72-14.2,57.04-4.75,96.61,26.59,36.43,28.85,74.41,73.44,106.95,125.57,32.54,52.13,55.92,105.84,65.84,151.24,10.77,49.31,4.18,84.29-18.55,98.48-7.28,4.55-15.41,6.66-24.18,6.66ZM148.63,65.95c-4.55,0-8.47.98-11.66,2.97-13.31,8.31-16.34,35.84-8.08,73.63,9.36,42.84,31.67,93.92,62.82,143.84,66.61,106.72,143.75,161.89,171.33,144.7,13.31-8.31,16.33-35.84,8.08-73.63-9.36-42.85-31.67-93.93-62.82-143.84h0c-31.15-49.91-67.25-92.39-101.63-119.61-23.05-18.26-43.64-28.05-58.03-28.05Z"></path></svg>
+        <img src="assets/character/coolie-head.webp" alt="Coolie" style="position: absolute; top: -70px; left: 349px; transform: translateX(-50%); height: 660px; width: auto">
+        <img src="assets/y2k/kazetofon.webp" alt="" style="position:absolute;bottom:20px;left:2%;width:300px;--r:-2deg;animation:csm-bob 10s ease-in-out infinite">
+        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;bottom:-60px;right:14%;width:280px;color:var(--csm-acid);animation:csm-spin 34s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg>
+        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;top:-30px;right:2%;width:130px;color:var(--csm-ink);animation:csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
+      </div>
+    </div>
+
+    <div style="position:relative;text-align:center;margin-top:40px;display:flex;flex-direction:column;gap:8px;align-items:center">
+      <div style="font-size:16px;font-weight:700;color:var(--csm-ink)">Coolinarika by Podravka</div>
+      <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--csm-ink)">© 2026. Podravka d.d. Sva prava pridržana.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1800},&quot;colorScheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A (tiha traka, glasan podatak)&quot;,&quot;B (Yestalgia — glasne trake)&quot;,&quot;C (moodboard 02 — limeta / roza / crno)&quot;,&quot;D (Digital Grape — lavanda / neon)&quot;,&quot;E (Silver Candy — chrome / candy)&quot;],&quot;default&quot;:&quot;E (Silver Candy — chrome / candy)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Boje&quot;},&quot;ctaColor&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Po shemi&quot;,&quot;Kobalt&quot;,&quot;Grimizna&quot;,&quot;Koraljna&quot;,&quot;Limeta&quot;,&quot;Crna (ink)&quot;],&quot;default&quot;:&quot;Po shemi&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Boje&quot;},&quot;pieSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:250,&quot;min&quot;:190,&quot;max&quot;:330,&quot;step&quot;:10,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Nutritivni kolut&quot;},&quot;panelHeight&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:910,&quot;min&quot;:700,&quot;max&quot;:1220,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Accordion&quot;}}">
+const INK = '#141A1B';
+const PAPER = '#FBF3DE';
+
+// Two candidate colour schemes. A: quiet category bands, loud data. B: Yestalgia-loud bands.
+const SCHEMES = {
+  A: {
+    paper: PAPER, band: '#F7CFE8', labelColor: INK,
+    cat: ['#E8E44A', '#FF7A3D', '#A9B8F5', '#F2A8DC'],
+    fg: [INK, INK, INK, INK],
+    macro: ['#D6003F', '#D9E021', '#2B36F0'],
+    macroText: ['#FFFFFF', INK, '#FFFFFF'],
+    cta: '#2B36F0', ctaFg: '#FFFFFF',
+    topBar: '#F7EBD0', badge: PAPER, endBand: '#A9B8F5', endEyebrow: INK,
+    bandText: INK, bandEyebrow: INK, accent: '#E8E44A', accent2: '#FF7A3D',
+    tickerBg: INK, tickerText: '#E8E44A', tickerSep: '#F2A8DC', coolieBg: '#FF7A3D', labelStroke: '0', recipeNum: '#D6003F',
+    gridLine: 'rgba(214,0,63,.16)', gridStep: '44px'
+  },
+  B: {
+    paper: PAPER, band: '#F0A7D6', labelColor: '#FFFFFF',
+    cat: ['#DFFF27', '#FF4A17', '#2B36F0', '#EF87C9'],
+    fg: [INK, INK, '#FFFFFF', INK],
+    macro: ['#D6003F', '#F5D547', '#A9B8F5'],
+    macroText: ['#FFFFFF', INK, INK],
+    cta: INK, ctaFg: PAPER,
+    topBar: '#A9B8F5', badge: '#DFFF27', endBand: '#A9B8F5', endEyebrow: INK,
+    bandText: INK, bandEyebrow: INK, accent: '#DFFF27', accent2: '#FF4A17',
+    tickerBg: INK, tickerText: '#DFFF27', tickerSep: '#EF87C9', coolieBg: '#FF4A17', labelStroke: '4px', recipeNum: '#FF4A17',
+    gridLine: 'rgba(20,26,27,.14)', gridStep: '44px'
+  },
+  C: {
+    paper: '#F1EFE3', band: '#F9A8E0', labelColor: '#101010',
+    cat: ['#D8F32B', '#F9A8E0', '#101010', '#F1EFE3'],
+    fg: [INK, INK, '#F1EFE3', INK],
+    macro: ['#F9A8E0', '#D8F32B', '#101010'],
+    macroText: [INK, INK, '#F1EFE3'],
+    cta: '#D8F32B', ctaFg: INK,
+    topBar: '#F1EFE3', badge: '#D8F32B', endBand: '#F9A8E0', endEyebrow: INK,
+    bandText: '#101010', bandEyebrow: '#101010', accent: '#D8F32B', accent2: '#101010',
+    tickerBg: '#101010', tickerText: '#D8F32B', tickerSep: '#F9A8E0', coolieBg: '#D8F32B', labelStroke: '0', recipeNum: '#E0479B',
+    gridLine: 'rgba(16,16,16,.20)', gridStep: '40px'
+  },
+  D: {
+    paper: '#D7C5FF', band: '#D7C5FF', labelColor: INK,
+    cat: ['#CCFF33', '#FF6B2C', '#52D7FF', '#FF80CE'],
+    fg: [INK, INK, INK, INK],
+    macro: ['#FF6B2C', '#CCFF33', '#6B24FF'],
+    macroText: [INK, INK, '#FFFFFF'],
+    cta: '#6B24FF', ctaFg: '#FFFFFF',
+    topBar: '#FFFFFF', badge: '#CCFF33', endBand: '#EDE4FF', endEyebrow: INK,
+    bandText: INK, bandEyebrow: INK, accent: '#CCFF33', accent2: '#6B24FF',
+    tickerBg: '#111111', tickerText: '#CCFF33', tickerSep: '#FF80CE',
+    coolieBg: '#FF80CE', labelStroke: '0', recipeNum: '#FF6B2C',
+    gridLine: 'rgba(107,36,255,.16)', gridStep: '24px'
+  },
+  // E — Silver Candy: soft-silver chrome canvas, ice-white content, candy signals.
+  E: {
+    paper: '#E8E8F0', band: '#E8E8F0', labelColor: '#111111',
+    cat: ['#D9FF3F', '#FF43B5', '#80E7ED', '#AD8AFF'],
+    fg: ['#111111', '#111111', '#111111', '#111111'],
+    macro: ['#FF43B5', '#D9FF3F', '#5C3BFF'],
+    macroText: ['#111111', '#111111', '#FFFFFF'],
+    cta: '#5C3BFF', ctaFg: '#FFFFFF',
+    topBar: '#F7FFFF', badge: '#D9FF3F', endBand: '#AD8AFF', endEyebrow: '#111111',
+    bandText: '#111111', bandEyebrow: '#111111', accent: '#D9FF3F', accent2: '#5C3BFF',
+    tickerBg: '#111111', tickerText: '#D9FF3F', tickerSep: '#FF43B5',
+    coolieBg: '#FF43B5', labelStroke: '0', recipeNum: '#FF43B5',
+    gridLine: 'rgba(92,59,255,.14)', gridStep: '24px'
+  }
+};
+const CTA = {
+  'Crna (ink)': { bg: '#141A1B', fg: '#FBF3DE' },
+  'Grimizna': { bg: '#D6003F', fg: '#FFFFFF' },
+  'Koraljna': { bg: '#FF7A3D', fg: '#141A1B' },
+  'Limeta': { bg: '#D9E021', fg: '#141A1B' },
+  'Kobalt': { bg: '#2B36F0', fg: '#FFFFFF' }
+};
+
+const lum = (hex) => {
+  const h = String(hex).replace('#', '');
+  const v = [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16) / 255)
+    .map((c) => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)));
+  return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2];
+};
+
+// The active chip is an ink block with white text. Invert it only when an ink fill
+// cannot be told apart from the column itself (near-black categories).
+const needsInvert = (color) => {
+  const a = lum(color) + 0.05, b = lum(INK) + 0.05;
+  return (a > b ? a / b : b / a) < 2;
+};
+
+const lighten = (hex) => 'oklch(from ' + hex + ' calc(l + 0.10) calc(c * 0.85) h)';
+
+// Authored geometry of the accordion, kept here so the display label can align to
+// the teaser's text block without measuring the DOM.
+const SPINE_W = 58, HARD_BORDER = 3, SUBCOL_W = 238, SCROLLER_PAD = 26, CARD_PAD = 26;
+const SPINE_STEP = SPINE_W - HARD_BORDER;                                   // spines overlap by one border
+const PANEL_TO_TEXT = SUBCOL_W + HARD_BORDER + SCROLLER_PAD + HARD_BORDER + CARD_PAD;
+const SIDE_BEARING = 8;                                                     // optical, 132px ExtraBold
+
+const SHAPES = {
+  'asterisk-solid': { vb: '0 0 102.968 102.97', d: ["m56.368,102.97h-9.766c-2.252,0-4.078-1.826-4.078-4.078v-23.27c0-.845-1.02-1.271-1.621-.677l-16.608,16.399c-1.591,1.591-4.173,1.591-5.764,0l-6.905-6.905c-.77-.77-1.196-1.795-1.194-2.886,0-1.089.426-2.114,1.196-2.882l16.451-16.452c.598-.598.178-1.62-.667-1.625l-23.334-.147c-2.248,0-4.078-1.83-4.078-4.078v-9.766c0-2.252,1.826-4.078,4.078-4.078h23.268c.845,0,1.271-1.02.677-1.621L11.627,24.298c-.768-.766-1.194-1.791-1.194-2.88-.002-1.091.424-2.116,1.194-2.886l6.905-6.905c1.592-1.592,4.172-1.592,5.764,0l16.456,16.456c.598.598,1.62.178,1.625-.667l.147-23.338c0-2.248,1.83-4.078,4.078-4.078h9.766c2.252,0,4.078,1.826,4.078,4.078v23.268c0,.845,1.02,1.271,1.621.677l16.606-16.397c1.591-1.591,4.173-1.591,5.764,0l6.905,6.905c.77.77,1.196,1.795,1.194,2.886,0,1.089-.426,2.114-1.196,2.882l-16.451,16.452c-.598.598-.178,1.62.667,1.625l23.334.147c2.248,0,4.078,1.83,4.078,4.078v9.766c0,2.252-1.826,4.078-4.078,4.078h-23.268c-.845,0-1.271,1.02-.677,1.621l16.397,16.606c.768.766,1.194,1.791,1.194,2.88.002,1.091-.424,2.116-1.194,2.886l-6.905,6.905c-1.592,1.592-4.172,1.592-5.764,0l-16.454-16.454c-.598-.598-1.62-.178-1.625.667l-.147,23.336c0,2.248-1.83,4.078-4.078,4.078Z"], p: [] },
+  'star-8': { vb: '0 0 500 500', d: [], p: ["467.5 250 358.25 294.81 403.79 403.79 294.81 358.25 250 467.5 205.19 358.25 96.21 403.79 141.75 294.81 32.5 250 141.75 205.19 96.21 96.21 205.19 141.75 250 32.5 294.81 141.75 403.79 96.21 358.25 205.19 467.5 250"] },
+  'sparkle-6': { vb: '0 0 163.844 189.191', d: ["m108.76,84.389c18.879-11.544,37.374-23.681,55.084-37.091-20.468,8.632-40.227,18.58-59.663,29.158-7.853,4.274-17.454-1.269-17.679-10.207-.557-22.122-1.821-44.208-4.58-66.249-2.758,22.037-4.022,44.118-4.579,66.235-.225,8.939-9.828,14.482-17.681,10.205C40.23,65.858,20.472,55.914,0,47.298c17.695,13.419,36.181,25.555,55.057,37.089,7.631,4.663,7.631,15.753,0,20.417C36.181,116.338,17.695,128.475,0,141.893c20.468-8.615,40.222-18.556,59.649-29.136,7.854-4.277,17.458,1.268,17.681,10.208.551,22.114,1.819,44.192,4.592,66.225,2.774-22.038,4.041-44.12,4.592-66.239.223-8.939,9.824-14.484,17.679-10.21,19.433,10.576,39.188,20.521,59.651,29.152-17.71-13.41-36.204-25.547-55.084-37.091-7.628-4.664-7.628-15.75,0-20.414Z"], p: [] },
+  'crosshair-sparkle': { vb: '0 0 238.968 238.968', d: ["m238.968,115.718h-95.939c-10.924,0-19.779-8.856-19.779-19.779V0h-7.532v95.939c0,10.924-8.856,19.779-19.779,19.779H0v7.532h95.939c10.924,0,19.779,8.856,19.779,19.779v95.939h7.532v-95.939c0-10.924,8.856-19.779,19.779-19.779h95.939v-7.532Z"], p: [] },
+  'blob-star': { vb: '0 0 197.3 139.575', d: ["m185.025,129.767l-26.394-71.503c-1.674-4.535.473-9.589,4.899-11.532l30.161-13.243c5.842-2.565,4.21-11.263-2.165-11.534l-54.624-2.329c-2.922-.125-5.608-1.641-7.225-4.078l-5.198-7.834c-5.294-7.978-16.073-10.118-24.013-4.766l-17.566,11.841c-1.509,1.017-3.288,1.561-5.108,1.561h-36.181c-5.495,0-8.817,6.075-5.852,10.702l4.075,6.356c2.527,3.943,1.665,9.157-1.996,12.077L2.48,73.679c-5.392,4.3-1.271,12.933,5.463,11.444l65.016-14.373c2.507-.554,5.131-.028,7.231,1.449l93.85,66.019c5.825,4.097,13.452-1.77,10.986-8.451Z"], p: [] },
+  'burst-seal': { vb: '0 0 500 500', d: [], p: ["467.5 250 426.91 290.4 446 344.4 391.85 363.11 385.62 420.05 328.72 413.5 298.39 462.09 250 431.42 201.61 462.09 171.28 413.5 114.38 420.05 108.15 363.11 54.01 344.4 73.09 290.4 32.5 250 73.09 209.6 54.01 155.6 108.15 136.89 114.38 79.95 171.28 86.5 201.61 37.91 250 68.58 298.39 37.91 328.72 86.5 385.62 79.95 391.85 136.89 446 155.6 426.91 209.6 467.5 250"] },
+  'asterisk-outline': { vb: '0 0 102.968 102.97', d: ["m56.368,102.97h-9.766c-2.248,0-4.078-1.83-4.078-4.078v-25.548l-18.229,17.999c-1.591,1.591-4.173,1.591-5.764,0l-6.905-6.905c-.77-.77-1.196-1.795-1.194-2.886,0-1.089.426-2.114,1.196-2.882l18.061-18.063-25.612-.161c-2.248,0-4.078-1.83-4.078-4.078v-9.766c0-2.248,1.83-4.078,4.078-4.078h25.546L11.627,24.298c-.768-.766-1.194-1.791-1.194-2.88-.002-1.091.424-2.116,1.194-2.886l6.905-6.905c1.591-1.591,4.173-1.591,5.764,0l18.067,18.067.161-25.616c0-2.248,1.83-4.078,4.078-4.078h9.766c2.248,0,4.078,1.83,4.078,4.078v25.546l18.227-17.997c1.591-1.591,4.173-1.591,5.764,0l6.905,6.905c.77.77,1.196,1.795,1.194,2.886,0,1.089-.426,2.114-1.196,2.882l-18.061,18.063,25.612.161c2.248,0,4.078,1.83,4.078,4.078v9.766c0,2.248-1.83,4.078-4.078,4.078h-25.546l17.997,18.227c.768.766,1.194,1.791,1.194,2.88.002,1.091-.424,2.116-1.194,2.886l-6.905,6.905c-1.591,1.591-4.173,1.591-5.764,0l-18.065-18.065-.161,25.614c0,2.248-1.83,4.078-4.078,4.078Zm-13.943-33.706c.527,0,1.058.103,1.567.313,1.527.634,2.514,2.112,2.514,3.767v25.548l9.861.095.095-25.641c0-1.655.988-3.133,2.514-3.767,1.534-.63,3.273-.288,4.445.881l18.065,18.067,7.037-6.905-18.063-18.199c-1.171-1.171-1.517-2.915-.885-4.443.634-1.528,2.112-2.516,3.767-2.516h25.546l.095-9.861-.095-.095h-25.546c-1.655,0-3.133-.988-3.767-2.516-.632-1.528-.286-3.273.885-4.443l18.063-18.065-6.905-7.039-18.198,18.065c-1.169,1.173-2.911,1.515-4.445.883-1.527-.634-2.514-2.112-2.514-3.767V4.078l-9.861-.095-.095,25.643c0,1.655-.988,3.133-2.514,3.767-1.53.632-3.271.288-4.445-.881L21.48,14.442l-7.037,6.905,18.063,18.199c1.171,1.171,1.517,2.915.885,4.443-.634,1.528-2.112,2.516-3.767,2.516H4.078l-.095,9.861,25.641.095c1.655,0,3.133.988,3.767,2.516.632,1.528.286,3.273-.885,4.443l-18.063,18.065,6.905,7.039,18.199-18.067c.782-.782,1.82-1.196,2.878-1.196Z"], p: [] },
+  'globe-oval': { vb: '0 0 280.45 101.893', d: ["m140.225,0C62.785,0,0,22.82,0,50.956s62.785,50.937,140.225,50.937,140.225-22.82,140.225-50.937S217.665,0,140.225,0Zm0,99.085c-63.999,0-115.872-21.545-115.872-48.129S76.226,2.808,140.225,2.808s115.872,21.545,115.872,48.149-51.873,48.129-115.872,48.129Z","m59.618,50.956c0-26.603,36.082-48.149,80.606-48.149-53.645,0-97.114,21.545-97.114,48.149s43.469,48.129,97.114,48.129c-44.525,0-80.606-21.545-80.606-48.129Z","m237.339,50.956c0-26.603-43.469-48.149-97.114-48.149,44.525,0,80.606,21.545,80.606,48.149s-36.082,48.129-80.606,48.129c53.645,0,97.114-21.545,97.114-48.129Z","m89.627,50.956c0-26.603,22.661-48.149,50.598-48.149-33.772,0-61.172,21.545-61.172,48.149s27.4,48.129,61.172,48.129c-27.937,0-50.598-21.545-50.598-48.129Z","m201.376,50.956c0-26.603-27.38-48.149-61.152-48.149,27.937,0,50.598,21.545,50.598,48.149s-22.661,48.129-50.598,48.129c33.772,0,61.152-21.545,61.152-48.129Z","m115.692,50.956c0-26.603,10.992-48.149,24.532-48.149-16.946,0-30.685,21.545-30.685,48.149s13.74,48.129,30.685,48.129c-13.541,0-24.532-21.545-24.532-48.129Z","m170.91,50.956c0-26.603-13.74-48.149-30.685-48.149,13.541,0,24.532,21.545,24.532,48.149s-10.992,48.129-24.532,48.129c16.946,0,30.685-21.545,30.685-48.129Z"], p: [] },
+};
+
+// Any fill can land in any card slot, so the text colour is derived, never assumed.
+function readableOn(hex) {
+  const h = String(hex).replace('#', '');
+  if (h.length < 6) return INK;
+  const v = [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16) / 255)
+    .map((c) => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)));
+  const L = 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2];
+  const onInk = (L + 0.05) / (lum(INK) + 0.05);
+  const onWhite = 1.05 / (L + 0.05);
+  return onInk >= onWhite ? INK : '#FFFFFF';
+}
+
+function shapeEl(name) {
+  const s = SHAPES[name];
+  if (!s) return null;
+  const kids = s.d.map((d, i) => React.createElement('path', { key: 'd' + i, d: d }))
+    .concat(s.p.map((p, i) => React.createElement('polygon', { key: 'p' + i, points: p })));
+  return React.createElement('svg', {
+    viewBox: s.vb, fill: 'currentColor',
+    style: { width: '100%', height: '100%', display: 'block' }
+  }, kids);
+}
+
+const CARDS = [
+  { title: 'Nemam vremena', icon: 'asterisk-solid', cat: 'dorucak', sub: 0, rec: 0, subLabel: 'BRZI, DO 10 MINUTA',
+    text: 'Blender, tava, gotovo. Brzi zeleni doručak ide u blender i izlazi kao 12 g vlakana. Zero drama.' },
+  { title: 'Trebam vlakna i proteine', icon: 'star-8', cat: 'dorucak', sub: 2, rec: 3,
+    text: 'Ne moraš računati. Brusketa s namazom od graška ti da 25 g proteina, ozbiljna vlakna i vitamin C koji pomaže iskoristiti željezo.' },
+  { title: 'Danas bez mesa', icon: 'sparkle-6', cat: 'dorucak', sub: 1, rec: 2,
+    text: 'Vege, a da te zasiti. Spanakopita trokutić: špinat, feta, hrskava tortilja puna vlakana i minerala koja se jede rukama.' },
+  { title: 'Šta imam u hladnjaku?', icon: 'crosshair-sparkle', cat: 'dorucak', sub: 0, rec: 1, subLabel: 'BRZI, DO 10 MINUTA',
+    text: 'Želiš izdašan doručak, a s malo sastojaka? Ostao ti avokado i konzerva tune? To je doručak. Donosi 20 g proteina, zdrave masti, vlakna i antioksidanse.' },
+  { title: 'Klinci neće ni probati', icon: 'blob-star', cat: 'dorucak', sub: 1, rec: 0,
+    text: 'Riža na mlijeku s malinama izgleda kao desert, a pravi je obrok krcat vlaknima i vitaminom C. Oni misle da su pobijedili.' },
+  { title: 'Jedna posuda, nula suđa', icon: 'burst-seal', cat: 'rucak', sub: 4, rec: 0,
+    text: 'One-pot znači: balansirani obrok, vlakna, proteini, vitamini, a sudoper te ne mrzi ujutro.' },
+  { title: 'Air fryer i mir', icon: 'asterisk-outline', cat: 'vecera', sub: 4, rec: 0,
+    text: 'Ubaciš, zaboraviš, pojedeš. Manje suđa, manje razmišljanja.' },
+  { title: 'Nemam mikser ni volje peći', icon: 'globe-oval', cat: 'desert', sub: 6, rec: 0,
+    text: 'Torta bez pečenja, kolač bez miksera. Sladak kraj dana bez pola sata uz pećnicu.' }
+];
+
+class Component extends DCLogic {
+  state = { open: 'rucak', subIdx: {}, active: 0, flipped: null };
+
+  handleScroll = (e) => {
+    const el = e.currentTarget;
+    this.el = el;
+    const total = this.recipeCount || 0;
+    const cards = Array.from(el.children).slice(0, total);
+    const probe = el.scrollTop + 160;
+    let active = 0;
+    cards.forEach((c, i) => { if (c.offsetTop <= probe) active = i; });
+    if (el.scrollHeight > el.clientHeight + 40 && el.scrollHeight - el.scrollTop - el.clientHeight < 40) active = total - 1;
+    if (active !== this.state.active) this.setState({ active });
+  };
+
+  setScroller = (el) => { if (el) this.el = el; };
+
+  // Below 1440 the 1440 composition is scaled rather than reflowed, down to a 1152 floor.
+  setViewport = (el) => { this.viewport = el; };
+  setShell = (el) => {
+    this.shell = el;
+    if (el && !this.ro && typeof ResizeObserver !== 'undefined') {
+      this.ro = new ResizeObserver(() => this.applyScale());
+      this.ro.observe(el);
+    }
+    this.applyScale();
+  };
+
+  applyScale = () => {
+    const shell = this.shell, vp = this.viewport;
+    if (!shell || !vp) return;
+    // Measure the real content box, not window.innerWidth: a visible scrollbar makes the
+    // available width ~15px narrower than 1440, which used to reflow the 1440 layout instead
+    // of scaling it (pie chart dropping below, then snapping back on smaller widths).
+    const w = vp.clientWidth || window.innerWidth;
+    if (w >= 1440) {
+      shell.style.width = '';
+      shell.style.transform = '';
+      shell.style.setProperty('--hs', '1');
+      vp.style.height = '';
+      vp.style.overflowX = 'hidden';
+      return;
+    }
+    const s = Math.max(w, 1152) / 1440;
+    shell.style.width = '1440px';
+    shell.style.transformOrigin = 'top left';
+    shell.style.transform = 'scale(' + s + ')';
+    shell.style.setProperty('--hs', String(1 / s));
+    vp.style.height = Math.round(shell.offsetHeight * s) + 'px';
+    // scale() leaves layout width at 1440, so the wrapper would scroll into empty space:
+    // only allow scrolling below the 1152 floor, where the painted width really exceeds the viewport.
+    vp.style.overflowX = w < 1152 ? 'auto' : 'hidden';
+  };
+
+  componentDidMount() {
+    this._onResize = () => this.applyScale();
+    window.addEventListener('resize', this._onResize);
+    this.applyScale();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+    if (this.ro) this.ro.disconnect();
+  }
+
+  // Bonus cards are deterministic shortcuts: each lands on the recipe it names.
+  openTarget = (cat, sub, rec) => {
+    this.setState((s) => ({ open: cat, subIdx: Object.assign({}, s.subIdx, { [cat]: sub }), active: rec }));
+    requestAnimationFrame(() => {
+      const m = document.getElementById('menu');
+      if (m) window.scrollTo({ top: m.getBoundingClientRect().top + window.scrollY - 24, behavior: 'smooth' });
+      setTimeout(() => {
+        const el = this.el;
+        if (!el) return;
+        const card = el.children[rec];
+        if (card) el.scrollTop = card.offsetTop - el.children[0].offsetTop;
+      }, 90);
+    });
+  };
+
+  toggle = (key) => {
+    if (this.state.open === key) return;
+    this.setState({ open: key, active: 0 });
+    if (this.el) this.el.scrollTop = 0;
+  };
+
+  pick = (key, i) => {
+    this.setState((s) => ({ subIdx: Object.assign({}, s.subIdx, { [key]: i }), active: 0 }));
+    if (this.el) this.el.scrollTop = 0;
+  };
+
+  renderVals() {
+    const data = (typeof window !== 'undefined' && window.COOLIE_DATA) || [];
+    const openKey = this.state.open;
+    const pie = this.props.pieSize ?? 250;
+    const scheme = String(this.props.colorScheme || '').charAt(0);
+    const S = SCHEMES[scheme] || SCHEMES.A;
+
+    const anyOpen = data.some((c) => c.key === openKey && c.subs.length > 0);
+
+    const cats = data.map((c, ci) => {
+      const has = c.subs.length > 0;
+      const isOpen = c.key === openKey && has;
+      const inert = isOpen || !has;
+      const si = this.state.subIdx[c.key] || 0;
+      const color = S.cat[ci] || c.color;
+      const fg = S.fg[ci] || c.fg;
+      return {
+        spineW: anyOpen ? '58px' : '100%',
+        key: c.key, num: c.num, label: c.label, color: color, fg: fg,
+        hover: inert ? color : lighten(color),
+        open: isOpen,
+        sign: '+',
+        signOp: inert ? '.3' : '1',
+        cursor: inert ? 'default' : 'pointer',
+        flex: anyOpen ? (isOpen ? '1 1 auto' : '0 0 auto') : '1 1 0',
+        ml: ci === 0 ? '0' : '-3px',
+        radius: ci === 0 ? '14px 0 0 14px' : (ci === data.length - 1 ? '0 14px 14px 0' : '0'),
+        toggle: has ? () => this.toggle(c.key) : () => {},
+        subs: c.subs.map((s, i) => ({
+          label: s.label, count: s.count, active: i === si,
+          bg: i === si ? (needsInvert(color) ? fg : INK) : 'transparent',
+          fg: i === si ? (needsInvert(color) ? color : '#FFFFFF') : fg,
+          pick: () => this.pick(c.key, i)
+        }))
+      };
+    });
+
+    const openCat = data.find((c) => c.key === openKey && c.subs.length > 0);
+    const sub = openCat ? openCat.subs[this.state.subIdx[openCat.key] || 0] : null;
+    const list = sub ? sub.recipes : [];
+    this.recipeCount = list.length;
+
+    const a = Math.min(this.state.active, Math.max(0, list.length - 1));
+    const left = Math.max(0, list.length - 1 - a);
+    const noun = left === 1 ? 'RECEPT' : (left < 5 ? 'RECEPTA' : 'RECEPATA');
+
+    const recipes = list.map((r) => Object.assign({}, r, {
+      pie: Object.assign({}, r.pie, {
+        t1: 'translateX(-50%) rotate(' + r.pie.rot1 + ')',
+        t2: 'translateX(-50%) rotate(' + r.pie.rot2 + ')',
+        t3: 'translateX(-50%) rotate(' + r.pie.rot3 + ')'
+      })
+    }));
+
+    return {
+      handleScroll: this.handleScroll,
+      cats, recipes,
+      paper: S.paper, band: S.band, labelColor: S.labelColor,
+      shp1: S.cat[0], shp2: S.cat[1], shp3: S.cat[2], shp4: S.cat[3], shp5: S.accent, shp6: S.accent2,
+      heroFill: ({ A: '#FBF3DE', B: '#FBF3DE', C: '#FFF8E7', D: '#FFFFFF', E: '#F7FFFF' })[scheme] || '#FBF3DE',
+      macroP: S.macro[0], macroC: S.macro[1], macroF: S.macro[2],
+      macroPText: S.macroText[0], macroCText: S.macroText[1], macroFText: S.macroText[2],
+      ctaBg: (CTA[this.props.ctaColor] || {}).bg || S.cta,
+      ctaFg: (CTA[this.props.ctaColor] || {}).fg || S.ctaFg, topBar: S.topBar, badgeBg: S.badge, endBand: S.endBand, endEyebrow: S.endEyebrow,
+      bandText: S.bandText, bandEyebrow: S.bandEyebrow, accent: S.accent, accent2: S.accent2,
+      bandGrid: 'repeating-linear-gradient(0deg,' + S.gridLine + ' 0 1px,transparent 1px ' + S.gridStep + '),' +
+                'repeating-linear-gradient(90deg,' + S.gridLine + ' 0 1px,transparent 1px ' + S.gridStep + ')',
+      tickerBg: S.tickerBg, tickerText: S.tickerText, tickerSep: S.tickerSep, coolieBg: S.coolieBg, labelStroke: S.labelStroke, recipeNum: S.recipeNum,
+      openTitle: openCat ? openCat.label.charAt(0) + openCat.label.slice(1).toLowerCase() : '',
+      pieBox: pie + 'px',
+      panelHeight: (this.props.panelHeight ?? 910) + 'px',
+      labelPad: (openCat ? (data.indexOf(openCat) + 1) * SPINE_STEP + PANEL_TO_TEXT - SIDE_BEARING : 0) + 'px',
+      counterText: (sub ? sub.label.toUpperCase() + '  ·  ' : '') + (a + 1) + ' / ' + list.length,
+      dots: list.map((_, i) => ({ bg: i === a ? 'var(--csm-ink)' : 'transparent' })),
+      showBadge: left > 0,
+      badgeText: 'JOŠ ' + left + ' ' + noun + ' ↓',
+      endText: 'TO JE SVIH ' + list.length + ' · ODABERI DRUGO STANJE LIJEVO',
+      setScroller: this.setScroller,
+      setViewport: this.setViewport,
+      setShell: this.setShell,
+      cards: CARDS.map((c, i) => {
+        const fill = [S.cat[0], S.cat[2], S.cat[3], S.cat[1], S.cat[3], S.cat[1], S.cat[0], S.cat[2]][i];
+        const cat = data.find((x) => x.key === c.cat);
+        const sub = cat && cat.subs[c.sub];
+        const rec = sub && sub.recipes[c.rec];
+        return {
+          title: c.title, text: c.text,
+          iconEl: shapeEl(c.icon),
+          bg: fill, fg: readableOn(fill),
+          section: cat ? cat.label + ' · ' + (c.subLabel || (sub ? sub.label.toUpperCase() : '')) : '',
+          recipe: rec ? rec.title : '',
+          flip: this.state.flipped === i ? 'rotateY(180deg)' : 'rotateY(0deg)',
+          enter: () => this.setState({ flipped: i }),
+          leave: () => this.setState({ flipped: null }),
+          go: () => this.openTarget(c.cat, c.sub, c.rec)
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
