@@ -1,0 +1,29 @@
+/* Coolie Secret Menu — radii, borders, hard shadows. Memphis rule: pill OR square, nothing in between. */
+:root{
+--radius-0:0px;
+--radius-sm:6px;
+--radius-md:14px;
+--radius-lg:28px;
+--radius-pill:999px;
+--radius-blob:60% 40% 55% 45% / 50% 55% 45% 50%;
+
+--border-hair:1px;
+--border-1:2px;
+--border-2:3px;
+--border-3:5px;
+--border-hard:var(--border-2) solid var(--line-hard);
+--border-hair-line:var(--border-hair) solid var(--line-soft);
+
+/* offset "sticker" shadows — never blurred */
+--shadow-sticker-sm:3px 3px 0 0 var(--csm-ink);
+--shadow-sticker:6px 6px 0 0 var(--csm-ink);
+--shadow-sticker-lg:10px 10px 0 0 var(--csm-ink);
+--shadow-sticker-hot:6px 6px 0 0 var(--csm-magenta);
+--shadow-sticker-acid:6px 6px 0 0 var(--csm-acid);
+--shadow-press:2px 2px 0 0 var(--csm-ink);
+/* the ONE blurred shadow, for floating overlays only */
+--shadow-float:0 18px 40px -12px rgba(20,26,27,.45);
+
+--rotate-nudge:-2.5deg; /* @kind other */
+--rotate-nudge-alt:3deg; /* @kind other */
+}

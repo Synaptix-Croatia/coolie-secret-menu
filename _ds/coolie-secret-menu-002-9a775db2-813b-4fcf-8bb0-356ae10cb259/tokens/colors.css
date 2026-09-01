@@ -1,0 +1,89 @@
+/* Coolie Secret Menu — colour tokens.
+   DS 003 · scheme E "Silver Candy" is now the live palette.
+   Canvas is soft silver chrome, content sits on ice white, signals are candy.
+   The nine values below are the whole palette; everything else is derived in
+   oklch() from them (press states, washes) or aliased semantically. */
+:root{
+/* --- raw brand ramp (scheme E — Silver Candy) --- */
+--csm-silver:#E8E8F0;   /* chrome canvas: page, category bands */
+--csm-ice:#F7FFFF;      /* content surface: cards, open panels */
+--csm-candy:#FF43B5;    /* primary signal */
+--csm-lime:#D9FF3F;     /* the interrupt */
+--csm-aqua:#80E7ED;     /* cool fill */
+--csm-lilac:#AD8AFF;    /* deep fill, closing bands */
+--csm-violet:#5C3BFF;   /* action anchor, links, focus */
+--csm-ink:#111111;      /* every outline, every shadow, body text */
+--csm-white:#FFFFFF;
+
+/* --- legacy names kept as aliases so nothing downstream breaks --- */
+--csm-magenta:var(--csm-candy);
+--csm-acid:var(--csm-lime);
+--csm-purple:var(--csm-violet);
+--csm-paper:var(--csm-silver);
+--csm-pink:oklch(from var(--csm-candy) calc(l + 0.08) calc(c * 0.85) h);
+--csm-pink-soft:oklch(from var(--csm-candy) calc(l + 0.18) calc(c * 0.55) h);
+--csm-crimson:oklch(from var(--csm-candy) calc(l - 0.14) calc(c * 1.05) h);
+--csm-lavender:oklch(from var(--csm-lilac) calc(l + 0.10) calc(c * 0.55) h);
+
+/* --- tints / shades derived in oklch from the ramp --- */
+--csm-candy-press:oklch(from var(--csm-candy) calc(l - 0.08) c h);
+--csm-lime-press:oklch(from var(--csm-lime) calc(l - 0.08) c h);
+--csm-violet-press:oklch(from var(--csm-violet) calc(l - 0.07) c h);
+--csm-aqua-press:oklch(from var(--csm-aqua) calc(l - 0.08) c h);
+--csm-magenta-press:var(--csm-candy-press);
+--csm-acid-press:var(--csm-lime-press);
+--csm-purple-press:var(--csm-violet-press);
+--csm-crimson-press:oklch(from var(--csm-crimson) calc(l - 0.07) c h);
+--csm-candy-wash:oklch(from var(--csm-candy) calc(l + 0.22) calc(c * 0.35) h);
+--csm-lilac-wash:oklch(from var(--csm-lilac) calc(l + 0.14) calc(c * 0.45) h);
+--csm-pink-wash:var(--csm-candy-wash);
+--csm-lavender-wash:var(--csm-lilac-wash);
+--csm-ink-soft:oklch(from var(--csm-ink) calc(l + 0.30) c h);
+
+/* --- semantic: surfaces --- */
+--surface-page:var(--csm-silver);
+--surface-page-alt:var(--csm-ink);
+--surface-card:var(--csm-ice);
+--surface-card-alt:var(--csm-lavender);
+--surface-raised:var(--csm-ice);
+--surface-sunken:var(--csm-candy-wash);
+--surface-accent:var(--csm-lime);
+--surface-hot:var(--csm-candy);
+--surface-cool:var(--csm-aqua);
+--surface-deep:var(--csm-violet);
+--surface-inverse:var(--csm-ink);
+
+/* --- semantic: text --- */
+--text-strong:var(--csm-ink);
+--text-body:var(--csm-ink);
+--text-muted:var(--csm-ink-soft);
+--text-inverse:var(--csm-ice);
+--text-hot:var(--csm-candy);
+--text-deep:var(--csm-violet);
+--text-on-accent:var(--csm-ink);
+--text-on-hot:var(--csm-ink);
+--text-on-cool:var(--csm-ink);
+--text-on-deep:var(--csm-white);
+--text-link:var(--csm-violet);
+--text-link-hover:var(--csm-candy);
+
+/* --- semantic: lines --- */
+--line-hard:var(--csm-ink);
+--line-soft:oklch(from var(--csm-ink) calc(l + 0.62) c h);
+--line-hot:var(--csm-candy);
+--line-grid:oklch(from var(--csm-violet) calc(l + 0.30) calc(c * 0.5) h);
+
+/* --- semantic: interactive --- */
+--action-primary:var(--csm-violet);
+--action-primary-press:var(--csm-violet-press);
+--action-secondary:var(--csm-lime);
+--action-secondary-press:var(--csm-lime-press);
+--action-tertiary:var(--csm-ice);
+--focus-ring:var(--csm-violet);
+
+/* --- semantic: status (mapped onto the ramp — no new hues) --- */
+--status-good:var(--csm-lime);
+--status-warn:var(--csm-crimson);
+--status-info:var(--csm-aqua);
+--status-hype:var(--csm-candy);
+}

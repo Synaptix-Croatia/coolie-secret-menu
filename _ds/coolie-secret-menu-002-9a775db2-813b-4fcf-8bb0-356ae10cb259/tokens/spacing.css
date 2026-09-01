@@ -1,0 +1,25 @@
+/* Coolie Secret Menu — spacing + layout. 4px base, jumps to chunky steps for section rhythm. */
+:root{
+--space-0:0px;
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+
+--gutter:var(--space-5);
+--page-pad-x:clamp(16px,4vw,56px);
+--section-pad-y:clamp(56px,7vw,112px);
+--max-width:1440px;
+--measure:64ch;
+
+--control-h-sm:36px;
+--control-h-md:48px;
+--control-h-lg:60px;
+--hit-min:44px;
+}

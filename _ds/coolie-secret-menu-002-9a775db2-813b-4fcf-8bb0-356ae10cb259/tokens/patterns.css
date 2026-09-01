@@ -1,0 +1,10 @@
+/* Coolie Secret Menu — repeatable background patterns + utility surfaces. */
+:root{
+--pattern-grid:repeating-linear-gradient(0deg,var(--line-grid) 0 1px,transparent 1px 44px),repeating-linear-gradient(90deg,var(--line-grid) 0 1px,transparent 1px 44px);
+--pattern-checker:repeating-conic-gradient(var(--csm-ink) 0% 25%,transparent 0% 50%) 0 0/28px 28px;
+--pattern-dots:radial-gradient(var(--csm-ink) 1.5px,transparent 1.6px) 0 0/16px 16px;
+--pattern-stripes:repeating-linear-gradient(135deg,var(--csm-ink) 0 6px,transparent 6px 14px);
+}
+.csm-grid-bg{background-color:var(--csm-pink-wash);background-image:var(--pattern-grid)}
+.csm-checker-bg{background:var(--pattern-checker)}
+.csm-dots-bg{background-color:var(--csm-lavender);background-image:var(--pattern-dots)}

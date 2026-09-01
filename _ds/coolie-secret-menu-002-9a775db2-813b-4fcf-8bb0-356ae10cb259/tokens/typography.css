@@ -1,0 +1,51 @@
+/* Coolie Secret Menu — type tokens */
+:root{
+--font-display:'Roboto',Helvetica,Arial,sans-serif;
+--font-body:'Roboto',Helvetica,Arial,sans-serif;
+--font-mono:'Roboto Mono',ui-monospace,monospace;
+
+--weight-regular:400;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-black:800;
+
+/* display: Roboto ExtraBold, tight tracking, tight leading, ALL CAPS */
+--display-1-size:clamp(56px,8.5vw,132px);
+--display-1-leading:0.86;
+--display-1-tracking:-0.035em;
+--display-2-size:clamp(40px,5.2vw,80px);
+--display-2-leading:0.9;
+--display-2-tracking:-0.03em;
+--display-3-size:clamp(28px,3.2vw,48px);
+--display-3-leading:0.95;
+--display-3-tracking:-0.02em;
+
+--heading-size:28px;
+--heading-leading:1.05;
+--heading-tracking:-0.01em;
+--subheading-size:20px;
+--subheading-leading:1.2;
+
+--body-lg-size:19px;
+--body-lg-leading:1.5;
+--body-size:16px;
+--body-leading:1.55;
+--body-sm-size:14px;
+--body-sm-leading:1.5;
+
+/* mono: labels, eyebrows, tickers, metadata — always uppercase + wide */
+--label-size:13px;
+--label-leading:1.1;
+--label-tracking:0.14em;
+--label-sm-size:11px;
+--label-sm-tracking:0.18em;
+--ticker-size:15px;
+--ticker-tracking:0.1em;
+
+--text-display-1:var(--weight-black) var(--display-1-size)/var(--display-1-leading) var(--font-display);
+--text-display-2:var(--weight-black) var(--display-2-size)/var(--display-2-leading) var(--font-display);
+--text-display-3:var(--weight-black) var(--display-3-size)/var(--display-3-leading) var(--font-display);
+--text-heading:var(--weight-bold) var(--heading-size)/var(--heading-leading) var(--font-display);
+--text-body-default:var(--weight-regular) var(--body-size)/var(--body-leading) var(--font-body);
+--text-label:var(--weight-bold) var(--label-size)/var(--label-leading) var(--font-mono);
+}

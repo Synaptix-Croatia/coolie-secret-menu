@@ -1,0 +1,21 @@
+/* Coolie Secret Menu — motion. Snappy, springy, never slow-fading. */
+:root{
+--dur-instant:80ms; /* @kind other */
+--dur-fast:140ms; /* @kind other */
+--dur-base:220ms; /* @kind other */
+--dur-slow:420ms; /* @kind other */
+--dur-marquee:26s; /* @kind other */
+--dur-spin:14s; /* @kind other */
+
+--ease-snap:cubic-bezier(.2,.9,.25,1); /* @kind other */
+--ease-pop:cubic-bezier(.34,1.56,.64,1); /* @kind other */
+--ease-out:cubic-bezier(.16,1,.3,1); /* @kind other */
+--ease-linear:linear; /* @kind other */
+
+--transition-control:transform var(--dur-fast) var(--ease-snap),box-shadow var(--dur-fast) var(--ease-snap),background-color var(--dur-fast) var(--ease-snap),color var(--dur-fast) var(--ease-snap); /* @kind other */
+}
+@keyframes csm-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes csm-spin{to{transform:rotate(360deg)}}
+@keyframes csm-pop-in{from{opacity:0;transform:scale(.9) translateY(8px)}to{opacity:1;transform:none}}
+@keyframes csm-wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

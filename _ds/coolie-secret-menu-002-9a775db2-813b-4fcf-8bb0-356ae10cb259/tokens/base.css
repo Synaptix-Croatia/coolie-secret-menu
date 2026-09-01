@@ -1,0 +1,16 @@
+/* Coolie Secret Menu — minimal element defaults. Consumers get sane type + link colours. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:var(--text-body-default);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4{margin:0;font-family:var(--font-display);font-weight:var(--weight-black);letter-spacing:var(--display-2-tracking);line-height:var(--display-2-leading);text-transform:uppercase}
+h1{font-size:var(--display-1-size);letter-spacing:var(--display-1-tracking);line-height:var(--display-1-leading)}
+h2{font-size:var(--display-2-size)}
+h3{font-size:var(--display-3-size)}
+h4{font-size:var(--heading-size);letter-spacing:var(--heading-tracking);line-height:var(--heading-leading)}
+p{margin:0 0 var(--space-4)}
+a{color:var(--text-link);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;transition:color var(--dur-fast) var(--ease-snap)}
+a:hover{color:var(--text-link-hover)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--focus-ring);outline-offset:2px}
+::selection{background:var(--csm-acid);color:var(--csm-ink)}
+img{max-width:100%;display:block}
+.csm-label{font-family:var(--font-mono);font-weight:var(--weight-bold);font-size:var(--label-size);letter-spacing:var(--label-tracking);text-transform:uppercase}
+.csm-eyebrow{font-family:var(--font-mono);font-weight:var(--weight-bold);font-size:var(--label-sm-size);letter-spacing:var(--label-sm-tracking);text-transform:uppercase;color:var(--text-deep)}
