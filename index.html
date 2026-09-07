@@ -34,7 +34,7 @@ a:hover{color:var(--text-link-hover)}
 <div ref="{{ setShell }}" style="width: 100%; min-width: {{ shellMinW }}; --hs: 1; --pad: {{ pad }}; --track: {{ track }}; --gutter: max(40px, calc((100vw - min(1440px, calc(100vw - 80px))) / 2)); font-family: 'Roboto',sans-serif; color: var(--csm-ink); --macro-p: {{ macroP }}; --macro-c: {{ macroC }}; --macro-f: {{ macroF }}; --macro-p-text: {{ macroPText }}; --macro-c-text: {{ macroCText }}; --macro-f-text: {{ macroFText }}; background: {{ paper }}">
 
 
-  <div style="position:relative;background-image:{{ bandGrid }};background-color:{{ band }};border-bottom:3px solid var(--csm-ink);overflow:hidden;min-height:{{ heroMinH }};box-sizing:border-box;display:flex;align-items:center;justify-content:center">
+  <div style="position:relative;background-image:radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px);background-size:18px 18px;background-color:{{ band }};border-bottom:3px solid var(--csm-ink);overflow:hidden;min-height:{{ heroMinH }};box-sizing:border-box;display:flex;align-items:center;justify-content:center">
     <div style="width:{{ heroTrack }};max-width:100%;flex:0 1 auto;margin:0 auto;padding:{{ heroPad }};box-sizing:border-box">
       <div style="display:grid;grid-template-columns:{{ heroCols }};gap:{{ heroGap }};align-items:center">
 
@@ -84,7 +84,7 @@ a:hover{color:var(--text-link-hover)}
     </div>
   </div>
 
-  <div style="position: relative; background-color: {{ endBand }}; background-image: radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px); background-size: 18px 18px; overflow: hidden">
+  <div style="position: relative; background-color: {{ endBand }}; background-image: {{ bandGrid }}; overflow: hidden">
 
     <div style="position: relative; width: 100%; background: var(--csm-ink); overflow: hidden; padding: 18px 0">
       <div style="display:flex;width:max-content;animation:csm-tick 30s linear infinite;font-weight:800;font-size:{{ tickerSize }};letter-spacing:-.015em;color:#FFFFFF;white-space:nowrap">
@@ -116,7 +116,7 @@ a:hover{color:var(--text-link-hover)}
 
   <div ref="{{ setStageWrap }}" style="width:100%">
   <div ref="{{ setStage }}" style="width:100%">
-  <div id="menu" style="position:relative;background-image:{{ bandGrid }};background-color:{{ band }};border-bottom:3px solid var(--csm-ink);padding:{{ menuPad }};overflow:{{ menuOv }}">
+  <div id="menu" style="position:relative;background-image:radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px);background-size:18px 18px;background-color:{{ band }};border-bottom:3px solid var(--csm-ink);padding:{{ menuPad }};overflow:{{ menuOv }}">
     <div style="display:{{ decoD }};position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
       <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
         
@@ -307,7 +307,7 @@ a:hover{color:var(--text-link-hover)}
               <div style="position:absolute;inset:0;backface-visibility:hidden;transform:rotateY(180deg);border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
                 <div style="font-size:15.5px;line-height:1.48;text-wrap:pretty">{{ c.text }}</div>
                 <div style="border-top:3px solid var(--csm-ink);padding-top:12px">
-                  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--csm-purple)"><span>VODI NA</span><span style="font-size:16px">↗</span></div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--csm-purple)"><span>VODI NA</span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false" style="display:block;flex:none"><path d="M3 13L13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
                   <div style="font-weight:800;font-size:17px;line-height:1.12;letter-spacing:-.01em;margin-top:5px;text-wrap:pretty">{{ c.recipe }}</div>
                 </div>
               </div>
@@ -330,14 +330,14 @@ a:hover{color:var(--text-link-hover)}
           <div style="font-family:'Remock',sans-serif;font-size:{{ footH2 }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">MENU</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="font-size:16px;font-weight:600;color:var(--csm-acid)">110 recepata za svaku situaciju u tvom danu</div>
-          <div style="font-size:16px;font-weight:600;color:#FFFFFF">220 foodhackova koji mijenjaju sve</div>
+          <div style="font-size:16px;font-weight:600;color:var(--csm-ink)">110 recepata za svaku situaciju u tvom danu</div>
+          <div style="font-size:16px;font-weight:600;color:var(--csm-ink)">220 foodhackova koji mijenjaju sve</div>
         </div>
       </div>
 
       <div style="position:relative;width:100%;max-width:{{ footArtMaxW }};aspect-ratio:1 / 1;margin:0 auto;justify-self:end">
         <svg viewBox="0 0 500 500" fill="currentColor" style="display:{{ footDecoD }};position:absolute;left:0%;top:18%;width:36%;color:var(--csm-purple);z-index:0;animation:csm-spin 30s linear infinite"><path d="M250,486.87c-59.83,0-92.12-122.04-92.12-236.87S190.17,13.13,250,13.13s92.12,122.04,92.12,236.87-32.28,236.87-92.12,236.87ZM250,36.53c-32.5,0-68.72,87.67-68.72,213.47s36.22,213.47,68.72,213.47,68.72-87.67,68.72-213.47-36.22-213.47-68.72-213.47Z"></path><path d="M137.72,449.54c-10.45,0-19.87-2.71-27.91-8.62-48.23-35.41-2.02-152.89,65.94-245.44C243.71,102.92,341.96,23.67,390.19,59.07c48.23,35.41,2.02,152.89-65.94,245.45-56.63,77.13-134.3,145.03-186.53,145.03ZM361.93,73.83c-34.82,0-103.5,48.59-167.32,135.5-74.45,101.4-97.15,193.5-70.95,212.74,26.17,19.22,107.27-30,181.73-131.4,74.45-101.4,97.15-193.5,70.95-212.74-3.74-2.75-8.61-4.1-14.41-4.1Z"></path><path d="M137.78,358.25c-9.85,0-19.33-.39-28.35-1.17-50.29-4.35-81.73-21.02-88.54-46.94-15.19-57.87,94.65-120.08,205.72-149.24,59.44-15.61,117.68-22,163.96-17.98,50.29,4.35,81.73,21.02,88.54,46.94,15.19,57.87-94.65,120.08-205.72,149.24-47.85,12.56-94.92,19.15-135.61,19.15ZM362.09,165.15c-38.61,0-83.58,6.33-129.53,18.39-121.68,31.94-197.27,89.23-189.02,120.66,3.98,15.18,29.38,26.23,67.92,29.57,43.71,3.79,99.1-2.36,156-17.3,121.68-31.94,197.27-89.23,189.02-120.67-3.98-15.18-29.37-26.23-67.92-29.57-8.41-.73-17.26-1.09-26.47-1.09Z"></path><path d="M394.97,391.62c-52.03,0-125.29-25.44-189.58-61.02C104.93,274.99,13.79,187.65,42.76,135.3c12.98-23.45,47.55-31.86,97.37-23.69,45.85,7.52,100.72,28.04,154.48,57.8,100.46,55.6,191.6,142.95,162.63,195.3-10.43,18.85-33,26.91-62.27,26.91ZM105.34,131.92c-21.72,0-36.78,5.07-42.11,14.71-15.74,28.44,43.43,102.58,153.49,163.5,110.07,60.92,204.31,71.69,220.04,43.25,15.74-28.44-43.43-102.58-153.49-163.5-51.48-28.49-103.66-48.09-146.94-55.19-11.37-1.86-21.79-2.78-31-2.78Z"></path><path d="M351.25,457.59c-52.34,0-127.31-75.38-179.39-158.81-32.54-52.13-55.92-105.84-65.84-151.24-10.77-49.31-4.18-84.29,18.55-98.47,22.72-14.2,57.04-4.75,96.61,26.59,36.43,28.85,74.41,73.44,106.95,125.57,32.54,52.13,55.92,105.84,65.84,151.24,10.77,49.31,4.18,84.29-18.55,98.48-7.28,4.55-15.41,6.66-24.18,6.66ZM148.63,65.95c-4.55,0-8.47.98-11.66,2.97-13.31,8.31-16.34,35.84-8.08,73.63,9.36,42.84,31.67,93.92,62.82,143.84,66.61,106.72,143.75,161.89,171.33,144.7,13.31-8.31,16.33-35.84,8.08-73.63-9.36-42.85-31.67-93.93-62.82-143.84h0c-31.15-49.91-67.25-92.39-101.63-119.61-23.05-18.26-43.64-28.05-58.03-28.05Z"></path></svg>
-        <div data-name="Footer — Star position" style="display:{{ footDecoD }};position:absolute;right:12%;top:59%;width:44%;z-index:6"><svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:var(--csm-acid);animation:csm-spin 34s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg></div>
+        <div data-name="Footer — Star position" style="display:block;position:absolute;right:{{ footStarR }};top:{{ footStarT }};width:{{ footStarW }};z-index:6"><svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:var(--csm-acid);animation:csm-spin 34s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg></div>
         <img src="assets/character/coolie-crop-02.webp" alt="Coolie" style="position:absolute;left:17%;top:8%;width:66%;height:auto;z-index:2">
         <div style="position:absolute;left:3%;top:-2%;width:23%;z-index:3">
           <img src="assets/y2k/rola.webp" alt="" style="display:block;width:100%;height:auto;--r:-14deg;animation:csm-bob 9s ease-in-out infinite">
@@ -913,7 +913,11 @@ class Component extends DCLogic {
       footH2: mob ? '76px' : (tab ? '76px' : '118px'),
       footSigMt: mob ? '30px' : '44px',
       // On mobile the group is ~390px wide: the two big spinners would swallow Coolie's face.
-      footDecoD: mob ? 'none' : 'block',
+      footDecoD: 'block',
+      // The lime star stays on mobile (it reads as the footer's accent); only the purple atom goes.
+      footStarR: mob ? '6%' : '12%',
+      footStarT: mob ? '58%' : '59%',
+      footStarW: mob ? '40%' : '44%',
 
       // Accordion decorations: fixed group widths, anchored to the accordion's own edges.
       accDecoD: mob ? 'none' : 'block',
