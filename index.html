@@ -30,127 +30,148 @@ a:hover{color:var(--text-link-hover)}
 </style>
 </helmet>
 
-<div ref="{{ setViewport }}" style="width:100%;overflow-x:auto;overflow-y:hidden">
-<div ref="{{ setShell }}" style="width: 100%; min-width: 1024px; --hs: 1; --track: min(1440px, calc(100% - 80px)); --gutter: max(40px, calc((100vw - min(1440px, calc(100vw - 80px))) / 2)); font-family: 'Roboto',sans-serif; color: var(--csm-ink); --macro-p: {{ macroP }}; --macro-c: {{ macroC }}; --macro-f: {{ macroF }}; --macro-p-text: {{ macroPText }}; --macro-c-text: {{ macroCText }}; --macro-f-text: {{ macroFText }}; background: {{ paper }}">
+<div ref="{{ setGauge }}" style="width:100%">
+<div ref="{{ setShell }}" style="width: 100%; min-width: {{ shellMinW }}; --hs: 1; --pad: {{ pad }}; --track: {{ track }}; --gutter: max(40px, calc((100vw - min(1440px, calc(100vw - 80px))) / 2)); font-family: 'Roboto',sans-serif; color: var(--csm-ink); --macro-p: {{ macroP }}; --macro-c: {{ macroC }}; --macro-f: {{ macroF }}; --macro-p-text: {{ macroPText }}; --macro-c-text: {{ macroCText }}; --macro-f-text: {{ macroFText }}; background: {{ paper }}">
 
 
-  <div style="position: relative; height: calc(100vh * var(--hs, 1)); min-height: 820px; box-sizing: border-box; background-image: {{ bandGrid }}; background-color: {{ band }}; border-bottom: 3px solid var(--csm-ink); overflow: hidden; display: flex; flex-direction: column">
+  <div style="position:relative;background-image:{{ bandGrid }};background-color:{{ band }};border-bottom:3px solid var(--csm-ink);overflow:hidden;min-height:{{ heroMinH }};box-sizing:border-box;display:flex;align-items:center;justify-content:center">
+    <div style="width:{{ heroTrack }};max-width:100%;flex:0 1 auto;margin:0 auto;padding:{{ heroPad }};box-sizing:border-box">
+      <div style="display:grid;grid-template-columns:{{ heroCols }};gap:{{ heroGap }};align-items:center">
 
-    <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden">
-      <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
-      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 80px; right: max(-90px, calc(50% - 860px)); width: 215px; color: var(--csm-ink); animation: csm-spin 26s linear infinite; height: 215px"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
-      <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;top:22%;left:max(-72px, calc(50% - 800px));width:120px;color:{{ shp4 }};transform:rotate(-12deg)"><polygon points="245.79 313.12 453.55 453.55 313.12 245.79 482.63 17.37 254.21 186.88 46.45 46.45 186.88 254.21 17.37 482.63 245.79 313.12"></polygon><polygon points="220.57 279.43 237.29 440.63 275.75 275.75 440.63 237.29 279.43 220.57 262.71 59.37 224.25 224.25 59.37 262.71 220.57 279.43"></polygon></svg>
-      <img src="assets/y2k/disko-rola.webp" alt="" style="position: absolute; top: 7%; left: 25%; width: 324px; --r: 12deg; animation: csm-bob 10s ease-in-out infinite; height: 324px">
-      <img src="assets/food/mango.webp" alt="" style="position: absolute; top: 10%; left: 720px; width: 153px; --r: -8deg; animation: csm-bob 7s ease-in-out infinite; height: 153px">
-      
-      <img src="assets/food/food-03.webp" alt="" style="position: absolute; top: 3.5%; left: 25%; width: 115px; --r: 14deg; animation: csm-bob 8s ease-in-out infinite; height: 115px">
-      <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;bottom:206px;right:max(660px, calc(50% - 20px));width:150px;color:var(--csm-ink);animation:csm-spin 17s linear infinite"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
-      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; bottom: -50px; left: max(-175px, calc(50% - 950px)); width: 205px; color: {{ shp3 }}; animation: csm-spin 34s linear infinite"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
-
-    <div style="position: absolute; bottom: 0; right: max(-70px, calc(50% - 716px)); width: min(840px, 88%); height: 88%; pointer-events: none; top: 120px">
-      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; bottom: -8%; right: 0; width: 66%; color: {{ shp4 }}; animation: csm-spin 44s linear infinite"><path d="M276.04,163c72.07-174-144.14-174-72.07,0-72.07-174-224.96-21.11-50.96,50.96-174-72.07-174,144.14,0,72.07-174,72.07-21.11,224.96,50.96,50.96-72.07,174,144.14,174,72.07,0,72.07,174,224.96,21.11,50.96-50.96,174,72.07,174-144.14,0-72.07,174-72.07,21.11-224.96-50.96-50.96Z"></path></svg>
-      <img src="assets/character/coolie-cutout.webp" alt="Coolie" style="position: absolute; bottom: 0; right: 2%; width: min(100%, 807px); height: auto; max-height: 100%; object-fit: contain; object-position: bottom right">
-      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; bottom: 4%; right: 20%; width: 26%; color: var(--csm-ink); animation: csm-spin 21s linear infinite reverse; fill: #D9FF3F"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
-      <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 4%; right: 1%; width: 23%; color: {{ shp3 }}; animation: csm-spin 15s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
-      <img src="assets/y2k/kazeta.webp" alt="" style="position: absolute; bottom: 30.5%; left: -39px; width: 216px; --r: -11deg; animation: csm-bob 8.5s ease-in-out infinite; height: 202px">
-    </div>
-    </div>
-    </div>
-
-    <div style="position:relative;z-index:1;width:var(--track);margin:0 auto;padding:30px 42px 0;display:flex;justify-content:space-between;align-items:flex-start;box-sizing:border-box">
-      <div style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:10px 20px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.18em;transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</div>
-      <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.18em;padding-top:10px">CSM · EDITION 001</div>
-    </div>
-
-    <div style="position: relative; z-index: 1; flex: 1; width: var(--track); margin: 0 auto; padding: 0 42px; box-sizing: border-box; display: flex; align-items: center; justify-content: flex-start; gap: 40px">
-      <div style="max-width:1000px">
-        <div style="font-weight:800;font-size:96px;line-height:.82;letter-spacing:-.045em;color:var(--csm-ink);margin-top:-20px">Coolie</div>
-        <div style="font-family:'Remock',sans-serif;font-size:196px;line-height:.73;letter-spacing:.005em;color:var(--csm-ink);margin-top:20px">SECRET MENU</div>
-        <div style="display:flex;gap:18px;align-items:center;margin-top:30px;flex-wrap:wrap">
-          <span style="background:{{ shp3 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;transform:rotate(-2deg)">BRZO.</span>
-          <span style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;transform:rotate(1.5deg)">JEDNOSTAVNO.</span>
-          <span style="background:{{ shp2 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;transform:rotate(-1deg)">BALANSIRANO.</span>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;min-width:0">
+        <div style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:10px 20px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.18em;transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;align-self:{{ midSelf }};width:{{ midW }};box-sizing:border-box;gap:{{ heroCopyGap }};margin-top:{{ heroGapTop }};margin-bottom:{{ heroGapBot }}">
+        <div style="display:flex;flex-direction:column;align-items:flex-start">
+          <div style="font-weight:800;font-size:{{ h1Size }};line-height:.9;letter-spacing:-.045em;color:var(--csm-ink)">Coolie</div>
+          <div style="font-family:'Remock',sans-serif;font-size:{{ h2Size }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">SECRET</div>
+          <div style="font-family:'Remock',sans-serif;font-size:{{ h2Size }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">MENU</div>
         </div>
+        <div data-name="Hero — Chips row" style="display:flex;gap:{{ chipGap }};align-items:center;flex-wrap:{{ chipWrap }};width:100%;max-width:100%;box-sizing:border-box">
+          <span style="background:{{ shp3 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:{{ chipPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ chipFs }};letter-spacing:{{ chipLs }};white-space:nowrap;text-align:center;flex:{{ chipFlex }};transform:rotate(-2deg)">BRZO.</span>
+          <span style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:{{ chipPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ chipFs }};letter-spacing:{{ chipLs }};white-space:nowrap;text-align:center;flex:{{ chipFlex }};transform:rotate(1.5deg)">JEDNOSTAVNO.</span>
+          <span style="background:{{ shp2 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:{{ chipPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ chipFs }};letter-spacing:{{ chipLs }};white-space:nowrap;text-align:center;flex:{{ chipFlex }};transform:rotate(-1deg)">BALANSIRANO.</span>
+        </div>
+        </div>
+        <a href="#menu" style="display:flex;align-items:center;gap:16px;background:{{ ctaBg }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:8px 8px 0 var(--csm-ink);padding:16px 20px 16px 30px;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--csm-ink)">
+          <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;letter-spacing:.16em;color:{{ ctaFg }}">UĐI U MENU</span>
+          <span style="width:38px;height:38px;flex:none;background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:var(--csm-ink)">↓</span>
+        </a>
       </div>
 
-    </div>
-
-    <div style="position: relative; z-index: 1; width: var(--track); margin: 0 auto; padding: 0 600px 44px 42px; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: flex-end; gap: 40px">
-      <a href="#menu" style="flex:none;display:flex;align-items:center;gap:16px;background:{{ ctaBg }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:8px 8px 0 var(--csm-ink);padding:16px 20px 16px 30px;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--csm-ink)">
-        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;letter-spacing:.16em;color:{{ ctaFg }}">UĐI U MENU</span>
-        <span style="width:38px;height:38px;flex:none;background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:var(--csm-ink)">↓</span>
-      </a>
+      <div style="position:relative;width:100%;max-width:{{ heroArtMaxW }};aspect-ratio:1 / 1;margin:0 auto;justify-self:end">
+        <div data-name="Hero — Flower position" style="position:absolute;left:{{ flowerL }};top:{{ flowerT }};width:{{ flowerW }};z-index:0">
+          <svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:{{ shp4 }};animation:csm-spin 60s linear infinite"><path d="M276.04,163c72.07-174-144.14-174-72.07,0-72.07-174-224.96-21.11-50.96,50.96-174-72.07-174,144.14,0,72.07-174,72.07-21.11,224.96,50.96,50.96-72.07,174,144.14,174,72.07,0,72.07,174,224.96,21.11,50.96-50.96,174,72.07,174-144.14,0-72.07,174-72.07,21.11-224.96-50.96-50.96Z"></path></svg>
+        </div>
+        <img src="assets/character/coolie-crop-01.webp" alt="Coolie" style="position:absolute;left:16%;top:7%;width:68%;height:auto;z-index:2">
+        <div style="position:absolute;left:{{ heroMixL }};top:{{ heroMixT }};width:{{ heroMixW }};z-index:3">
+          <img src="assets/y2k/mikser-ljubicasti.webp" alt="" style="display:block;width:100%;height:auto;--r:-17deg;animation:csm-bob 10s ease-in-out infinite">
+        </div>
+        <div style="position:absolute;left:-1%;top:60%;width:27%;z-index:4">
+          <img src="assets/y2k/vaga-ljubicasta.webp" alt="" style="display:block;width:100%;height:auto;--r:-11deg;animation:csm-bob 8.5s ease-in-out infinite">
+        </div>
+        <div style="position:absolute;right:1%;top:64%;width:31%;z-index:4">
+          <img src="assets/y2k/lonac-juha.webp" alt="" style="display:block;width:100%;height:auto;--r:7deg;animation:csm-bob 9.5s ease-in-out infinite">
+        </div>
+        <div style="position:absolute;right:{{ starPairR }};top:{{ starPairT }};width:{{ starPairW }};aspect-ratio:1 / 1;z-index:5">
+          <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;right:0%;top:0%;width:76%;color:var(--csm-ink);animation:csm-spin 26s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
+          <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;left:0%;top:30%;width:58%;color:{{ shp3 }};animation:csm-spin 21s linear infinite"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
+        </div>
+        <div style="position:absolute;left:{{ atomL }};top:{{ atomT }};width:{{ atomW }};z-index:9">
+          <svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:var(--csm-acid);animation:csm-spin 30s linear infinite reverse"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 
   <div style="position: relative; background-color: {{ endBand }}; background-image: radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px); background-size: 18px 18px; overflow: hidden">
 
     <div style="position: relative; width: 100%; background: var(--csm-ink); overflow: hidden; padding: 18px 0">
-      <div style="display:flex;width:max-content;animation:csm-tick 30s linear infinite;font-weight:800;font-size:34px;letter-spacing:-.015em;color:#FFFFFF;white-space:nowrap">
+      <div style="display:flex;width:max-content;animation:csm-tick 30s linear infinite;font-weight:800;font-size:{{ tickerSize }};letter-spacing:-.015em;color:#FFFFFF;white-space:nowrap">
         <div style="display:flex;gap:64px;width:max-content;flex:none;padding-right:64px"><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span></div>
         <div style="display:flex;gap:64px;width:max-content;flex:none;padding-right:64px"><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span></div>
       </div>
     </div>
 
-    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+    <div style="display:{{ decoD }};position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
       <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
-        <img src="assets/y2k/mikser.webp" alt="" style="position: absolute; top: 45%; right: calc(-1 * max(290px, min(290px + (var(--gutter) - 40px) * 0.5, var(--gutter) / 2 + 200px))); width: 400px; --r: -40deg; transform: translateY(-50%); animation: csm-bob 11s ease-in-out infinite">
+        <div style="position: absolute; top: 50%; right: calc(-1 * max(200px, min(200px + (var(--gutter) - 40px) * 0.5, var(--gutter) / 2 + 140px))); width: 240px; transform: translateY(-50%)">
+          <img src="assets/y2k/toster.png" alt="" style="display: block; width: 100%; height: auto; --r: -8deg; animation: csm-bob 11s ease-in-out infinite">
+        </div>
         <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;bottom:-90px;left:calc(-1 * max(85px, min(85px + (var(--gutter) - 40px) * 0.7, var(--gutter) / 2 + 130px)));width:260px;color:{{ accent }};animation:csm-spin 26s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
       </div>
     </div>
 
-    <div style="position:relative;z-index:1;width:var(--track);margin:0 auto;padding:96px 42px 104px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+    <div style="position:relative;z-index:1;width:var(--track);margin:0 auto;padding:{{ introPad }};box-sizing:border-box;display:grid;grid-template-columns:{{ twoCol }};gap:{{ introGap }};align-items:start">
       <div style="display:flex;flex-direction:column;gap:26px">
         <div style="align-self:flex-start;background:{{ accent }};border:3px solid var(--csm-ink);border-radius:999px;padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--csm-ink)">ŠTO DANAS KUHAŠ?</div>
-        <div style="font-weight:800;font-size:32px;line-height:1.35;letter-spacing:-.005em;color:var(--csm-ink);text-wrap:pretty">Kasniš, a već te lovi glad? Trebaš više proteina i vlakana da ne zaspiš nad tipkovnicom? Želiš da Air fryer odradi sav posao dok ti odmaraš? Trebaš jači gut-brain connection? Tražiš laganu večeru s malo sastojaka? Planiraš nedjeljni ručak za cijelu obitelj?</div>
+        <div style="font-weight:800;font-size:{{ introH }};line-height:1.35;letter-spacing:-.005em;color:var(--csm-ink);text-wrap:pretty">Kasniš, a već te lovi glad? Trebaš više proteina i vlakana da ne zaspiš nad tipkovnicom? Želiš da Air fryer odradi sav posao dok ti odmaraš? Trebaš jači gut-brain connection? Tražiš laganu večeru s malo sastojaka? Planiraš nedjeljni ručak za cijelu obitelj?</div>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 70px">
-        <div style="font-size:20px;line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Najvažniji meni ove sezone skuhali su <strong>Coolie by Coolinarika</strong> i vodeća hrvatska nutricionistica <strong>Sandra Krstev Barać</strong>, osnivačica Funkcionalne medicine.</div>
-        <div style="font-size:20px;line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Brzo, jednostavno, balansirano. Vlakna, proteini, ugljikohidrati, vitamini. Svi nude recepte, a Coolie ti donosi rješenje za problem, intent i trenutak.</div>
+      <div style="display: flex; flex-direction: column; gap: 22px; padding-top: {{ introRightPt }}">
+        <div style="font-size:{{ introBody }};line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Najvažniji meni ove sezone skuhali su <strong>Coolie by Coolinarika</strong> i vodeća hrvatska nutricionistica <strong>Sandra Krstev Barać</strong>, osnivačica Funkcionalne medicine.</div>
+        <div style="font-size:{{ introBody }};line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Brzo, jednostavno, balansirano. Vlakna, proteini, ugljikohidrati, vitamini. Svi nude recepte, a Coolie ti donosi rješenje za problem, intent i trenutak.</div>
       </div>
     </div>
   </div>
 
-  <div id="menu" style="position:relative;background-image:{{ bandGrid }};background-color:{{ band }};border-bottom:3px solid var(--csm-ink);padding:56px 0 190px;overflow:hidden">
-    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <div ref="{{ setStageWrap }}" style="width:100%">
+  <div ref="{{ setStage }}" style="width:100%">
+  <div id="menu" style="position:relative;background-image:{{ bandGrid }};background-color:{{ band }};border-bottom:3px solid var(--csm-ink);padding:{{ menuPad }};overflow:{{ menuOv }}">
+    <div style="display:{{ decoD }};position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
       <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
         
         <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;top:36px;right:calc(-1 * max(80px, min(80px + (var(--gutter) - 40px) * 0.7, var(--gutter) / 2 + 125px)));width:250px;color:var(--csm-ink);animation:csm-spin 19s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
         
       </div>
-<svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 773px; width: 220px; color: var(--csm-ink); animation: csm-spin 30s linear infinite; right: 141px"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg><img src="assets/y2k/nokia.webp" alt="" style="position: absolute; top: 574px; width: 291px; --r: 80deg; animation: csm-bob 9s ease-in-out infinite; height: 305px; right: 104px; transform: rotate(80deg)">
-<img src="assets/y2k/mlinac.webp" alt="" style="position: absolute; top: 884px; left: 104px; width: 200px; --r: -8deg; animation: csm-bob 12s ease-in-out infinite"><svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 1069px; left: 141px; width: 190px; color: var(--csm-ink); animation: csm-spin 22s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg></div>
 
-    <div style="width: var(--track); margin: 0 auto; padding: 0 42px; position: relative; z-index: 1; display: flex; justify-content: flex-start; padding-top: 60px; padding-bottom: 0px">
-      <div style="max-width:430px;background:{{ heroFill }};border:3px solid var(--csm-ink);border-radius:14px;box-shadow:8px 8px 0 var(--csm-ink);padding:22px 26px;transform:rotate(-1.5deg);margin-bottom:80px;margin-left:{{ labelPad }}">
+</div>
+
+    <div style="width: var(--track); margin: 0 auto; padding: 0 var(--pad); position: relative; z-index: 1; display: flex; justify-content: flex-start; padding-top: {{ teaserRowPt }}; padding-bottom: 0px">
+      <div style="max-width:430px;background:{{ heroFill }};border:3px solid var(--csm-ink);border-radius:14px;box-shadow:8px 8px 0 var(--csm-ink);padding:22px 26px;transform:rotate(-1.5deg);margin-bottom:{{ teaserMb }};margin-left:{{ labelPad }}">
         <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ bandEyebrow }}">KAKO OVO RADI</div>
         <div style="font-size:17px;line-height:1.5;margin-top:10px">Odaberi obrok, pa točno ono stanje u kojem jesi. Dajem ti jedno jelo, hackove i put do tanjura.</div>
       </div>
     </div>
 
-    <div style="width:var(--track);margin:0 auto;padding:0 42px;position:relative;z-index:1">
-      <div style="font-weight:800;font-size:132px;line-height:.86;letter-spacing:-.045em;color:{{ labelColor }};-webkit-text-stroke:{{ labelStroke }} var(--csm-ink);paint-order:stroke fill;padding-bottom:14px;padding-left:{{ labelPad }}">{{ openTitle }}</div>
-    <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 18px; left: -86px; width: 230px; color: var(--csm-ink); animation: csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg></div>
+    <div style="width:var(--track);margin:0 auto;padding:0 var(--pad);position:relative;z-index:1">
+      <div style="font-weight:800;font-size:{{ labelSize }};line-height:.86;letter-spacing:-.045em;color:{{ labelColor }};-webkit-text-stroke:{{ labelStroke }} var(--csm-ink);paint-order:stroke fill;padding-bottom:14px;padding-left:{{ labelPad }}">{{ openTitle }}</div>
+    <svg viewBox="0 0 500 500" fill="currentColor" style="display: {{ decoD }}; position: absolute; top: 18px; left: -86px; width: 230px; color: var(--csm-ink); animation: csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg></div>
 
-    <div style="width:var(--track);margin:0 auto;padding:0 42px;display:flex;align-items:stretch;position:relative;z-index:1;height:{{ panelHeight }}">
+    <div style="width:var(--track);margin:0 auto;padding:0 var(--pad);box-sizing:border-box;position:relative;z-index:1">
+    <div style="position:relative;isolation:isolate;--dwl:{{ decoLW }};--dwr:{{ decoRW }};--dgap:20px;--side:{{ decoSide }};--offl:min(var(--dgap), calc(var(--side) - var(--dwl)));--offr:min(var(--dgap), calc(var(--side) - var(--dwr)))">
+      <div aria-hidden="true" style="display:{{ accDecoD }};position:absolute;inset:0;z-index:0;pointer-events:none">
+        <div data-name="Accordion — Mlinac group" style="position:absolute;top:{{ decoLTop }};left:calc(-1 * (var(--dwl) + var(--offl)));width:var(--dwl)">
+          <div data-name="Accordion — Mlinac star position" style="position:absolute;left:6%;top:48%;width:100%">
+            <svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:var(--csm-ink);animation:csm-spin 22s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg>
+          </div>
+          <div data-name="Accordion — Mlinac position" style="position:relative;top:{{ mlinacUp }};width:100%">
+            <img src="assets/y2k/mlinac-ljubicasti.webp" alt="" style="display:block;width:100%;height:auto;--r:-8deg;animation:csm-bob 12s ease-in-out infinite">
+          </div>
+        </div>
+        <div style="position:absolute;top:{{ decoRTop }};right:calc(-1 * (var(--dwr) + var(--offr)));width:var(--dwr)">
+          <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;left:-14%;top:44%;width:118%;color:var(--csm-ink);animation:csm-spin 30s linear infinite"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
+          <img src="assets/y2k/sladoled.webp" alt="" style="position:relative;display:block;width:100%;height:auto;--r:18deg;animation:csm-bob 9s ease-in-out infinite">
+        </div>
+      </div>
+      <div style="position:relative;z-index:1;display:flex;flex-direction:{{ accDir }};gap:{{ accGap }};align-items:stretch;height:{{ accH }}">
     <sc-for list="{{ cats }}" as="cat" hint-placeholder-count="4">
-      <div style="display:flex;align-items:stretch;min-width:0;flex:{{ cat.flex }}">
+      <div style="display:flex;flex-direction:{{ catDir }};align-items:stretch;min-width:0;flex:{{ cat.flex }}">
 
-        <div onClick="{{ cat.toggle }}" style="width:{{ cat.spineW }};flex:none;background:{{ cat.color }};border:3px solid var(--csm-ink);border-radius:{{ cat.radius }};margin-left:{{ cat.ml }};display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 0 16px;cursor:{{ cat.cursor }};transition:background 140ms var(--ease-snap,ease)" style-hover="background:{{ cat.hover }}">
+        <div onClick="{{ cat.toggle }}" onPointerEnter="{{ cat.onEnter }}" onPointerLeave="{{ cat.onLeave }}" onPointerCancel="{{ cat.onLeave }}" style="width:{{ cat.spineW }};flex:none;background:{{ cat.color }};border:3px solid var(--csm-ink);border-radius:{{ cat.radius }};margin-left:{{ cat.ml }};position:{{ cat.spinePos }};top:{{ cat.spineTop }};z-index:{{ cat.spineZ }};box-sizing:border-box;display:flex;flex-direction:{{ cat.spineDir }};gap:{{ cat.spineGap }};align-items:center;justify-content:space-between;padding:{{ cat.spinePad }};cursor:{{ cat.cursor }};transition:background 140ms var(--ease-snap,ease)" style-hover="background:{{ cat.hover }}">
           <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.1em;color:{{ cat.fg }}">{{ cat.num }}</span>
-          <div style="flex:1;width:100%;display:flex;align-items:center;justify-content:center;transition:transform 140ms var(--ease-snap,ease)" style-hover="transform:translateY(-11px)">
-            <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;letter-spacing:.2em;color:{{ cat.fg }}">{{ cat.label }}</div>
+          <div style="flex:1;width:100%;display:flex;align-items:center;justify-content:{{ cat.midJustify }};transform:{{ cat.titleT }};transition:transform 140ms var(--ease-snap,ease)">
+            <div style="writing-mode:{{ cat.labelWM }};transform:{{ cat.labelRot }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ cat.labelSize }};letter-spacing:.2em;color:{{ cat.fg }}">{{ cat.label }}</div>
           </div>
           <span style="width:28px;height:28px;flex:none;border:2px solid {{ cat.fg }};border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;color:{{ cat.fg }};opacity:{{ cat.signOp }}">{{ cat.sign }}</span>
         </div>
 
         <sc-if value="{{ cat.open }}" hint-placeholder-val="{{ true }}">
-          <div style="flex:1;min-width:0;border:3px solid var(--csm-ink);margin-left:-3px;background:var(--csm-white);display:flex;overflow:hidden;box-shadow:10px 10px 0 var(--csm-ink)">
+          <div style="flex:1;min-width:0;border:3px solid var(--csm-ink);margin-left:{{ panelMl }};margin-top:{{ panelMt }};background:var(--csm-white);display:flex;flex-direction:{{ panelDir }};overflow:hidden;box-shadow:{{ panelShadow }}">
 
-            <div style="width:238px;flex:none;border-right:3px solid var(--csm-ink);background:{{ cat.color }};padding:20px 16px;display:flex;flex-direction:column;gap:7px;overflow-y:auto">
-              <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ cat.fg }};margin-bottom:5px">U KAKVOM SI STANJU</div>
+            <div style="width:{{ subColW }};flex:none;box-sizing:border-box;border-right:{{ subColBR }};border-bottom:{{ subColBB }};background:{{ cat.color }};padding:{{ subColPad }};display:flex;flex-direction:{{ subColDir }};gap:{{ subGap }};overflow-y:{{ subColOY }};overflow-x:{{ subColOX }}">
+              <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ cat.fg }};margin-bottom:5px;display:{{ eyebrowD }}">U KAKVOM SI STANJU</div>
               <sc-for list="{{ cat.subs }}" as="sub" hint-placeholder-count="6">
-                <div onClick="{{ sub.pick }}" style="border:3px solid var(--csm-ink);border-radius:6px;flex:none;background:{{ sub.bg }};color:{{ sub.fg }};padding:11px 12px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12.5px;letter-spacing:.06em;line-height:1.25;cursor:pointer;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--csm-ink)">
+                <div onClick="{{ sub.pick }}" style="border:3px solid var(--csm-ink);border-radius:6px;flex:none;box-sizing:border-box;width:{{ subW }};background:{{ sub.bg }};color:{{ sub.fg }};padding:{{ subPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:12.5px;letter-spacing:.06em;line-height:1.25;white-space:{{ subNowrap }};cursor:pointer;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--csm-ink)">
                   {{ sub.label }}
                   <sc-if value="{{ sub.active }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;letter-spacing:.14em;opacity:.7;margin-top:5px">{{ sub.count }}</div></sc-if>
                 </div>
@@ -160,7 +181,7 @@ a:hover{color:var(--text-link-hover)}
             <div style="flex:1;display:flex;flex-direction:column;min-width:0">
               <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 24px;border-bottom:3px solid var(--csm-ink);background:{{ topBar }};flex:none">
                 <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em">{{ counterText }}</div>
-                <div style="display:flex;gap:7px;align-items:center">
+                <div style="display:{{ dotsD }};gap:7px;align-items:center">
                   <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
                     <span style="width:12px;height:12px;flex:none;border:2px solid var(--csm-ink);border-radius:999px;background:{{ d.bg }}"></span>
                   </sc-for>
@@ -168,18 +189,22 @@ a:hover{color:var(--text-link-hover)}
                 </div>
               </div>
 
-              <div style="flex:1;position:relative;overflow:hidden">
-                <div onScroll="{{ handleScroll }}" ref="{{ setScroller }}" style="position:absolute;inset:0;overflow-y:auto;padding:24px 26px 40px;display:flex;flex-direction:column;gap:30px">
+              <div style="flex:{{ scrWrapFlex }};position:{{ scrWrapPos }};overflow:{{ scrWrapOv }}">
+                <div onScroll="{{ handleScroll }}" ref="{{ setScroller }}" style="position:{{ scrPos }};inset:0;overflow-y:{{ scrOv }};padding:{{ scrPad }};display:flex;flex-direction:column;gap:{{ scrGap }}">
                   <sc-for list="{{ recipes }}" as="r" hint-placeholder-count="3">
-                    <div style="border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:22px 26px;display:flex;flex-direction:column;gap:16px;flex:none">
+                    <div style="border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ r.gap }};flex:none">
 
-                      <div style="display:flex;gap:13px;align-items:center">
+                      <div onClick="{{ r.toggle }}" style="display:flex;gap:13px;align-items:center;min-height:{{ accRowMinH }};cursor:{{ r.cursor }}">
                         <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:{{ recipeNum }};flex:none">{{ r.no }}</span>
-                        <div style="font-weight:800;font-size:36px;line-height:.95;letter-spacing:-.02em">{{ r.title }}</div>
+                        <div style="flex:1;min-width:0;font-weight:800;font-size:{{ titleSize }};line-height:{{ titleLH }};letter-spacing:-.02em">{{ r.title }}</div>
+                        <span style="display:{{ accSignD }};width:30px;height:30px;flex:none;border:3px solid var(--csm-ink);border-radius:999px;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;background:{{ r.signBg }};color:{{ r.signFg }}">{{ r.sign }}</span>
                       </div>
 
-                      <div style="display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start">
-                        <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:14px">
+                      <sc-if value="{{ r.open }}" hint-placeholder-val="{{ true }}">
+                      <div style="display:flex;flex-direction:column;gap:16px">
+
+                      <div style="display:flex;flex-direction:{{ bodyDir }};flex-wrap:wrap;gap:{{ bodyGap }};align-items:flex-start">
+                        <div style="flex:{{ descFlex }};order:{{ descOrder }};min-width:0;display:flex;flex-direction:column;gap:14px">
                           <div style="font-size:17px;line-height:1.55;max-width:60ch">{{ r.desc }}</div>
                           <sc-for list="{{ r.hacks }}" as="h" hint-placeholder-count="2">
                             <div style="border:3px solid var(--csm-ink);border-radius:6px;box-shadow:3px 3px 0 var(--csm-ink);padding:14px 16px;background:var(--csm-white)">
@@ -196,7 +221,7 @@ a:hover{color:var(--text-link-hover)}
                           </sc-for>
                         </div>
 
-                        <div style="flex:1 1 300px;min-width:0;max-width:330px;display:flex;flex-direction:column;align-items:center;gap:12px">
+                        <div style="flex:{{ pieFlex }};order:{{ pieOrder }};min-width:0;width:100%;max-width:{{ pieMaxW }};display:flex;flex-direction:column;align-items:center;gap:12px">
                           <div style="position:relative;width:min(100%, {{ pieBox }});aspect-ratio:1">
                             <div style="position:absolute;inset:0;border-radius:999px;border:3px solid var(--csm-ink);background:{{ r.pie.grad }}"></div>
                             <div style="position:absolute;left:50%;top:50%;width:3px;height:50%;background:var(--csm-ink);transform-origin:top center;transform:{{ r.pie.t1 }}"></div>
@@ -227,10 +252,12 @@ a:hover{color:var(--text-link-hover)}
                         </div>
                       </div>
 
-                      <a href="{{ r.link }}" target="_blank" style="border:3px solid var(--csm-ink);border-radius:999px;background:{{ ctaBg }};box-shadow:6px 6px 0 var(--csm-ink);padding:16px 26px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--csm-ink)">
-                        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:14px;letter-spacing:.16em;color:{{ ctaFg }}">PUT DO TANJURA — COOLINARIKA.COM</span>
+                      <a href="{{ r.link }}" target="_blank" style="border:3px solid var(--csm-ink);border-radius:999px;background:{{ ctaBg }};box-shadow:6px 6px 0 var(--csm-ink);padding:{{ ctaPad }};display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--csm-ink)">
+                        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ ctaSize }};letter-spacing:.16em;color:{{ ctaFg }}">{{ ctaLabel }}</span>
                         <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:{{ ctaFg }}">→</span>
                       </a>
+                      </div>
+                      </sc-if>
                     </div>
                   </sc-for>
 
@@ -241,7 +268,7 @@ a:hover{color:var(--text-link-hover)}
                   </div>
                 </div>
 
-                <div style="position:absolute;left:0;right:0;bottom:0;height:44px;background:linear-gradient(rgba(255,255,255,0),var(--csm-white) 70%);pointer-events:none"></div>
+                <div style="display:{{ fadeD }};position:absolute;left:0;right:0;bottom:0;height:44px;background:linear-gradient(rgba(255,255,255,0),var(--csm-white) 70%);pointer-events:none"></div>
 
               </div>
             </div>
@@ -249,18 +276,22 @@ a:hover{color:var(--text-link-hover)}
         </sc-if>
       </div>
     </sc-for>
+      </div>
+    </div>
     </div>
   </div>
+  </div>
+  </div>
 
-  <div style="position:relative;background:{{ paper }};padding:0 0 190px;overflow:hidden">
-    <div style="width:var(--track);margin:0 auto;padding:0 42px;box-sizing:border-box">
-      <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 34px; margin-top: 150px">
+  <div style="position:relative;background:{{ paper }};padding:{{ bonusPad }};overflow:hidden">
+    <div data-name="Bonus — Content container" style="width:{{ track }};max-width:100%;margin:0 auto;padding:{{ bonusInnerPad }};box-sizing:border-box">
+      <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 34px; margin-top: {{ bonusMt }}">
         
         <svg viewBox="0 0 500 500" fill="currentColor" style="width:18px;height:18px;color:{{ bandEyebrow }};align-self:center"><polygon points="245.79 313.12 453.55 453.55 313.12 245.79 482.63 17.37 254.21 186.88 46.45 46.45 186.88 254.21 17.37 482.63 245.79 313.12"></polygon><polygon points="220.57 279.43 237.29 440.63 275.75 275.75 440.63 237.29 279.43 220.57 262.71 59.37 224.25 224.25 59.37 262.71 220.57 279.43"></polygon></svg><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ bandEyebrow }}">BONUS · KRENI OD PROBLEMA</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+      <div style="display:grid;grid-template-columns:{{ cardsCols }};gap:24px">
         <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
-          <div onClick="{{ c.go }}" onMouseEnter="{{ c.enter }}" onMouseLeave="{{ c.leave }}" style="perspective:1400px;height:280px;cursor:pointer">
+          <div onClick="{{ c.go }}" onMouseEnter="{{ c.enter }}" onMouseLeave="{{ c.leave }}" style="perspective:1400px;height:{{ cardH }};cursor:pointer">
             <div style="position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 700ms cubic-bezier(.22,.61,.36,1);transform:{{ c.flip }}">
 
               <div style="position:absolute;inset:0;backface-visibility:hidden;border:3px solid var(--csm-ink);border-radius:14px;background:{{ c.bg }};color:{{ c.fg }};box-shadow:6px 6px 0 var(--csm-ink);padding:24px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
@@ -287,30 +318,46 @@ a:hover{color:var(--text-link-hover)}
     </div>
   </div>
 
-  <div style="position:relative;background-color:{{ endBand }};background-image:radial-gradient(rgba(20,26,27,.22) 1.6px,transparent 1.7px);background-size:18px 18px;padding:70px 60px 34px;overflow:hidden;border-bottom:3px solid var(--csm-ink)">
+  <div style="position:relative;background-color:{{ endBand }};background-image:radial-gradient(rgba(20,26,27,.22) 1.6px,transparent 1.7px);background-size:18px 18px;padding:{{ footPad }};overflow:hidden;border-bottom:3px solid var(--csm-ink)">
+    <div data-name="Footer — Content container" style="width:{{ track }};max-width:100%;margin:0 auto;padding:0 18px;box-sizing:border-box">
+      <div style="display:grid;grid-template-columns:{{ footCols }};gap:{{ footGap }};align-items:center">
 
-    <div style="width:var(--track);margin:0 auto;padding:0 18px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;position:relative">
-
-      <div style="justify-self:center;max-width:460px">
-        <div style="display:inline-block;background:var(--csm-acid);border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 24px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--csm-ink);transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</div>
-        <div style="font-weight:800;font-size:76px;line-height:.86;letter-spacing:-.045em;color:var(--csm-ink);margin-top:26px">Coolie</div>
-        <div style="font-family:'Remock',sans-serif;font-size:132px;line-height:.74;letter-spacing:.005em;color:var(--csm-ink);margin-top:14px;max-width:380px">SECRET MENU</div>
-        <div style="margin-top:34px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:{{ footCopyGap }};min-width:0">
+        <div style="background:var(--csm-acid);border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 24px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--csm-ink);transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start">
+          <div style="font-weight:800;font-size:{{ footH1 }};line-height:.9;letter-spacing:-.045em;color:var(--csm-ink)">Coolie</div>
+          <div style="font-family:'Remock',sans-serif;font-size:{{ footH2 }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">SECRET</div>
+          <div style="font-family:'Remock',sans-serif;font-size:{{ footH2 }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">MENU</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
           <div style="font-size:16px;font-weight:600;color:var(--csm-acid)">110 recepata za svaku situaciju u tvom danu</div>
           <div style="font-size:16px;font-weight:600;color:#FFFFFF">220 foodhackova koji mijenjaju sve</div>
         </div>
       </div>
 
-      <div style="position:relative;height:620px">
-        <svg viewBox="0 0 500 500" fill="currentColor" style="position: absolute; top: 122px; left: 57px; width: 210px; color: var(--csm-purple); animation: csm-spin 30s linear infinite"><path d="M250,486.87c-59.83,0-92.12-122.04-92.12-236.87S190.17,13.13,250,13.13s92.12,122.04,92.12,236.87-32.28,236.87-92.12,236.87ZM250,36.53c-32.5,0-68.72,87.67-68.72,213.47s36.22,213.47,68.72,213.47,68.72-87.67,68.72-213.47-36.22-213.47-68.72-213.47Z"></path><path d="M137.72,449.54c-10.45,0-19.87-2.71-27.91-8.62-48.23-35.41-2.02-152.89,65.94-245.44C243.71,102.92,341.96,23.67,390.19,59.07c48.23,35.41,2.02,152.89-65.94,245.45-56.63,77.13-134.3,145.03-186.53,145.03ZM361.93,73.83c-34.82,0-103.5,48.59-167.32,135.5-74.45,101.4-97.15,193.5-70.95,212.74,26.17,19.22,107.27-30,181.73-131.4,74.45-101.4,97.15-193.5,70.95-212.74-3.74-2.75-8.61-4.1-14.41-4.1Z"></path><path d="M137.78,358.25c-9.85,0-19.33-.39-28.35-1.17-50.29-4.35-81.73-21.02-88.54-46.94-15.19-57.87,94.65-120.08,205.72-149.24,59.44-15.61,117.68-22,163.96-17.98,50.29,4.35,81.73,21.02,88.54,46.94,15.19,57.87-94.65,120.08-205.72,149.24-47.85,12.56-94.92,19.15-135.61,19.15ZM362.09,165.15c-38.61,0-83.58,6.33-129.53,18.39-121.68,31.94-197.27,89.23-189.02,120.66,3.98,15.18,29.38,26.23,67.92,29.57,43.71,3.79,99.1-2.36,156-17.3,121.68-31.94,197.27-89.23,189.02-120.67-3.98-15.18-29.37-26.23-67.92-29.57-8.41-.73-17.26-1.09-26.47-1.09Z"></path><path d="M394.97,391.62c-52.03,0-125.29-25.44-189.58-61.02C104.93,274.99,13.79,187.65,42.76,135.3c12.98-23.45,47.55-31.86,97.37-23.69,45.85,7.52,100.72,28.04,154.48,57.8,100.46,55.6,191.6,142.95,162.63,195.3-10.43,18.85-33,26.91-62.27,26.91ZM105.34,131.92c-21.72,0-36.78,5.07-42.11,14.71-15.74,28.44,43.43,102.58,153.49,163.5,110.07,60.92,204.31,71.69,220.04,43.25,15.74-28.44-43.43-102.58-153.49-163.5-51.48-28.49-103.66-48.09-146.94-55.19-11.37-1.86-21.79-2.78-31-2.78Z"></path><path d="M351.25,457.59c-52.34,0-127.31-75.38-179.39-158.81-32.54-52.13-55.92-105.84-65.84-151.24-10.77-49.31-4.18-84.29,18.55-98.47,22.72-14.2,57.04-4.75,96.61,26.59,36.43,28.85,74.41,73.44,106.95,125.57,32.54,52.13,55.92,105.84,65.84,151.24,10.77,49.31,4.18,84.29-18.55,98.48-7.28,4.55-15.41,6.66-24.18,6.66ZM148.63,65.95c-4.55,0-8.47.98-11.66,2.97-13.31,8.31-16.34,35.84-8.08,73.63,9.36,42.84,31.67,93.92,62.82,143.84,66.61,106.72,143.75,161.89,171.33,144.7,13.31-8.31,16.33-35.84,8.08-73.63-9.36-42.85-31.67-93.93-62.82-143.84h0c-31.15-49.91-67.25-92.39-101.63-119.61-23.05-18.26-43.64-28.05-58.03-28.05Z"></path></svg>
-        <img src="assets/character/coolie-head.webp" alt="Coolie" style="position: absolute; top: -70px; left: 349px; transform: translateX(-50%); height: 660px; width: auto">
-        <img src="assets/y2k/kazetofon.webp" alt="" style="position:absolute;bottom:20px;left:2%;width:300px;--r:-2deg;animation:csm-bob 10s ease-in-out infinite">
-        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;bottom:-60px;right:14%;width:280px;color:var(--csm-acid);animation:csm-spin 34s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg>
-        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;top:-30px;right:2%;width:130px;color:var(--csm-ink);animation:csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
+      <div style="position:relative;width:100%;max-width:{{ footArtMaxW }};aspect-ratio:1 / 1;margin:0 auto;justify-self:end">
+        <svg viewBox="0 0 500 500" fill="currentColor" style="display:{{ footDecoD }};position:absolute;left:0%;top:18%;width:36%;color:var(--csm-purple);z-index:0;animation:csm-spin 30s linear infinite"><path d="M250,486.87c-59.83,0-92.12-122.04-92.12-236.87S190.17,13.13,250,13.13s92.12,122.04,92.12,236.87-32.28,236.87-92.12,236.87ZM250,36.53c-32.5,0-68.72,87.67-68.72,213.47s36.22,213.47,68.72,213.47,68.72-87.67,68.72-213.47-36.22-213.47-68.72-213.47Z"></path><path d="M137.72,449.54c-10.45,0-19.87-2.71-27.91-8.62-48.23-35.41-2.02-152.89,65.94-245.44C243.71,102.92,341.96,23.67,390.19,59.07c48.23,35.41,2.02,152.89-65.94,245.45-56.63,77.13-134.3,145.03-186.53,145.03ZM361.93,73.83c-34.82,0-103.5,48.59-167.32,135.5-74.45,101.4-97.15,193.5-70.95,212.74,26.17,19.22,107.27-30,181.73-131.4,74.45-101.4,97.15-193.5,70.95-212.74-3.74-2.75-8.61-4.1-14.41-4.1Z"></path><path d="M137.78,358.25c-9.85,0-19.33-.39-28.35-1.17-50.29-4.35-81.73-21.02-88.54-46.94-15.19-57.87,94.65-120.08,205.72-149.24,59.44-15.61,117.68-22,163.96-17.98,50.29,4.35,81.73,21.02,88.54,46.94,15.19,57.87-94.65,120.08-205.72,149.24-47.85,12.56-94.92,19.15-135.61,19.15ZM362.09,165.15c-38.61,0-83.58,6.33-129.53,18.39-121.68,31.94-197.27,89.23-189.02,120.66,3.98,15.18,29.38,26.23,67.92,29.57,43.71,3.79,99.1-2.36,156-17.3,121.68-31.94,197.27-89.23,189.02-120.67-3.98-15.18-29.37-26.23-67.92-29.57-8.41-.73-17.26-1.09-26.47-1.09Z"></path><path d="M394.97,391.62c-52.03,0-125.29-25.44-189.58-61.02C104.93,274.99,13.79,187.65,42.76,135.3c12.98-23.45,47.55-31.86,97.37-23.69,45.85,7.52,100.72,28.04,154.48,57.8,100.46,55.6,191.6,142.95,162.63,195.3-10.43,18.85-33,26.91-62.27,26.91ZM105.34,131.92c-21.72,0-36.78,5.07-42.11,14.71-15.74,28.44,43.43,102.58,153.49,163.5,110.07,60.92,204.31,71.69,220.04,43.25,15.74-28.44-43.43-102.58-153.49-163.5-51.48-28.49-103.66-48.09-146.94-55.19-11.37-1.86-21.79-2.78-31-2.78Z"></path><path d="M351.25,457.59c-52.34,0-127.31-75.38-179.39-158.81-32.54-52.13-55.92-105.84-65.84-151.24-10.77-49.31-4.18-84.29,18.55-98.47,22.72-14.2,57.04-4.75,96.61,26.59,36.43,28.85,74.41,73.44,106.95,125.57,32.54,52.13,55.92,105.84,65.84,151.24,10.77,49.31,4.18,84.29-18.55,98.48-7.28,4.55-15.41,6.66-24.18,6.66ZM148.63,65.95c-4.55,0-8.47.98-11.66,2.97-13.31,8.31-16.34,35.84-8.08,73.63,9.36,42.84,31.67,93.92,62.82,143.84,66.61,106.72,143.75,161.89,171.33,144.7,13.31-8.31,16.33-35.84,8.08-73.63-9.36-42.85-31.67-93.93-62.82-143.84h0c-31.15-49.91-67.25-92.39-101.63-119.61-23.05-18.26-43.64-28.05-58.03-28.05Z"></path></svg>
+        <div data-name="Footer — Star position" style="display:{{ footDecoD }};position:absolute;right:12%;top:59%;width:44%;z-index:6"><svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:var(--csm-acid);animation:csm-spin 34s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg></div>
+        <img src="assets/character/coolie-crop-02.webp" alt="Coolie" style="position:absolute;left:17%;top:8%;width:66%;height:auto;z-index:2">
+        <div style="position:absolute;left:3%;top:-2%;width:23%;z-index:3">
+          <img src="assets/y2k/rola.webp" alt="" style="display:block;width:100%;height:auto;--r:-14deg;animation:csm-bob 9s ease-in-out infinite">
+        </div>
+        <div data-name="Footer — Tortica position" style="position:absolute;right:1%;top:53%;width:29%;z-index:4">
+          <img src="assets/y2k/tortica.webp" alt="" style="display:block;width:100%;height:auto;--r:-10deg;animation:csm-bob 11s ease-in-out infinite">
+        </div>
+        <div style="position:absolute;left:-3%;top:66%;width:42%;z-index:4">
+          <img src="assets/y2k/kazetofon.webp" alt="" style="display:block;width:100%;height:auto;--r:-2deg;animation:csm-bob 10s ease-in-out infinite">
+        </div>
+        <div data-name="Footer — Namaz position" style="position:absolute;right:4%;top:77%;width:25%;z-index:7">
+          <img src="assets/y2k/cokoladni-namaz.webp" alt="" style="display:block;width:100%;height:auto;--r:-6deg;animation:csm-bob 8.5s ease-in-out infinite">
+        </div>
+        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;right:2%;top:0%;width:19%;color:var(--csm-ink);z-index:5;animation:csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
+      </div>
+
       </div>
     </div>
 
-    <div style="position:relative;text-align:center;margin-top:40px;display:flex;flex-direction:column;gap:8px;align-items:center">
+    <div style="position:relative;text-align:center;margin-top:{{ footSigMt }};display:flex;flex-direction:column;gap:8px;align-items:center">
       <div style="font-size:16px;font-weight:700;color:var(--csm-ink)">Coolinarika by Podravka</div>
       <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--csm-ink)">© 2026. Podravka d.d. Sva prava pridržana.</div>
     </div>
@@ -319,7 +366,7 @@ a:hover{color:var(--text-link-hover)}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1800},&quot;colorScheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A (tiha traka, glasan podatak)&quot;,&quot;B (Yestalgia — glasne trake)&quot;,&quot;C (moodboard 02 — limeta / roza / crno)&quot;,&quot;D (Digital Grape — lavanda / neon)&quot;,&quot;E (Silver Candy — chrome / candy)&quot;],&quot;default&quot;:&quot;E (Silver Candy — chrome / candy)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Boje&quot;},&quot;ctaColor&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Po shemi&quot;,&quot;Kobalt&quot;,&quot;Grimizna&quot;,&quot;Koraljna&quot;,&quot;Limeta&quot;,&quot;Crna (ink)&quot;],&quot;default&quot;:&quot;Po shemi&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Boje&quot;},&quot;pieSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:250,&quot;min&quot;:190,&quot;max&quot;:330,&quot;step&quot;:10,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Nutritivni kolut&quot;},&quot;panelHeight&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:910,&quot;min&quot;:700,&quot;max&quot;:1220,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Accordion&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1800},&quot;colorScheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A (tiha traka, glasan podatak)&quot;,&quot;B (Yestalgia — glasne trake)&quot;,&quot;C (moodboard 02 — limeta / roza / crno)&quot;,&quot;D (Digital Grape — lavanda / neon)&quot;,&quot;E (Silver Candy — chrome / candy)&quot;],&quot;default&quot;:&quot;E (Silver Candy — chrome / candy)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Boje&quot;},&quot;ctaColor&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Po shemi&quot;,&quot;Kobalt&quot;,&quot;Grimizna&quot;,&quot;Koraljna&quot;,&quot;Limeta&quot;,&quot;Crna (ink)&quot;],&quot;default&quot;:&quot;Po shemi&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Boje&quot;},&quot;pieSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:250,&quot;min&quot;:190,&quot;max&quot;:330,&quot;step&quot;:10,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Nutritivni kolut&quot;},&quot;panelHeight&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:910,&quot;min&quot;:700,&quot;max&quot;:1220,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Accordion&quot;},&quot;mobileSubnav&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Vertikalno (novo)&quot;,&quot;Swipe (staro)&quot;],&quot;default&quot;:&quot;Vertikalno (novo)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Mobile / tablet&quot;},&quot;mobileRecipes&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Akordeon (novo)&quot;,&quot;Sve otvoreno (staro)&quot;],&quot;default&quot;:&quot;Akordeon (novo)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Mobile / tablet&quot;},&quot;stickyBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobile / tablet&quot;}}">
 const INK = '#141A1B';
 const PAPER = '#FBF3DE';
 
@@ -411,7 +458,18 @@ const needsInvert = (color) => {
   return (a > b ? a / b : b / a) < 2;
 };
 
-const lighten = (hex) => 'oklch(from ' + hex + ' calc(l + 0.10) calc(c * 0.85) h)';
+// 85% base + 15% white, mixed in sRGB and returned as an opaque hex — no opacity anywhere,
+// so the ink borders, the number and the "+" keep their exact colours.
+const lighten = (hex) => {
+  const h = String(hex).replace('#', '');
+  const f = h.length === 3 ? h.split('').map((x) => x + x).join('') : h;
+  const n = parseInt(f, 16);
+  if (!f || isNaN(n) || f.length !== 6) return hex;
+  const mix = (v) => Math.round(v * 0.85 + 255 * 0.15);
+  const out = [mix((n >> 16) & 255), mix((n >> 8) & 255), mix(n & 255)]
+    .map((v) => v.toString(16).padStart(2, '0')).join('');
+  return '#' + out;
+};
 
 // Authored geometry of the accordion, kept here so the display label can align to
 // the teaser's text block without measuring the DOM.
@@ -474,7 +532,7 @@ const CARDS = [
 ];
 
 class Component extends DCLogic {
-  state = { open: 'rucak', subIdx: {}, active: 0, flipped: null };
+  state = { open: 'rucak', subIdx: {}, active: 0, recall: {}, flipped: null, mode: 'desktop', spineHover: null };
 
   handleScroll = (e) => {
     const el = e.currentTarget;
@@ -490,52 +548,130 @@ class Component extends DCLogic {
 
   setScroller = (el) => { if (el) this.el = el; };
 
-  // Below 1440 the 1440 composition is scaled rather than reflowed, down to a 1152 floor.
-  setViewport = (el) => { this.viewport = el; };
-  setShell = (el) => {
-    this.shell = el;
-    if (el && !this.ro && typeof ResizeObserver !== 'undefined') {
-      this.ro = new ResizeObserver(() => this.applyScale());
-      this.ro.observe(el);
-    }
+  // Hero and footer reflow for real at every width. Only the accordion stage keeps the
+  // proportional 1440 scale between 1152 and 1440, and it lives in its own wrapper.
+  setGauge = (el) => {
+    // React calls refs with null on detach; keep the last live node rather than dropping it.
+    // The gauge is the ONE element nothing ever writes to: no transform, no height, no overflow.
+    // That is what breaks the old measure -> overflow -> clientWidth -> measure loop.
+    if (!el) return;
+    this.gauge = el;
+    this.observe();
     this.applyScale();
+    this.settle();
+  };
+  setShell = (el) => {
+    if (!el) return;
+    this.shell = el;
+    this.applyScale();
+    this.settle();
+  };
+  setStageWrap = (el) => { if (!el) return; this.stageWrap = el; this.applyScale(); };
+  setStage = (el) => { if (!el) return; this.stage = el; this.applyScale(); };
+
+  // Neither window.resize (never fires in a preview frame) nor ResizeObserver (callbacks are not
+  // delivered in this host) nor setTimeout/setInterval (throttled to ~1s and sometimes stalled)
+  // is a reliable trigger. requestAnimationFrame is: it is driven by paint, which is exactly when
+  // a width change matters. One clientWidth read and an integer compare per frame.
+  observe = () => {
+    if (this._raf) return;
+    const tick = () => {
+      this.applyScale();
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
   };
 
+  // The one width source, usable from the very first render: the DC box when it has been laid
+  // out, otherwise the frame itself (documentElement always has a width, even pre-layout).
+  // In scaled mode the shell is pinned to 1440px, so never measure the shell.
+  measure = () => {
+    const g = this.gauge;
+    const w = (g && g.isConnected && (g.clientWidth || g.getBoundingClientRect().width)) || 0;
+    return w >= 200 ? w : (document.documentElement.clientWidth || window.innerWidth || 0);
+  };
+
+  regime = (w) => (w >= 1440 ? 'desktop' : (w >= 1152 ? 'scaled' : (w >= 768 ? 'tablet' : 'mobile')));
+
+  settle = () => {
+    [0, 1, 60, 200, 600, 1200].forEach((t) => setTimeout(this.applyScale, t));
+    requestAnimationFrame(this.applyScale);
+  };
+
+  // Four regimes: >=1440 desktop as authored, 1152-1439 proportional scale of the 1440
+  // composition, 768-1151 real tablet reflow, <768 real mobile reflow. No horizontal scroll
+  // anywhere any more.
   applyScale = () => {
-    const shell = this.shell, vp = this.viewport;
-    if (!shell || !vp) return;
-    // Measure the real content box, not window.innerWidth: a visible scrollbar makes the
-    // available width ~15px narrower than 1440, which used to reflow the 1440 layout instead
-    // of scaling it (pie chart dropping below, then snapping back on smaller widths).
-    const w = vp.clientWidth || window.innerWidth;
-    if (w >= 1440) {
-      shell.style.width = '';
-      shell.style.transform = '';
-      shell.style.setProperty('--hs', '1');
-      vp.style.height = '';
-      vp.style.overflowX = 'hidden';
+    const shell = this.shell, gauge = this.gauge;
+    // Refs or layout not ready: keep retrying instead of returning silently, or the initial
+    // regime never gets committed and the first (wrong) paint stands forever.
+    const w = this.measure();
+    if (!shell || !gauge || w < 200) {
+      clearTimeout(this._retry);
+      this._retry = setTimeout(this.applyScale, 120);
       return;
     }
-    const s = Math.max(w, 1152) / 1440;
-    shell.style.width = '1440px';
-    shell.style.transformOrigin = 'top left';
-    shell.style.transform = 'scale(' + s + ')';
-    shell.style.setProperty('--hs', String(1 / s));
-    vp.style.height = Math.round(shell.offsetHeight * s) + 'px';
-    // scale() leaves layout width at 1440, so the wrapper would scroll into empty space:
-    // only allow scrolling below the 1152 floor, where the painted width really exceeds the viewport.
-    vp.style.overflowX = w < 1152 ? 'auto' : 'hidden';
+    const mode = this.regime(w);
+    // Track the committed mode on the instance: this.state.mode is stale inside a rAF callback.
+    if (mode !== this._mode) {
+      this._mode = mode;
+      this.setState({ mode: mode });
+      // On reflow the menu opens on the first section: it reads as "start at the top of the day".
+      // Desktop keeps its own default. Only applies before the user has touched the accordion.
+      if ((mode === 'tablet' || mode === 'mobile') && !this._touched) {
+        this._touched = true;
+        this.setState({ open: 'dorucak', active: 0 });
+      }
+    }
+    const stage = this.stage, wrap = this.stageWrap;
+    const scaled = mode === 'scaled';
+    const s = scaled ? w / 1440 : 1;
+    // Decoration anchoring needs the layout width of the coordinate system it lives in:
+    // 1440 inside the scaled stage, the real measured width everywhere else.
+    const sig = mode + '|' + Math.round(w);
+    if (sig !== this._sig) {
+      this._sig = sig;
+      shell.style.setProperty('--shellw', (scaled ? 1440 : Math.round(w)) + 'px');
+      shell.style.setProperty('--hs', String(scaled ? 1 / s : 1));
+      // zoom, not transform: zoom scales the LAYOUT, so the wrapper's height follows the
+      // stage on its own. No JS height bookkeeping, no explicit height on any measured
+      // ancestor — that pair (height write + overflow) was the old flicker loop.
+      if (stage) {
+        if (scaled) {
+          stage.style.width = '1440px';
+          stage.style.zoom = String(s);
+        } else {
+          stage.style.width = '';
+          stage.style.zoom = '';
+        }
+      }
+      if (wrap) { wrap.style.overflow = ''; wrap.style.height = ''; }
+      if (this.props.logMode) console.log('[csm] mode', mode, 'w', Math.round(w),
+        'gauge', gauge.clientWidth + '/' + gauge.offsetWidth,
+        'wrap', wrap ? wrap.clientWidth + '/' + wrap.offsetWidth : '-');
+    }
   };
 
   componentDidMount() {
     this._onResize = () => this.applyScale();
-    window.addEventListener('resize', this._onResize);
-    this.applyScale();
+    // Belt and braces: rAF covers the painting case, and these cover every way a user can meet
+    // the page after a size change that happened while it was not painting.
+    ['resize', 'orientationchange', 'load', 'focus', 'pageshow'].forEach((ev) =>
+      window.addEventListener(ev, this._onResize, true));
+    ['scroll', 'pointerdown', 'visibilitychange'].forEach((ev) =>
+      document.addEventListener(ev, this._onResize, true));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(this.applyScale);
+    this.observe();
+    this.settle();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this._onResize);
-    if (this.ro) this.ro.disconnect();
+    ['resize', 'orientationchange', 'load', 'focus', 'pageshow'].forEach((ev) =>
+      window.removeEventListener(ev, this._onResize, true));
+    ['scroll', 'pointerdown', 'visibilitychange'].forEach((ev) =>
+      document.removeEventListener(ev, this._onResize, true));
+    if (this._raf) cancelAnimationFrame(this._raf);
+    clearTimeout(this._retry);
   }
 
   // Bonus cards are deterministic shortcuts: each lands on the recipe it names.
@@ -548,20 +684,63 @@ class Component extends DCLogic {
         const el = this.el;
         if (!el) return;
         const card = el.children[rec];
-        if (card) el.scrollTop = card.offsetTop - el.children[0].offsetTop;
+        if (!card) return;
+        // Reflowed modes have no inner scroller — the page itself carries the recipe list.
+        if (this.state.mode === 'tablet' || this.state.mode === 'mobile') {
+          window.scrollTo({ top: card.getBoundingClientRect().top + window.scrollY - 16, behavior: 'smooth' });
+        } else {
+          el.scrollTop = card.offsetTop - el.children[0].offsetTop;
+        }
       }, 90);
     });
   };
 
-  toggle = (key) => {
-    if (this.state.open === key) return;
-    this.setState({ open: key, active: 0 });
+  // On reflow a section can be closed: four bands + label is a one-screen index of the menu.
+  // On desktop that would leave an empty stage, so there the open section stays inert.
+  toggle = (key) => (e) => {
+    this._touched = true;
+    const stack = this.state.mode === 'tablet' || this.state.mode === 'mobile';
+    const el = e && e.currentTarget;
+    if (this.state.open === key) {
+      if (!stack) return;
+      this.setState({ open: null }, () => {
+        if (!el) return;
+        requestAnimationFrame(() => {
+          const t = el.getBoundingClientRect().top + window.scrollY - 12;
+          if (window.scrollY > t) window.scrollTo({ top: t, behavior: 'smooth' });
+        });
+      });
+      return;
+    }
+    this.setState((s) => ({ open: key, active: s.recall[key] == null ? 0 : s.recall[key] }));
     if (this.el) this.el.scrollTop = 0;
   };
 
   pick = (key, i) => {
-    this.setState((s) => ({ subIdx: Object.assign({}, s.subIdx, { [key]: i }), active: 0 }));
+    this._touched = true;
+    this.setState((s) => ({
+      subIdx: Object.assign({}, s.subIdx, { [key]: i }),
+      active: 0,
+      recall: Object.assign({}, s.recall, { [key]: 0 })
+    }));
     if (this.el) this.el.scrollTop = 0;
+  };
+
+  // Recipe accordion (reflow only): state.active doubles as "the open recipe", -1 = all closed,
+  // which collapses the subsection to a scannable list of titles.
+  openRecipe = (i) => (e) => {
+    const el = e && e.currentTarget;
+    const closing = this.state.active === i;
+    this.setState((s) => ({
+      active: closing ? -1 : i,
+      recall: Object.assign({}, s.recall, { [s.open]: closing ? -1 : i })
+    }), () => {
+      if (!el || closing) return;
+      requestAnimationFrame(() => {
+        const off = (this.props.stickyBand ?? true) ? 74 : 10;
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+      });
+    });
   };
 
   renderVals() {
@@ -571,27 +750,227 @@ class Component extends DCLogic {
     const scheme = String(this.props.colorScheme || '').charAt(0);
     const S = SCHEMES[scheme] || SCHEMES.A;
 
+    // Derive the regime from a live measurement on every render, so no render can ever paint a
+    // stale regime — state.mode is only a tie-breaker when nothing is measurable at all.
+    const w0 = this.measure();
+    const mode = w0 >= 200 ? this.regime(w0) : (this.state.mode || 'desktop');
+    const stack = mode === 'tablet' || mode === 'mobile';   // real reflow, one column
+    const mob = mode === 'mobile';
+    const tab = mode === 'tablet';
+    const vertSub = stack && String(this.props.mobileSubnav ?? 'V').charAt(0) !== 'S';
+    const accRec = stack && String(this.props.mobileRecipes ?? 'A').charAt(0) !== 'S';
+    const stickyB = stack && (this.props.stickyBand ?? true);
+    const R = {
+      stack: stack,
+      // Never wider than the frame: a mis-detected desktop verdict must not create a horizontal
+      // scroller. The scaled regime pins the shell to 1440px via applyScale instead.
+      shellMinW: '0',
+      track: stack ? '100%' : 'min(1440px, calc(100% - 80px))',
+      pad: mob ? '16px' : (tab ? '24px' : '42px'),
+      decoD: stack ? 'none' : 'block',
+      // Sticky section bands need an unclipped ancestor chain; decorations are off in reflow anyway.
+      vpOv: stack ? 'visible' : 'auto',
+      // clip, not hidden: it contains the rotated decoration corners without becoming a
+      // scroll container, so the sticky category spines keep working in reflow.
+      menuOv: 'clip',
+      editionD: mob ? 'none' : 'block',
+
+      // Hero: two columns while there is room, one column on mobile. On desktop the hero fills the
+      // viewport height and the whole grid is optically centred in it (the wrapper is a flex box);
+      // free content height stays the rule on mobile and wherever the content genuinely overflows.
+      heroMinH: stack ? '0' : '100vh',
+      // Top padding is deliberately larger than the bottom one: the mikser overshoots the top of
+      // the illustration group, so the optical centre of the composition sits above its box centre.
+      heroPad: mob ? '26px 16px 46px' : (tab ? '38px 24px 58px' : '72px 36px 48px'),
+      // The hero may run wider than the 1440 page track so the composition can breathe on big screens.
+      heroTrack: stack ? '100%' : 'min(1680px, calc(100% - 72px))',
+      heroCols: mob ? '1fr' : (tab ? '1fr 1fr' : '1fr 1.15fr'),
+      heroGap: mob ? '38px' : (tab ? '26px' : '44px'),
+      // Left column reads as three groups: eyebrow / (title + chips) / CTA. The middle group keeps
+      // its internal relation (heroCopyGap); the two outer gaps are controlled separately and follow
+      // viewport height, so a low desktop tightens instead of pushing the CTA out of view.
+      heroCopyGap: mob ? '22px' : (tab ? '24px' : '34px'),
+      // The three chips stay on one line at every width: on mobile the row uses the full text
+      // column and the chips get tighter padding and tracking instead of wrapping or scaling.
+      chipWrap: mob ? 'nowrap' : 'wrap',
+      chipGap: mob ? '7px' : '14px',
+      chipPad: mob ? '8px 6px' : '11px 22px',
+      chipFs: mob ? '11px' : '13px',
+      chipLs: mob ? '.03em' : '.16em',
+      // On mobile every chip grows through the leftover width, so the row spans the full content
+      // measure instead of three small pills pushed apart by justify-content.
+      chipFlex: mob ? '1 1 auto' : '0 0 auto',
+      // The middle group is shrink-to-fit on desktop (align-items:flex-start); on mobile it must
+      // stretch, otherwise the chips row inherits the width of the title and can never fill.
+      midSelf: mob ? 'stretch' : 'flex-start',
+      midW: mob ? '100%' : 'auto',
+      heroGapTop: mob ? '26px' : (tab ? '34px' : 'clamp(44px, 6.6vh, 80px)'),
+      heroGapBot: mob ? '30px' : (tab ? '36px' : 'clamp(44px, 6.6vh, 80px)'),
+      // Display type is bound by width AND viewport height, so a wide-but-low laptop shrinks it
+      // instead of pushing the CTA off screen. Eyebrow, chips and CTA keep their functional size.
+      h1Size: mob ? '46px' : (tab ? '46px' : 'clamp(64px, min(6.6vw, 10.2vh), 116px)'),
+      h2Size: mob ? '76px' : (tab ? '76px' : 'clamp(104px, min(11vw, 16.8vh), 190px)'),
+      // One local coordinate system per illustration group: the objects are placed in percentages
+      // of the group, so a narrower group is the same composition at a smaller size. On desktop the
+      // group is capped by available height, aiming at ~75-85% of the hero once overshoot is counted.
+      heroArtMaxW: mob ? '420px' : (tab ? '400px' : 'min(100%, 76vh, 960px)'),
+      // Every object is placed in percentages of the illustration group, so the same relations hold
+      // at every size: flower behind the lower half of the figure, atom in front at the bottom,
+      // mikser upper left, star pair upper right. Outer element = position, inner = rotation.
+      heroMixW: mob ? '32%' : (tab ? '33%' : '32%'),
+      heroMixL: mob ? '2%' : (tab ? '2%' : '3%'),
+      heroMixT: mob ? '-9%' : (tab ? '-10%' : '-12%'),
+      // Shifted ~6% of the group width to the left so the right side of the soup pot sits on the
+      // light hero ground and keeps its outline readable. Size, height and layer are unchanged.
+      flowerL: mob ? '24%' : (tab ? '25%' : '26%'),
+      flowerT: mob ? '36%' : (tab ? '35%' : '33%'),
+      flowerW: mob ? '68%' : (tab ? '70%' : '76%'),
+      starPairR: mob ? '-2%' : (tab ? '-3%' : '-5%'),
+      starPairT: mob ? '-2%' : (tab ? '-3%' : '-5%'),
+      starPairW: mob ? '32%' : (tab ? '34%' : '37%'),
+      atomL: mob ? '44%' : (tab ? '43%' : '42%'),
+      atomT: mob ? '64%' : (tab ? '63%' : '62%'),
+      atomW: mob ? '30%' : (tab ? '32%' : '34%'),
+
+      footCols: mob ? '1fr' : (tab ? '1fr 1fr' : '1.04fr 1fr'),
+      footGap: mob ? '38px' : (tab ? '26px' : '52px'),
+      footCopyGap: mob ? '22px' : (tab ? '24px' : '30px'),
+
+      tickerSize: mob ? '20px' : (tab ? '26px' : '34px'),
+      twoCol: stack ? '1fr' : '1fr 1fr',
+      introPad: mob ? '44px var(--pad) 52px' : (tab ? '64px var(--pad) 72px' : '96px 42px 104px'),
+      introGap: stack ? '30px' : '80px',
+      introRightPt: stack ? '0' : '70px',
+      introH: mob ? '23px' : (tab ? '27px' : '32px'),
+      introBody: mob ? '17px' : (tab ? '18px' : '20px'),
+
+      menuPad: mob ? '22px 0 60px' : (tab ? '36px 0 90px' : '56px 0 190px'),
+      teaserRowPt: stack ? '0' : '60px',
+      teaserMb: mob ? '44px' : (tab ? '30px' : '80px'),
+      labelSize: mob ? '66px' : (tab ? '74px' : '132px'),
+
+      accDir: stack ? 'column' : 'row',
+      accGap: stack ? '12px' : '0',
+      accH: stack ? 'auto' : (this.props.panelHeight ?? 910) + 'px',
+      catDir: stack ? 'column' : 'row',
+
+      panelMl: stack ? '0' : '-3px',
+      panelMt: stack ? '-3px' : '0',
+      panelDir: stack ? 'column' : 'row',
+      panelShadow: stack ? '5px 5px 0 var(--csm-ink)' : '10px 10px 0 var(--csm-ink)',
+
+      subColW: stack ? '100%' : '238px',
+      subColDir: (stack && !vertSub) ? 'row' : 'column',
+      subW: (stack && !vertSub) ? 'auto' : '100%',
+      subGap: vertSub ? '10px' : '8px',
+      subPad: vertSub ? '14px 14px' : '11px 12px',
+      subColBR: stack ? 'none' : '3px solid var(--csm-ink)',
+      subColBB: stack ? '3px solid var(--csm-ink)' : 'none',
+      subColPad: stack ? (vertSub ? '16px var(--pad)' : '12px var(--pad)') : '20px 16px',
+      subColOX: (stack && !vertSub) ? 'auto' : 'visible',
+      subColOY: stack ? 'hidden' : 'auto',
+      eyebrowD: (stack && !vertSub) ? 'none' : 'block',
+      subNowrap: (stack && !vertSub) ? 'nowrap' : 'normal',
+      dotsD: stack ? 'none' : 'flex',
+
+      scrWrapFlex: stack ? 'none' : '1',
+      scrWrapPos: stack ? 'static' : 'relative',
+      scrWrapOv: stack ? 'visible' : 'hidden',
+      scrPos: stack ? 'static' : 'absolute',
+      scrOv: stack ? 'visible' : 'auto',
+      scrPad: mob ? '14px 12px 24px' : (tab ? '18px 18px 30px' : '24px 26px 40px'),
+      scrGap: stack ? '16px' : '30px',
+      fadeD: stack ? 'none' : 'block',
+
+      cardPad: mob ? '16px 15px' : (tab ? '20px 22px' : '22px 26px'),
+      titleSize: mob ? (accRec ? '22px' : '26px') : (tab ? (accRec ? '26px' : '30px') : '36px'),
+      titleLH: stack ? '1.08' : '.95',
+      accSignD: accRec ? 'flex' : 'none',
+      accRowMinH: accRec ? '44px' : '0',
+      bodyDir: stack ? 'column' : 'row',
+      bodyGap: stack ? '18px' : '34px',
+      descFlex: stack ? '0 0 auto' : '1 1 340px',
+      pieFlex: stack ? '0 0 auto' : '1 1 300px',
+      descOrder: stack ? '2' : '0',
+      pieOrder: stack ? '1' : '0',
+      pieMaxW: stack ? 'none' : '330px',
+      ctaPad: mob ? '14px 18px' : '16px 26px',
+      ctaSize: mob ? '12px' : '14px',
+      ctaLabel: mob ? 'PUT DO TANJURA' : 'PUT DO TANJURA — COOLINARIKA.COM',
+
+      // This section sits outside the shell that defines --track/--pad, so the working width is
+      // declared locally: full-bleed background, centred 1440 container, 42px inner padding on
+      // desktop (16/24 in reflow), outer margins growing on big screens.
+      bonusInnerPad: mob ? '0 16px' : (tab ? '0 24px' : '0 42px'),
+      bonusPad: mob ? '0 0 60px' : (tab ? '0 0 90px' : '0 0 190px'),
+      bonusMt: mob ? '54px' : (tab ? '80px' : '150px'),
+      cardsCols: mob ? '1fr' : (tab ? 'repeat(2,1fr)' : 'repeat(4,1fr)'),
+      cardH: mob ? '235px' : '280px',
+
+      footPad: mob ? '40px 16px 28px' : (tab ? '56px 24px 30px' : '70px 60px 34px'),
+      footArtMaxW: mob ? '420px' : (tab ? '400px' : '640px'),
+      footH1: mob ? '46px' : (tab ? '46px' : '70px'),
+      footH2: mob ? '76px' : (tab ? '76px' : '118px'),
+      footSigMt: mob ? '30px' : '44px',
+      // On mobile the group is ~390px wide: the two big spinners would swallow Coolie's face.
+      footDecoD: mob ? 'none' : 'block',
+
+      // Accordion decorations: fixed group widths, anchored to the accordion's own edges.
+      accDecoD: mob ? 'none' : 'block',
+      // Space available beside the accordion box. The groups keep a 20px gap while it fits,
+      // then slide under the accordion — never past the page edge, so no horizontal scroll.
+      decoSide: stack
+        ? 'var(--pad)'
+        : 'max(0px, calc((var(--shellw, 100vw) - min(1440px, var(--shellw, 100vw) - 80px)) / 2 + var(--pad)))',
+      decoLW: tab ? '130px' : '190px',
+      decoRW: tab ? '120px' : '172px',
+      decoLTop: tab ? '58%' : '62%',
+      // The group stays anchored to the accordion's left edge; only the mlinac itself is nudged up,
+      // and its relative offset leaves the absolutely placed star where it is.
+      mlinacUp: tab ? '-30px' : '-55px',
+      decoRTop: tab ? '8%' : '6%'
+    };
+
     const anyOpen = data.some((c) => c.key === openKey && c.subs.length > 0);
+
+    const reduceMotion = typeof window !== 'undefined' && window.matchMedia
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
     const cats = data.map((c, ci) => {
       const has = c.subs.length > 0;
       const isOpen = c.key === openKey && has;
-      const inert = isOpen || !has;
+      const inert = stack ? !has : (isOpen || !has);
       const si = this.state.subIdx[c.key] || 0;
       const color = S.cat[ci] || c.color;
       const fg = S.fg[ci] || c.fg;
       return {
-        spineW: anyOpen ? '58px' : '100%',
+        spineW: stack ? '100%' : (anyOpen ? '58px' : '100%'),
+        spineDir: stack ? 'row' : 'column',
+        spinePos: (stickyB && isOpen) ? 'sticky' : 'static',
+        spineTop: (stickyB && isOpen) ? '0' : 'auto',
+        spineZ: (stickyB && isOpen) ? '6' : 'auto',
+        spinePad: stack ? '14px 16px' : '14px 0 16px',
+        spineGap: stack ? '14px' : '0',
+        midJustify: stack ? 'flex-start' : 'center',
+        // The title lifts, the bar does not: hover is detected on the immobile spine (pointer state),
+        // so the moving title can never pull the cursor out from under itself. Mouse only, so a tap
+        // leaves no stuck hover. No focus/outline state here — keyboard focus stays with :focus-visible.
+        titleT: (!stack && !reduceMotion && this.state.spineHover === c.key) ? 'translateY(-11px)' : 'none',
+        onEnter: (e) => { if (e.pointerType === 'mouse' && this.state.spineHover !== c.key) this.setState({ spineHover: c.key }); },
+        onLeave: () => { if (this.state.spineHover === c.key) this.setState({ spineHover: null }); },
+        labelWM: stack ? 'horizontal-tb' : 'vertical-rl',
+        labelRot: stack ? 'none' : 'rotate(180deg)',
+        labelSize: stack ? '15px' : '18px',
         key: c.key, num: c.num, label: c.label, color: color, fg: fg,
         hover: inert ? color : lighten(color),
         open: isOpen,
-        sign: '+',
-        signOp: inert ? '.3' : '1',
+        sign: stack && isOpen ? '−' : '+',
+        signOp: stack ? '1' : (inert ? '.3' : '1'),
         cursor: inert ? 'default' : 'pointer',
-        flex: anyOpen ? (isOpen ? '1 1 auto' : '0 0 auto') : '1 1 0',
-        ml: ci === 0 ? '0' : '-3px',
-        radius: ci === 0 ? '14px 0 0 14px' : (ci === data.length - 1 ? '0 14px 14px 0' : '0'),
-        toggle: has ? () => this.toggle(c.key) : () => {},
+        flex: stack ? '0 0 auto' : (anyOpen ? (isOpen ? '1 1 auto' : '0 0 auto') : '1 1 0'),
+        ml: stack ? '0' : (ci === 0 ? '0' : '-3px'),
+        radius: stack ? '10px' : (ci === 0 ? '14px 0 0 14px' : (ci === data.length - 1 ? '0 14px 14px 0' : '0')),
+        toggle: has ? this.toggle(c.key) : () => {},
         subs: c.subs.map((s, i) => ({
           label: s.label, count: s.count, active: i === si,
           bg: i === si ? (needsInvert(color) ? fg : INK) : 'transparent',
@@ -606,11 +985,18 @@ class Component extends DCLogic {
     const list = sub ? sub.recipes : [];
     this.recipeCount = list.length;
 
-    const a = Math.min(this.state.active, Math.max(0, list.length - 1));
+    const a = Math.min(Math.max(0, this.state.active), Math.max(0, list.length - 1));
     const left = Math.max(0, list.length - 1 - a);
     const noun = left === 1 ? 'RECEPT' : (left < 5 ? 'RECEPTA' : 'RECEPATA');
 
-    const recipes = list.map((r) => Object.assign({}, r, {
+    const recipes = list.map((r, i) => Object.assign({}, r, {
+      open: accRec ? i === this.state.active : true,
+      gap: (accRec && i !== this.state.active) ? '0' : '16px',
+      sign: (accRec && i === this.state.active) ? '−' : '+',
+      signBg: (accRec && i === this.state.active) ? INK : 'transparent',
+      signFg: (accRec && i === this.state.active) ? '#FFFFFF' : INK,
+      cursor: accRec ? 'pointer' : 'default',
+      toggle: accRec ? this.openRecipe(i) : () => {},
       pie: Object.assign({}, r.pie, {
         t1: 'translateX(-50%) rotate(' + r.pie.rot1 + ')',
         t2: 'translateX(-50%) rotate(' + r.pie.rot2 + ')',
@@ -618,7 +1004,7 @@ class Component extends DCLogic {
       })
     }));
 
-    return {
+    return Object.assign({}, R, {
       handleScroll: this.handleScroll,
       cats, recipes,
       paper: S.paper, band: S.band, labelColor: S.labelColor,
@@ -632,17 +1018,19 @@ class Component extends DCLogic {
       bandGrid: 'repeating-linear-gradient(0deg,' + S.gridLine + ' 0 1px,transparent 1px ' + S.gridStep + '),' +
                 'repeating-linear-gradient(90deg,' + S.gridLine + ' 0 1px,transparent 1px ' + S.gridStep + ')',
       tickerBg: S.tickerBg, tickerText: S.tickerText, tickerSep: S.tickerSep, coolieBg: S.coolieBg, labelStroke: S.labelStroke, recipeNum: S.recipeNum,
-      openTitle: openCat ? openCat.label.charAt(0) + openCat.label.slice(1).toLowerCase() : '',
-      pieBox: pie + 'px',
+      openTitle: openCat ? openCat.label.charAt(0) + openCat.label.slice(1).toLowerCase() : (stack ? 'Menu' : ''),
+      pieBox: stack ? (mob ? '290px' : '320px') : pie + 'px',
       panelHeight: (this.props.panelHeight ?? 910) + 'px',
-      labelPad: (openCat ? (data.indexOf(openCat) + 1) * SPINE_STEP + PANEL_TO_TEXT - SIDE_BEARING : 0) + 'px',
+      labelPad: stack ? '0' : (openCat ? (data.indexOf(openCat) + 1) * SPINE_STEP + PANEL_TO_TEXT - SIDE_BEARING : 0) + 'px',
       counterText: (sub ? sub.label.toUpperCase() + '  ·  ' : '') + (a + 1) + ' / ' + list.length,
       dots: list.map((_, i) => ({ bg: i === a ? 'var(--csm-ink)' : 'transparent' })),
       showBadge: left > 0,
       badgeText: 'JOŠ ' + left + ' ' + noun + ' ↓',
-      endText: 'TO JE SVIH ' + list.length + ' · ODABERI DRUGO STANJE LIJEVO',
+      endText: 'TO JE SVIH ' + list.length + (stack ? ' · ODABERI DRUGO STANJE GORE' : ' · ODABERI DRUGO STANJE LIJEVO'),
       setScroller: this.setScroller,
-      setViewport: this.setViewport,
+      setGauge: this.setGauge,
+      setStage: this.setStage,
+      setStageWrap: this.setStageWrap,
       setShell: this.setShell,
       cards: CARDS.map((c, i) => {
         const fill = [S.cat[0], S.cat[2], S.cat[3], S.cat[1], S.cat[3], S.cat[1], S.cat[0], S.cat[2]][i];
@@ -656,12 +1044,15 @@ class Component extends DCLogic {
           section: cat ? cat.label + ' · ' + (c.subLabel || (sub ? sub.label.toUpperCase() : '')) : '',
           recipe: rec ? rec.title : '',
           flip: this.state.flipped === i ? 'rotateY(180deg)' : 'rotateY(0deg)',
-          enter: () => this.setState({ flipped: i }),
-          leave: () => this.setState({ flipped: null }),
-          go: () => this.openTarget(c.cat, c.sub, c.rec)
+          // No hover on touch: first tap turns the card, second keeps the promise on its back.
+          enter: stack ? () => {} : () => this.setState({ flipped: i }),
+          leave: stack ? () => {} : () => this.setState({ flipped: null }),
+          go: stack
+            ? () => { if (this.state.flipped === i) this.openTarget(c.cat, c.sub, c.rec); else this.setState({ flipped: i }); }
+            : () => this.openTarget(c.cat, c.sub, c.rec)
         };
       })
-    };
+    });
   }
 }
 </script>
