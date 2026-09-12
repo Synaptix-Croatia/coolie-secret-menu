@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="hr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<title>Coolie Secret Menu — 110 rješenja za svaku situaciju u tvom danu | Coolinarika</title>
+<meta name="description" content="Coolie Secret Menu: 110 rješenja za svaku situaciju u tvom danu i 210 foodhackova koji mijenjaju sve. Brzo, jednostavno, balansirano — Coolie by Coolinarika i nutricionistica Sandra Krstev Barać.">
+<!-- LAUNCH ITEM: once the exact Coolinarika page URL is known, add with absolute URLs:
+       <link rel="canonical" href="https://www.coolinarika.com/PATH/">
+       <meta property="og:url" content="https://www.coolinarika.com/PATH/">
+       <meta property="og:image" content="https://www.coolinarika.com/PATH-TO-1200x630-image.jpg">
+       <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630">
+       <meta property="og:image:alt" content="Coolie Secret Menu"> -->
+<meta name="theme-color" content="#E8E8F0">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hr_HR">
+<meta property="og:site_name" content="Coolinarika">
+<meta property="og:title" content="Coolie Secret Menu">
+<meta property="og:description" content="110 rješenja za svaku situaciju u tvom danu. 210 foodhackova koji mijenjaju sve. Brzo, jednostavno, balansirano.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/REMOCK.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/fonts.css">
 <link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/colors.css">
 <link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/typography.css">
@@ -16,108 +27,137 @@
 <link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/motion.css">
 <link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/patterns.css">
 <link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/tokens/base.css">
-<link rel="stylesheet" href="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/styles.css">
-<script src="_ds/coolie-secret-menu-002-9a775db2-813b-4fcf-8bb0-356ae10cb259/_ds_bundle.js"></script>
-<script src="data/coolie-recipes.js"></script>
 <style>
 body{margin:0;background:var(--csm-paper)}
 a{color:var(--text-link);text-decoration:none}
 a:hover{color:var(--text-link-hover)}
 @keyframes csm-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes csm-tick-enter{from{transform:translateX(100vw)}to{transform:translateX(0)}}
 @keyframes csm-bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-16px) rotate(var(--r,0deg))}}
 @font-face{font-family:'Remock';src:url('assets/fonts/REMOCK.ttf') format('truetype');font-weight:400;font-display:swap}
+
+/* Production accessibility helpers. Semantic elements (h1–h4, p, ul, button) carry the same inline
+   styles the approved divs had; these resets only neutralise UA / base.css defaults so the switch
+   from div to native element is visually a no-op. */
+.csm-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.csm-reset{margin:0;padding:0;font:inherit;letter-spacing:inherit;line-height:inherit;text-transform:none;color:inherit}
+.csm-list{list-style:none;margin:0;padding:0}
+.csm-btn{-webkit-appearance:none;appearance:none;margin:0;padding:0;border:0;border-radius:0;background:none;font:inherit;color:inherit;letter-spacing:inherit;line-height:inherit;text-align:inherit;text-transform:inherit}
+/* Focus: an ink ring reads on every surface of scheme E (violet fails 3:1 on candy and lilac). */
+.csm-root :focus-visible{outline:3px solid var(--csm-ink);outline-offset:3px}
+.csm-root .csm-focus-inset:focus-visible{outline-offset:-9px}
+.csm-root .csm-focus-lime:focus-visible{outline-color:var(--csm-lime)}
+/* "Pauziraj animacije" — freezes every looping animation in place. */
+.csm-paused *,.csm-paused *::before,.csm-paused *::after{animation-play-state:paused!important}
 </style>
-</helmet>
+<!-- An empty resource map is the dc-runtime's hook for "this is a built page": it stops the runtime
+     from fetching index.html a second time to re-read its own template. -->
+<script>window.__resources = {};</script>
+<!-- React / ReactDOM 18.3.1, self-hosted: byte-identical to the builds pinned in support.js (SHA-384 verified).
+     Loaded before support.js, so the runtime finds window.React / window.ReactDOM and requests nothing external. -->
+<script src="assets/vendor/react.production.min.js"></script>
+<script src="assets/vendor/react-dom.production.min.js"></script>
+<script src="data/coolie-recipes.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<noscript><p style="font-family:Roboto,Helvetica,Arial,sans-serif;padding:24px">Coolie Secret Menu — za prikaz menija potreban je JavaScript.</p></noscript>
+<x-dc>
 
 <div ref="{{ setGauge }}" style="width:100%">
-<div ref="{{ setShell }}" style="width: 100%; min-width: {{ shellMinW }}; --hs: 1; --pad: {{ pad }}; --track: {{ track }}; --gutter: max(40px, calc((100vw - min(1440px, calc(100vw - 80px))) / 2)); font-family: 'Roboto',sans-serif; color: var(--csm-ink); --macro-p: {{ macroP }}; --macro-c: {{ macroC }}; --macro-f: {{ macroF }}; --macro-p-text: {{ macroPText }}; --macro-c-text: {{ macroCText }}; --macro-f-text: {{ macroFText }}; background: {{ paper }}">
+<div ref="{{ setShell }}" class="{{ rootClass }}" style="width: 100%; min-width: {{ shellMinW }}; --hs: 1; --pad: {{ pad }}; --track: {{ track }}; --gutter: max(40px, calc((100vw - min(1440px, calc(100vw - 80px))) / 2)); font-family: 'Roboto',sans-serif; color: var(--csm-ink); --macro-p: {{ macroP }}; --macro-c: {{ macroC }}; --macro-f: {{ macroF }}; --macro-p-text: {{ macroPText }}; --macro-c-text: {{ macroCText }}; --macro-f-text: {{ macroFText }}; background: {{ paper }}">
 
 
-  <div style="position:relative;background-image:radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px);background-size:18px 18px;background-color:{{ band }};border-bottom:3px solid var(--csm-ink);overflow:hidden;min-height:{{ heroMinH }};box-sizing:border-box;display:flex;align-items:center;justify-content:center">
+  <header style="position:relative;background-image:radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px);background-size:18px 18px;background-color:{{ band }};border-bottom:3px solid var(--csm-ink);overflow:hidden;min-height:{{ heroMinH }};box-sizing:border-box;display:flex;align-items:center;justify-content:center">
     <div style="width:{{ heroTrack }};max-width:100%;flex:0 1 auto;margin:0 auto;padding:{{ heroPad }};box-sizing:border-box">
       <div style="display:grid;grid-template-columns:{{ heroCols }};gap:{{ heroGap }};align-items:center">
 
       <div style="display:flex;flex-direction:column;align-items:flex-start;min-width:0">
-        <div style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:10px 20px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.18em;transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</div>
+        <p class="csm-reset" style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:10px 20px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.18em;transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</p>
         <div style="display:flex;flex-direction:column;align-items:flex-start;align-self:{{ midSelf }};width:{{ midW }};box-sizing:border-box;gap:{{ heroCopyGap }};margin-top:{{ heroGapTop }};margin-bottom:{{ heroGapBot }}">
-        <div style="display:flex;flex-direction:column;align-items:flex-start">
-          <div style="font-weight:800;font-size:{{ h1Size }};line-height:.9;letter-spacing:-.045em;color:var(--csm-ink)">Coolie</div>
-          <div style="font-family:'Remock',sans-serif;font-size:{{ h2Size }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">SECRET</div>
-          <div style="font-family:'Remock',sans-serif;font-size:{{ h2Size }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">MENU</div>
-        </div>
-        <div data-name="Hero — Chips row" style="display:flex;gap:{{ chipGap }};align-items:center;flex-wrap:{{ chipWrap }};width:100%;max-width:100%;box-sizing:border-box">
+        <h1 class="csm-reset" style="display:flex;flex-direction:column;align-items:flex-start">
+          <span style="display:block;font-weight:800;font-size:{{ h1Size }};line-height:.9;letter-spacing:-.045em;color:var(--csm-ink)">Coolie</span>
+          <span style="display:block;font-family:'Remock',sans-serif;font-size:{{ h2Size }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">SECRET</span>
+          <span style="display:block;font-family:'Remock',sans-serif;font-size:{{ h2Size }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">MENU</span>
+        </h1>
+        <p class="csm-reset" data-name="Hero — Chips row" style="display:flex;gap:{{ chipGap }};align-items:center;flex-wrap:{{ chipWrap }};width:100%;max-width:100%;box-sizing:border-box">
           <span style="background:{{ shp3 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:{{ chipPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ chipFs }};letter-spacing:{{ chipLs }};white-space:nowrap;text-align:center;flex:{{ chipFlex }};transform:rotate(-2deg)">BRZO.</span>
           <span style="background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:{{ chipPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ chipFs }};letter-spacing:{{ chipLs }};white-space:nowrap;text-align:center;flex:{{ chipFlex }};transform:rotate(1.5deg)">JEDNOSTAVNO.</span>
           <span style="background:{{ shp2 }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:{{ chipPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ chipFs }};letter-spacing:{{ chipLs }};white-space:nowrap;text-align:center;flex:{{ chipFlex }};transform:rotate(-1deg)">BALANSIRANO.</span>
-        </div>
+        </p>
         </div>
         <a href="#menu" style="display:flex;align-items:center;gap:16px;background:{{ ctaBg }};border:3px solid var(--csm-ink);border-radius:999px;box-shadow:8px 8px 0 var(--csm-ink);padding:16px 20px 16px 30px;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--csm-ink)">
           <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;letter-spacing:.16em;color:{{ ctaFg }}">UĐI U MENU</span>
-          <span style="width:38px;height:38px;flex:none;background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:var(--csm-ink)">↓</span>
+          <span aria-hidden="true" style="width:38px;height:38px;flex:none;background:{{ shp1 }};border:3px solid var(--csm-ink);border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:var(--csm-ink)">↓</span>
         </a>
       </div>
 
       <div style="position:relative;width:100%;max-width:{{ heroArtMaxW }};aspect-ratio:1 / 1;margin:0 auto;justify-self:end">
         <div data-name="Hero — Flower position" style="position:absolute;left:{{ flowerL }};top:{{ flowerT }};width:{{ flowerW }};z-index:0">
-          <svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:{{ shp4 }};animation:csm-spin 60s linear infinite"><path d="M276.04,163c72.07-174-144.14-174-72.07,0-72.07-174-224.96-21.11-50.96,50.96-174-72.07-174,144.14,0,72.07-174,72.07-21.11,224.96,50.96,50.96-72.07,174,144.14,174,72.07,0,72.07,174,224.96,21.11,50.96-50.96,174,72.07,174-144.14,0-72.07,174-72.07,21.11-224.96-50.96-50.96Z"></path></svg>
+          <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="display:block;width:100%;height:auto;color:{{ shp4 }};animation:csm-spin 60s linear infinite"><path d="M276.04,163c72.07-174-144.14-174-72.07,0-72.07-174-224.96-21.11-50.96,50.96-174-72.07-174,144.14,0,72.07-174,72.07-21.11,224.96,50.96,50.96-72.07,174,144.14,174,72.07,0,72.07,174,224.96,21.11,50.96-50.96,174,72.07,174-144.14,0-72.07,174-72.07,21.11-224.96-50.96-50.96Z"></path></svg>
         </div>
-        <img src="assets/character/coolie-crop-01.webp" alt="Coolie" style="position:absolute;left:16%;top:7%;width:68%;height:auto;z-index:2">
+        <img src="assets/character/coolie-crop-01.webp" alt="Coolie, virtualni kulinarski asistent." width="878" height="1059" fetchpriority="high" style="position:absolute;left:16%;top:7%;width:68%;height:auto;z-index:2">
         <div style="position:absolute;left:{{ heroMixL }};top:{{ heroMixT }};width:{{ heroMixW }};z-index:3">
-          <img src="assets/y2k/mikser-ljubicasti.webp" alt="" style="display:block;width:100%;height:auto;--r:-17deg;animation:csm-bob 10s ease-in-out infinite">
+          <img src="assets/y2k/mikser-ljubicasti.webp" alt="Retro ručni mikser u ljubičastim tonovima." width="612" height="720" style="display:block;width:100%;height:auto;--r:-17deg;animation:csm-bob 10s ease-in-out infinite">
         </div>
         <div style="position:absolute;left:-1%;top:60%;width:29.7%;z-index:4">
-          <img src="assets/y2k/vaga-ljubicasta.webp" alt="" style="display:block;width:100%;height:auto;--r:-11deg;animation:csm-bob 8.5s ease-in-out infinite">
+          <img src="assets/y2k/vaga-ljubicasta.webp" alt="Retro kuhinjska vaga u ljubičastim tonovima." width="700" height="700" style="display:block;width:100%;height:auto;--r:-11deg;animation:csm-bob 8.5s ease-in-out infinite">
         </div>
         <div style="position:absolute;right:1%;top:64%;width:31%;z-index:4">
-          <img src="assets/y2k/lonac-juha.webp" alt="" style="display:block;width:100%;height:auto;--r:7deg;animation:csm-bob 9.5s ease-in-out infinite">
+          <img src="assets/y2k/lonac-juha.webp" alt="Posuda juhe sa žlicom u ljubičastim tonovima." width="1254" height="1254" style="display:block;width:100%;height:auto;--r:7deg;animation:csm-bob 9.5s ease-in-out infinite">
         </div>
         <div style="position:absolute;right:{{ starPairR }};top:{{ starPairT }};width:{{ starPairW }};aspect-ratio:1 / 1;z-index:5">
-          <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;right:0%;top:0%;width:76%;color:var(--csm-ink);animation:csm-spin 26s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
-          <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;left:0%;top:30%;width:58%;color:{{ shp3 }};animation:csm-spin 21s linear infinite"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
+          <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="position:absolute;right:0%;top:0%;width:76%;color:var(--csm-ink);animation:csm-spin 26s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
+          <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="position:absolute;left:0%;top:30%;width:58%;color:{{ shp3 }};animation:csm-spin 21s linear infinite"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
         </div>
         <div style="position:absolute;left:{{ atomL }};top:{{ atomT }};width:{{ atomW }};z-index:9">
-          <svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:var(--csm-acid);animation:csm-spin 30s linear infinite reverse"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
+          <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="display:block;width:100%;height:auto;color:var(--csm-acid);animation:csm-spin 30s linear infinite reverse"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
         </div>
       </div>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div style="position: relative; background-color: {{ endBand }}; background-image: {{ bandGrid }}; overflow: hidden">
+  <main>
+  <section aria-labelledby="csm-intro-title" style="position: relative; background-color: {{ endBand }}; background-image: {{ bandGrid }}; overflow: hidden">
 
     <div style="position: relative; width: 100%; background: var(--csm-ink); overflow: hidden; padding: 18px 0">
-      <div style="display:flex;width:max-content;animation:csm-tick 30s linear infinite;font-weight:800;font-size:{{ tickerSize }};letter-spacing:-.015em;color:#FFFFFF;white-space:nowrap">
-        <div style="display:flex;gap:64px;width:max-content;flex:none;padding-right:64px"><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span></div>
-        <div style="display:flex;gap:64px;width:max-content;flex:none;padding-right:64px"><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 220 foodhackova koji mijenjaju sve.</span></div>
+      <p class="csm-sr-only">110 rješenja za svaku situaciju u tvom danu. 210 foodhackova koji mijenjaju sve.</p>
+      <div aria-hidden="true" style="display:flex;width:max-content;animation:csm-tick 30s linear infinite;font-weight:800;font-size:{{ tickerSize }};letter-spacing:-.015em;color:#FFFFFF;white-space:nowrap">
+        <div style="display:flex;gap:64px;width:max-content;flex:none;padding-right:64px"><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 210 foodhackova koji mijenjaju sve.</span><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 210 foodhackova koji mijenjaju sve.</span></div>
+        <div style="display:flex;gap:64px;width:max-content;flex:none;padding-right:64px"><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 210 foodhackova koji mijenjaju sve.</span><span>• 110 rješenja za svaku situaciju u tvom danu.</span><span>• 210 foodhackova koji mijenjaju sve.</span></div>
       </div>
+      <button type="button" data-csm-new="" class="csm-btn csm-focus-lime" onClick="{{ togglePause }}" aria-label="{{ pauseLabel }}" title="{{ pauseLabel }}" style="position:absolute;top:50%;right:var(--pad);transform:translateY(-50%);z-index:2;width:40px;height:40px;box-sizing:border-box;border-radius:999px;background:var(--csm-acid);border:3px solid var(--csm-ink);box-shadow:0 0 0 8px var(--csm-ink);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--csm-ink)">
+        <sc-if value="{{ !paused }}"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false" style="display:block"><path d="M4 2.5h2.8v11H4zM9.2 2.5H12v11H9.2z" fill="currentColor"></path></svg></sc-if>
+        <sc-if value="{{ paused }}"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false" style="display:block"><path d="M5 2.5l8.5 5.5L5 13.5z" fill="currentColor"></path></svg></sc-if>
+      </button>
     </div>
 
     <div style="display:{{ decoD }};position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
       <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
         <div style="position: absolute; top: 50%; right: calc(-1 * max(200px, min(200px + (var(--gutter) - 40px) * 0.5, var(--gutter) / 2 + 140px))); width: 240px; transform: translateY(-50%)">
-          <img src="assets/y2k/toster.webp" alt="" style="display: block; width: 100%; height: auto; --r: -8deg; animation: csm-bob 11s ease-in-out infinite">
+          <img src="assets/y2k/toster.webp" alt="Retro toster u ljubičastim tonovima." width="700" height="875" loading="lazy" style="display: block; width: 100%; height: auto; --r: -8deg; animation: csm-bob 11s ease-in-out infinite">
         </div>
-        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;bottom:-90px;left:calc(-1 * max(85px, min(85px + (var(--gutter) - 40px) * 0.7, var(--gutter) / 2 + 130px)));width:260px;color:{{ accent }};animation:csm-spin 26s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
+        <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="position:absolute;bottom:-90px;left:calc(-1 * max(85px, min(85px + (var(--gutter) - 40px) * 0.7, var(--gutter) / 2 + 130px)));width:260px;color:{{ accent }};animation:csm-spin 26s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
       </div>
     </div>
 
     <div style="position:relative;z-index:1;width:var(--track);margin:0 auto;padding:{{ introPad }};box-sizing:border-box;display:grid;grid-template-columns:{{ twoCol }};gap:{{ introGap }};align-items:start">
       <div style="display:flex;flex-direction:column;gap:26px">
-        <div style="align-self:flex-start;background:{{ accent }};border:3px solid var(--csm-ink);border-radius:999px;padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--csm-ink)">ŠTO DANAS KUHAŠ?</div>
-        <div style="font-weight:800;font-size:{{ introH }};line-height:1.35;letter-spacing:-.005em;color:var(--csm-ink);text-wrap:pretty">Kasniš, a već te lovi glad? Trebaš više proteina i vlakana da ne zaspiš nad tipkovnicom? Želiš da Air fryer odradi sav posao dok ti odmaraš? Trebaš jači gut-brain connection? Tražiš laganu večeru s malo sastojaka? Planiraš nedjeljni ručak za cijelu obitelj?</div>
+        <h2 id="csm-intro-title" class="csm-reset" style="align-self:flex-start;background:{{ accent }};border:3px solid var(--csm-ink);border-radius:999px;padding:11px 22px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--csm-ink)">ŠTO DANAS KUHAŠ?</h2>
+        <p class="csm-reset" style="font-weight:800;font-size:{{ introH }};line-height:1.35;letter-spacing:-.005em;color:var(--csm-ink);text-wrap:pretty">Kasniš, a već te lovi glad? Trebaš više proteina i vlakana da ne zaspiš nad tipkovnicom? Želiš da Air fryer odradi sav posao dok ti odmaraš? Trebaš jači gut-brain connection? Tražiš laganu večeru s malo sastojaka? Planiraš nedjeljni ručak za cijelu obitelj?</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 22px; padding-top: {{ introRightPt }}">
-        <div style="font-size:{{ introBody }};line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Najvažniji meni ove sezone skuhali su <strong>Coolie by Coolinarika</strong> i vodeća hrvatska nutricionistica <strong>Sandra Krstev Barać</strong>, osnivačica Funkcionalne medicine.</div>
-        <div style="font-size:{{ introBody }};line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Brzo, jednostavno, balansirano. Vlakna, proteini, ugljikohidrati, vitamini. Svi nude recepte, a Coolie ti donosi rješenje za problem, intent i trenutak.</div>
+        <p class="csm-reset" style="font-size:{{ introBody }};line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Najvažniji meni ove sezone skuhali su <strong>Coolie by Coolinarika</strong> i vodeća hrvatska nutricionistica <strong>Sandra Krstev Barać</strong>, osnivačica Funkcionalne medicine.</p>
+        <p class="csm-reset" style="font-size:{{ introBody }};line-height:1.55;color:var(--csm-ink);text-wrap:pretty">Brzo, jednostavno, balansirano. Vlakna, proteini, ugljikohidrati, vitamini. Svi nude recepte, a Coolie ti donosi rješenje za problem, intent i trenutak.</p>
       </div>
     </div>
-  </div>
+  </section>
 
   <div ref="{{ setStageWrap }}" style="width:100%">
   <div ref="{{ setStage }}" style="width:100%">
-  <div id="menu" style="position:relative;background-image:radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px);background-size:18px 18px;background-color:{{ band }};border-bottom:3px solid var(--csm-ink);padding:{{ menuPad }};overflow:{{ menuOv }}">
-    <div style="display:{{ decoD }};position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <section id="menu" aria-labelledby="csm-menu-title" style="position:relative;scroll-margin-top:{{ menuScrollMargin }};background-image:radial-gradient(rgba(20,26,27,.20) 1.6px,transparent 1.7px);background-size:18px 18px;background-color:{{ band }};border-bottom:3px solid var(--csm-ink);padding:{{ menuPad }};overflow:{{ menuOv }}">
+    <h2 id="csm-menu-title" class="csm-sr-only">Menu</h2>
+    <div aria-hidden="true" style="display:{{ decoD }};position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden">
       <div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:var(--track)">
         
         <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;top:36px;right:calc(-1 * max(80px, min(80px + (var(--gutter) - 40px) * 0.7, var(--gutter) / 2 + 125px)));width:250px;color:var(--csm-ink);animation:csm-spin 19s linear infinite reverse"><path d="M341.15,355.56l70.52,50.11-50.11-70.52c-37.93-53.38-37.93-124.92,0-178.3l50.11-70.52-70.52,50.11c-53.38,37.93-124.92,37.93-178.3,0l-70.52-50.11,50.11,70.52c37.93,53.38,37.93,124.92,0,178.3l-50.11,70.52,70.52-50.11c53.38-37.93,124.92-37.93,178.3,0Z"></path><path d="M252.35,387.25l23.28,83.32,5.43-86.34c4.11-65.36,49.12-120.96,112.19-138.58l83.32-23.28-86.34-5.43c-65.36-4.11-120.96-49.12-138.58-112.19l-23.28-83.32-5.43,86.34c-4.11,65.36-49.12,120.96-112.19,138.58l-83.32,23.28,86.34,5.43c65.36,4.11,120.96,49.12,138.58,112.19Z"></path></svg>
@@ -128,60 +168,62 @@ a:hover{color:var(--text-link-hover)}
 
     <div style="width: var(--track); margin: 0 auto; padding: 0 var(--pad); position: relative; z-index: 1; display: flex; justify-content: flex-start; padding-top: {{ teaserRowPt }}; padding-bottom: 0px">
       <div style="max-width:430px;background:{{ heroFill }};border:3px solid var(--csm-ink);border-radius:14px;box-shadow:8px 8px 0 var(--csm-ink);padding:22px 26px;transform:rotate(-1.5deg);margin-bottom:{{ teaserMb }};margin-left:{{ labelPad }}">
-        <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ bandEyebrow }}">KAKO OVO RADI</div>
-        <div style="font-size:17px;line-height:1.5;margin-top:10px">Odaberi obrok, pa točno ono stanje u kojem jesi. Dajem ti jedno jelo, hackove i put do tanjura.</div>
+        <p class="csm-reset" style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ bandEyebrow }}">KAKO OVO RADI</p>
+        <p class="csm-reset" style="font-size:17px;line-height:1.5;margin-top:10px">Odaberi obrok, pa točno ono stanje u kojem jesi. Dajem ti jedno jelo, hackove i put do tanjura.</p>
       </div>
     </div>
 
     <div style="width:var(--track);margin:0 auto;padding:0 var(--pad);position:relative;z-index:1">
-      <div style="font-weight:800;font-size:{{ labelSize }};line-height:.86;letter-spacing:-.045em;color:{{ labelColor }};-webkit-text-stroke:{{ labelStroke }} var(--csm-ink);paint-order:stroke fill;padding-bottom:14px;padding-left:{{ labelPad }}">{{ openTitle }}</div>
-    <svg viewBox="0 0 500 500" fill="currentColor" style="display: {{ decoD }}; position: absolute; top: 18px; left: -86px; width: 230px; color: var(--csm-ink); animation: csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg></div>
+      <div aria-hidden="true" style="font-weight:800;font-size:{{ labelSize }};line-height:.86;letter-spacing:-.045em;color:{{ labelColor }};-webkit-text-stroke:{{ labelStroke }} var(--csm-ink);paint-order:stroke fill;padding-bottom:14px;padding-left:{{ labelPad }}">{{ openTitle }}</div>
+    <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="display: {{ decoD }}; position: absolute; top: 18px; left: -86px; width: 230px; color: var(--csm-ink); animation: csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg></div>
 
     <div style="width:var(--track);margin:0 auto;padding:0 var(--pad);box-sizing:border-box;position:relative;z-index:1">
     <div style="position:relative;isolation:isolate;--dwl:{{ decoLW }};--dwr:{{ decoRW }};--dgap:20px;--side:{{ decoSide }};--offl:min(var(--dgap), calc(var(--side) - var(--dwl)));--offr:min(var(--dgap), calc(var(--side) - var(--dwr)))">
-      <div aria-hidden="true" style="display:{{ accDecoD }};position:absolute;inset:0;z-index:0;pointer-events:none">
+      <div style="display:{{ accDecoD }};position:absolute;inset:0;z-index:0;pointer-events:none">
         <div data-name="Accordion — Mlinac group" style="position:absolute;top:{{ decoLTop }};left:calc(-1 * (var(--dwl) + var(--offl)));width:var(--dwl)">
           <div data-name="Accordion — Mlinac star position" style="position:absolute;left:6%;top:48%;width:100%">
-            <svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:var(--csm-ink);animation:csm-spin 22s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg>
+            <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="display:block;width:100%;height:auto;color:var(--csm-ink);animation:csm-spin 22s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg>
           </div>
           <div data-name="Accordion — Mlinac position" style="position:relative;top:{{ mlinacUp }};width:100%">
-            <img src="assets/y2k/mlinac-ljubicasti.webp" alt="" style="display:block;width:100%;height:auto;--r:-8deg;animation:csm-bob 12s ease-in-out infinite">
+            <img src="assets/y2k/mlinac-ljubicasti.webp" alt="Retro mlinac za kavu u ljubičastim tonovima." width="455" height="720" loading="lazy" style="display:block;width:100%;height:auto;--r:-8deg;animation:csm-bob 12s ease-in-out infinite">
           </div>
         </div>
         <div style="position:absolute;top:{{ decoRTop }};right:calc(-1 * (var(--dwr) + var(--offr)));width:var(--dwr)">
-          <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;left:-14%;top:44%;width:118%;color:var(--csm-ink);animation:csm-spin 30s linear infinite"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
-          <img src="assets/y2k/sladoled.webp" alt="" style="position:relative;display:block;width:100%;height:auto;--r:18deg;animation:csm-bob 9s ease-in-out infinite">
+          <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="position:absolute;left:-14%;top:44%;width:118%;color:var(--csm-ink);animation:csm-spin 30s linear infinite"><path d="M250,483.91c-70.93,0-126.48-102.74-126.48-233.91S179.07,16.09,250,16.09s126.48,102.74,126.48,233.91-55.56,233.91-126.48,233.91ZM250,47.28c-51.66,0-95.3,92.84-95.3,202.72s43.64,202.72,95.3,202.72,95.3-92.84,95.3-202.72-43.64-202.72-95.3-202.72Z"></path><path d="M250,376.48c-131.16,0-233.91-55.56-233.91-126.48s102.74-126.48,233.91-126.48,233.91,55.56,233.91,126.48-102.74,126.48-233.91,126.48ZM250,154.7c-109.89,0-202.72,43.64-202.72,95.3s92.84,95.3,202.72,95.3,202.72-43.64,202.72-95.3-92.84-95.3-202.72-95.3Z"></path></svg>
+          <img src="assets/y2k/sladoled.webp" alt="Sladoled na štapiću u ljubičastim tonovima." width="700" height="1050" loading="lazy" style="position:relative;display:block;width:100%;height:auto;--r:18deg;animation:csm-bob 9s ease-in-out infinite">
         </div>
       </div>
-      <div style="position:relative;z-index:1;display:flex;flex-direction:{{ accDir }};gap:{{ accGap }};align-items:stretch;height:{{ accH }}">
+      <div id="csm-accordion" style="position:relative;z-index:1;display:flex;flex-direction:{{ accDir }};gap:{{ accGap }};align-items:stretch;height:{{ accH }}">
     <sc-for list="{{ cats }}" as="cat" hint-placeholder-count="4">
       <div style="display:flex;flex-direction:{{ catDir }};align-items:stretch;min-width:0;flex:{{ cat.flex }}">
 
-        <div onClick="{{ cat.toggle }}" onPointerEnter="{{ cat.onEnter }}" onPointerLeave="{{ cat.onLeave }}" onPointerCancel="{{ cat.onLeave }}" style="width:{{ cat.spineW }};flex:none;background:{{ cat.color }};border:3px solid var(--csm-ink);border-radius:{{ cat.radius }};margin-left:{{ cat.ml }};position:{{ cat.spinePos }};top:{{ cat.spineTop }};z-index:{{ cat.spineZ }};box-sizing:border-box;display:flex;flex-direction:{{ cat.spineDir }};gap:{{ cat.spineGap }};align-items:center;justify-content:space-between;padding:{{ cat.spinePad }};cursor:{{ cat.cursor }};transition:background 140ms var(--ease-snap,ease)" style-hover="background:{{ cat.hover }}">
-          <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.1em;color:{{ cat.fg }}">{{ cat.num }}</span>
-          <div style="flex:1;width:100%;display:flex;align-items:center;justify-content:{{ cat.midJustify }};transform:{{ cat.titleT }};transition:transform 140ms var(--ease-snap,ease)">
-            <div style="writing-mode:{{ cat.labelWM }};transform:{{ cat.labelRot }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ cat.labelSize }};letter-spacing:.2em;color:{{ cat.fg }}">{{ cat.label }}</div>
-          </div>
-          <span style="width:28px;height:28px;flex:none;border:2px solid {{ cat.fg }};border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;color:{{ cat.fg }};opacity:{{ cat.signOp }}">{{ cat.sign }}</span>
-        </div>
+        <h3 class="csm-reset" style="width:{{ cat.spineW }};flex:none;margin-left:{{ cat.ml }};position:{{ cat.spinePos }};top:{{ cat.spineTop }};z-index:{{ cat.spineZ }};display:flex">
+        <button type="button" id="{{ cat.btnId }}" class="csm-btn csm-focus-inset" aria-expanded="{{ cat.open }}" aria-controls="{{ cat.controls }}" aria-disabled="{{ cat.ariaDisabled }}" onClick="{{ cat.toggle }}" onPointerEnter="{{ cat.onEnter }}" onPointerLeave="{{ cat.onLeave }}" onPointerCancel="{{ cat.onLeave }}" style="flex:1 1 auto;width:100%;min-width:0;background:{{ cat.color }};border:3px solid var(--csm-ink);border-radius:{{ cat.radius }};box-sizing:border-box;display:flex;flex-direction:{{ cat.spineDir }};gap:{{ cat.spineGap }};align-items:center;justify-content:space-between;padding:{{ cat.spinePad }};cursor:{{ cat.cursor }};transition:background 140ms var(--ease-snap,ease)" style-hover="background:{{ cat.hover }}">
+          <span aria-hidden="true" style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.1em;color:{{ cat.fg }}">{{ cat.num }}</span>
+          <span style="flex:1;width:100%;display:flex;align-items:center;justify-content:{{ cat.midJustify }};transform:{{ cat.titleT }};transition:transform 140ms var(--ease-snap,ease)">
+            <span style="display:block;writing-mode:{{ cat.labelWM }};transform:{{ cat.labelRot }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ cat.labelSize }};letter-spacing:.2em;color:{{ cat.fg }}">{{ cat.label }}</span>
+          </span>
+          <span aria-hidden="true" style="width:28px;height:28px;flex:none;border:2px solid {{ cat.fg }};border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;color:{{ cat.fg }};opacity:{{ cat.signOp }}">{{ cat.sign }}</span>
+        </button>
+        </h3>
 
         <sc-if value="{{ cat.open }}" hint-placeholder-val="{{ true }}">
-          <div style="flex:1;min-width:0;border:3px solid var(--csm-ink);margin-left:{{ panelMl }};margin-top:{{ panelMt }};background:var(--csm-white);display:flex;flex-direction:{{ panelDir }};overflow:hidden;box-shadow:{{ panelShadow }}">
+          <div id="{{ cat.panelId }}" role="region" aria-labelledby="{{ cat.btnId }}" style="flex:1;min-width:0;border:3px solid var(--csm-ink);margin-left:{{ panelMl }};margin-top:{{ panelMt }};background:var(--csm-white);display:flex;flex-direction:{{ panelDir }};overflow:hidden;box-shadow:{{ panelShadow }}">
 
-            <div style="width:{{ subColW }};flex:none;box-sizing:border-box;border-right:{{ subColBR }};border-bottom:{{ subColBB }};background:{{ cat.color }};padding:{{ subColPad }};display:flex;flex-direction:{{ subColDir }};gap:{{ subGap }};overflow-y:{{ subColOY }};overflow-x:{{ subColOX }}">
-              <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ cat.fg }};margin-bottom:5px;display:{{ eyebrowD }}">U KAKVOM SI STANJU</div>
+            <div role="group" aria-labelledby="{{ cat.subsLabelId }}" style="width:{{ subColW }};flex:none;box-sizing:border-box;border-right:{{ subColBR }};border-bottom:{{ subColBB }};background:{{ cat.color }};padding:{{ subColPad }};display:flex;flex-direction:{{ subColDir }};gap:{{ subGap }};overflow-y:{{ subColOY }};overflow-x:{{ subColOX }}">
+              <p id="{{ cat.subsLabelId }}" class="csm-reset" style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ cat.fg }};margin-bottom:5px;display:{{ eyebrowD }}">U KAKVOM SI STANJU</p>
               <sc-for list="{{ cat.subs }}" as="sub" hint-placeholder-count="6">
-                <div onClick="{{ sub.pick }}" style="border:3px solid var(--csm-ink);border-radius:6px;flex:none;box-sizing:border-box;width:{{ subW }};background:{{ sub.bg }};color:{{ sub.fg }};padding:{{ subPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:12.5px;letter-spacing:.06em;line-height:1.25;white-space:{{ subNowrap }};cursor:pointer;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--csm-ink)">
+                <button type="button" class="csm-btn" aria-current="{{ sub.current }}" onClick="{{ sub.pick }}" style="border:3px solid var(--csm-ink);border-radius:6px;flex:none;box-sizing:border-box;width:{{ subW }};background:{{ sub.bg }};color:{{ sub.fg }};padding:{{ subPad }};font-family:'Roboto Mono',monospace;font-weight:700;font-size:12.5px;letter-spacing:.06em;line-height:1.25;white-space:{{ subNowrap }};cursor:pointer;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--csm-ink)">
                   {{ sub.label }}
-                  <sc-if value="{{ sub.active }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;letter-spacing:.14em;opacity:.7;margin-top:5px">{{ sub.count }}</div></sc-if>
-                </div>
+                  <sc-if value="{{ sub.active }}" hint-placeholder-val="{{ false }}"><span style="display:block;font-size:10.5px;letter-spacing:.14em;opacity:.7;margin-top:5px">{{ sub.count }}</span></sc-if>
+                </button>
               </sc-for>
             </div>
 
             <div style="flex:1;display:flex;flex-direction:column;min-width:0">
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 24px;border-bottom:3px solid var(--csm-ink);background:{{ topBar }};flex:none">
+              <div id="{{ cat.resultsId }}" style="display:flex;justify-content:space-between;align-items:center;padding:13px 24px;border-bottom:3px solid var(--csm-ink);background:{{ topBar }};flex:none">
                 <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em">{{ counterText }}</div>
-                <div style="display:{{ dotsD }};gap:7px;align-items:center">
+                <div aria-hidden="true" style="display:{{ dotsD }};gap:7px;align-items:center">
                   <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
                     <span style="width:12px;height:12px;flex:none;border:2px solid var(--csm-ink);border-radius:999px;background:{{ d.bg }}"></span>
                   </sc-for>
@@ -190,22 +232,33 @@ a:hover{color:var(--text-link-hover)}
               </div>
 
               <div style="flex:{{ scrWrapFlex }};position:{{ scrWrapPos }};overflow:{{ scrWrapOv }}">
-                <div onScroll="{{ handleScroll }}" ref="{{ setScroller }}" style="position:{{ scrPos }};inset:0;overflow-y:{{ scrOv }};padding:{{ scrPad }};display:flex;flex-direction:column;gap:{{ scrGap }}">
+                <div onScroll="{{ handleScroll }}" ref="{{ setScroller }}" class="csm-focus-inset" tabIndex="{{ scrTab }}" role="{{ scrRole }}" aria-label="{{ scrLabel }}" style="position:{{ scrPos }};inset:0;overflow-y:{{ scrOv }};padding:{{ scrPad }};display:flex;flex-direction:column;gap:{{ scrGap }}">
                   <sc-for list="{{ recipes }}" as="r" hint-placeholder-count="3">
-                    <div style="border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ r.gap }};flex:none">
+                    <article tabIndex="-1" aria-labelledby="{{ r.titleId }}" style="border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:{{ cardPad }};display:flex;flex-direction:column;gap:{{ r.gap }};flex:none">
 
-                      <div onClick="{{ r.toggle }}" style="display:flex;gap:13px;align-items:center;min-height:{{ accRowMinH }};cursor:{{ r.cursor }}">
+                      <sc-if value="{{ accRec }}">
+                      <h4 class="csm-reset" style="display:flex">
+                        <button type="button" id="{{ r.btnId }}" class="csm-btn" aria-expanded="{{ r.open }}" aria-controls="{{ r.ctrl }}" onClick="{{ r.toggle }}" style="flex:1 1 auto;width:100%;min-width:0;display:flex;gap:13px;align-items:center;min-height:{{ accRowMinH }};cursor:{{ r.cursor }}">
+                          <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:{{ recipeNum }};flex:none">{{ r.no }}</span>
+                          <span id="{{ r.titleId }}" style="display:block;flex:1;min-width:0;font-weight:800;font-size:{{ titleSize }};line-height:{{ titleLH }};letter-spacing:-.02em">{{ r.title }}</span>
+                          <span aria-hidden="true" style="display:{{ accSignD }};width:30px;height:30px;flex:none;border:3px solid var(--csm-ink);border-radius:999px;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;background:{{ r.signBg }};color:{{ r.signFg }}">{{ r.sign }}</span>
+                        </button>
+                      </h4>
+                      </sc-if>
+                      <sc-if value="{{ !accRec }}">
+                      <div style="display:flex;gap:13px;align-items:center;min-height:{{ accRowMinH }};cursor:{{ r.cursor }}">
                         <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:{{ recipeNum }};flex:none">{{ r.no }}</span>
-                        <div style="flex:1;min-width:0;font-weight:800;font-size:{{ titleSize }};line-height:{{ titleLH }};letter-spacing:-.02em">{{ r.title }}</div>
-                        <span style="display:{{ accSignD }};width:30px;height:30px;flex:none;border:3px solid var(--csm-ink);border-radius:999px;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;background:{{ r.signBg }};color:{{ r.signFg }}">{{ r.sign }}</span>
+                        <h4 id="{{ r.titleId }}" class="csm-reset" style="flex:1;min-width:0;font-weight:800;font-size:{{ titleSize }};line-height:{{ titleLH }};letter-spacing:-.02em">{{ r.title }}</h4>
+                        <span aria-hidden="true" style="display:{{ accSignD }};width:30px;height:30px;flex:none;border:3px solid var(--csm-ink);border-radius:999px;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:15px;background:{{ r.signBg }};color:{{ r.signFg }}">{{ r.sign }}</span>
                       </div>
+                      </sc-if>
 
                       <sc-if value="{{ r.open }}" hint-placeholder-val="{{ true }}">
-                      <div style="display:flex;flex-direction:column;gap:16px">
+                      <div id="{{ r.bodyId }}" style="display:flex;flex-direction:column;gap:16px">
 
                       <div style="display:flex;flex-direction:{{ bodyDir }};flex-wrap:wrap;gap:{{ bodyGap }};align-items:flex-start">
                         <div style="flex:{{ descFlex }};order:{{ descOrder }};min-width:0;display:flex;flex-direction:column;gap:14px">
-                          <div style="font-size:17px;line-height:1.55;max-width:60ch">{{ r.desc }}</div>
+                          <p class="csm-reset" style="font-size:17px;line-height:1.55;max-width:60ch">{{ r.desc }}</p>
                           <sc-for list="{{ r.hacks }}" as="h" hint-placeholder-count="2">
                             <div style="border:3px solid var(--csm-ink);border-radius:6px;box-shadow:3px 3px 0 var(--csm-ink);padding:14px 16px;background:var(--csm-white)">
                               <div style="display:flex;gap:8px;align-items:center">
@@ -216,7 +269,7 @@ a:hover{color:var(--text-link-hover)}
                                 <sc-if value="{{ h.isSos }}" hint-placeholder-val="{{ false }}"><img src="assets/shapes/asterisk-solid.svg" alt="" style="width:14px"></sc-if>
                                 <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em">{{ h.label }}</span>
                               </div>
-                              <div style="font-size:15.5px;line-height:1.5;margin-top:7px">{{ h.text }}</div>
+                              <p class="csm-reset" style="font-size:15.5px;line-height:1.5;margin-top:7px">{{ h.text }}</p>
                             </div>
                           </sc-for>
                         </div>
@@ -225,11 +278,11 @@ a:hover{color:var(--text-link-hover)}
                           <sc-if value="{{ r.hasTabs }}" hint-placeholder-val="{{ false }}">
                             <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;width:100%">
                               <sc-for list="{{ r.tabs }}" as="T" hint-placeholder-count="2">
-                                <button type="button" onClick="{{ T.pick }}" style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.14em;padding:8px 14px;border:2px solid var(--csm-ink);border-radius:999px;cursor:pointer;background:{{ T.bg }};color:{{ T.fg }}">{{ T.label }}</button>
+                                <button type="button" aria-pressed="{{ T.pressed }}" onClick="{{ T.pick }}" style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.14em;padding:8px 14px;border:2px solid var(--csm-ink);border-radius:999px;cursor:pointer;background:{{ T.bg }};color:{{ T.fg }}">{{ T.label }}</button>
                               </sc-for>
                             </div>
                           </sc-if>
-                          <div style="position:relative;width:min(100%, {{ pieBox }});aspect-ratio:1">
+                          <div role="img" aria-label="{{ r.pieLabel }}" style="position:relative;width:min(100%, {{ pieBox }});aspect-ratio:1">
                             <div style="position:absolute;inset:0;border-radius:999px;border:3px solid var(--csm-ink);background:{{ r.pie.grad }}"></div>
                             <div style="position:absolute;left:50%;top:50%;width:3px;height:50%;background:var(--csm-ink);transform-origin:top center;transform:{{ r.pie.t1 }}"></div>
                             <div style="position:absolute;left:50%;top:50%;width:3px;height:50%;background:var(--csm-ink);transform-origin:top center;transform:{{ r.pie.t2 }}"></div>
@@ -245,33 +298,33 @@ a:hover{color:var(--text-link-hover)}
                             <sc-if value="{{ r.foot }}" hint-placeholder-val="{{ true }}"><div style="font-size:14px;color:var(--text-muted);margin-top:3px">{{ r.foot }}</div></sc-if>
                           </div>
 
-                          <div style="width:100%;display:flex;flex-direction:column">
+                          <ul class="csm-list" role="list" style="width:100%;display:flex;flex-direction:column">
                             <sc-if value="{{ r.energy }}" hint-placeholder-val="{{ true }}">
-                              <div style="display:flex;flex-direction:column;gap:2px;padding:8px 2px;border-bottom:1px solid var(--line-soft)">
+                              <li style="display:flex;flex-direction:column;gap:2px;padding:8px 2px;border-bottom:1px solid var(--line-soft)">
                                 <div style="display:flex;gap:11px;align-items:center"><span style="width:16px;height:16px;border:2px dashed var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.energy }}</span></div>
                                 <sc-if value="{{ r.energyNote }}" hint-placeholder-val="{{ false }}"><div style="font-size:13.5px;line-height:1.4;color:var(--text-muted);padding-left:27px">{{ r.energyNote }}</div></sc-if>
-                              </div>
+                              </li>
                             </sc-if>
-                            <div style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-p);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.pRaw }}</span></div>
-                            <div style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-c);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.cRaw }}</span></div>
-                            <div style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-f);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.fRaw }}</span></div>
+                            <li style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-p);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.pRaw }}</span></li>
+                            <li style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-c);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.cRaw }}</span></li>
+                            <li style="display:flex;gap:11px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line-soft)"><span style="width:16px;height:16px;background:var(--macro-f);border:2px solid var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em">{{ r.fRaw }}</span></li>
                             <sc-if value="{{ r.fib }}" hint-placeholder-val="{{ true }}">
-                              <div style="display:flex;gap:11px;align-items:center;padding:8px 2px"><span style="width:16px;height:16px;border:2px dashed var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--text-muted)">{{ r.fib }}</span></div>
+                              <li style="display:flex;gap:11px;align-items:center;padding:8px 2px"><span style="width:16px;height:16px;border:2px dashed var(--csm-ink);flex:none"></span><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--text-muted)">{{ r.fib }}</span></li>
                             </sc-if>
                             <sc-if value="{{ r.extra }}" hint-placeholder-val="{{ false }}">
-                              <div style="font-size:12.5px;line-height:1.45;color:var(--text-muted);border-top:1px solid var(--line-soft);padding-top:8px;margin-top:4px">{{ r.extra }}</div>
+                              <li style="font-size:12.5px;line-height:1.45;color:var(--text-muted);border-top:1px solid var(--line-soft);padding-top:8px;margin-top:4px">{{ r.extra }}</li>
                             </sc-if>
-                          </div>
+                          </ul>
                         </div>
                       </div>
 
-                      <a href="{{ r.link }}" target="_blank" style="border:3px solid var(--csm-ink);border-radius:999px;background:{{ ctaBg }};box-shadow:6px 6px 0 var(--csm-ink);padding:{{ ctaPad }};display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--csm-ink)">
-                        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ ctaSize }};letter-spacing:.16em;color:{{ ctaFg }}">{{ r.cta }}</span>
-                        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:{{ ctaFg }}">→</span>
+                      <a href="{{ r.link }}" target="_blank" rel="noopener" aria-label="{{ r.ctaAria }}" style="border:3px solid var(--csm-ink);border-radius:999px;background:{{ ctaBg }};box-shadow:6px 6px 0 var(--csm-ink);padding:{{ ctaPad }};display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-decoration:none;transition:transform 140ms var(--ease-snap,ease),box-shadow 140ms var(--ease-snap,ease)" style-hover="transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--csm-ink)">
+                        <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:{{ ctaSize }};letter-spacing:{{ r.ctaLs }};color:{{ ctaFg }};white-space:{{ r.ctaWs }}">{{ r.cta }}</span>
+                        <span aria-hidden="true" style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:18px;color:{{ ctaFg }}">→</span>
                       </a>
                       </div>
                       </sc-if>
-                    </div>
+                    </article>
                   </sc-for>
 
                   <div style="flex:none;display:flex;justify-content:center;align-items:center;gap:12px;padding:10px 0 4px">
@@ -292,86 +345,90 @@ a:hover{color:var(--text-link-hover)}
       </div>
     </div>
     </div>
-  </div>
+  </section>
   </div>
   </div>
 
-  <div style="position:relative;background:{{ paper }};padding:{{ bonusPad }};overflow:hidden">
+  <section aria-labelledby="csm-bonus-title" style="position:relative;background:{{ paper }};padding:{{ bonusPad }};overflow:hidden">
     <div data-name="Bonus — Content container" style="width:{{ track }};max-width:100%;margin:0 auto;padding:{{ bonusInnerPad }};box-sizing:border-box">
       <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 34px; margin-top: {{ bonusMt }}">
         
-        <svg viewBox="0 0 500 500" fill="currentColor" style="width:18px;height:18px;color:{{ bandEyebrow }};align-self:center"><polygon points="245.79 313.12 453.55 453.55 313.12 245.79 482.63 17.37 254.21 186.88 46.45 46.45 186.88 254.21 17.37 482.63 245.79 313.12"></polygon><polygon points="220.57 279.43 237.29 440.63 275.75 275.75 440.63 237.29 279.43 220.57 262.71 59.37 224.25 224.25 59.37 262.71 220.57 279.43"></polygon></svg><span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ bandEyebrow }}">BONUS · KRENI OD PROBLEMA</span>
+        <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="width:18px;height:18px;color:{{ bandEyebrow }};align-self:center"><polygon points="245.79 313.12 453.55 453.55 313.12 245.79 482.63 17.37 254.21 186.88 46.45 46.45 186.88 254.21 17.37 482.63 245.79 313.12"></polygon><polygon points="220.57 279.43 237.29 440.63 275.75 275.75 440.63 237.29 279.43 220.57 262.71 59.37 224.25 224.25 59.37 262.71 220.57 279.43"></polygon></svg><h2 id="csm-bonus-title" class="csm-reset" style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.18em;color:{{ bandEyebrow }}">BONUS · KRENI OD PROBLEMA</h2>
       </div>
-      <div style="display:grid;grid-template-columns:{{ cardsCols }};gap:24px">
+      <ul class="csm-list" role="list" style="display:grid;grid-template-columns:{{ cardsCols }};gap:24px">
         <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
-          <div onClick="{{ c.go }}" onMouseEnter="{{ c.enter }}" onMouseLeave="{{ c.leave }}" style="perspective:1400px;height:{{ cardH }};cursor:pointer">
-            <div style="position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 700ms cubic-bezier(.22,.61,.36,1);transform:{{ c.flip }}">
+          <li style="display:block">
+          <button type="button" class="csm-btn" aria-labelledby="{{ c.labelledBy }}" aria-describedby="{{ c.textId }}" onClick="{{ c.go }}" onMouseEnter="{{ c.enter }}" onMouseLeave="{{ c.leave }}" onFocus="{{ c.focus }}" onBlur="{{ c.blur }}" style="display:block;width:100%;perspective:1400px;height:{{ cardH }};cursor:pointer">
+            <span style="display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 700ms cubic-bezier(.22,.61,.36,1);transform:{{ c.flip }}">
 
-              <div style="position:absolute;inset:0;backface-visibility:hidden;border:3px solid var(--csm-ink);border-radius:14px;background:{{ c.bg }};color:{{ c.fg }};box-shadow:6px 6px 0 var(--csm-ink);padding:24px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
-                <div style="width:34px;height:34px">{{ c.iconEl }}</div>
-                <div>
-                  <div style="font-weight:800;font-size:26px;line-height:1.02;letter-spacing:-.02em;text-wrap:pretty">{{ c.title }}</div>
-                  <div style="margin-top:16px">
-                    <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;opacity:.72">{{ c.section }}</span>
-                  </div>
-                </div>
-              </div>
+              <span style="position:absolute;inset:0;backface-visibility:hidden;border:3px solid var(--csm-ink);border-radius:14px;background:{{ c.bg }};color:{{ c.fg }};box-shadow:6px 6px 0 var(--csm-ink);padding:24px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
+                <span style="display:block;width:34px;height:34px">{{ c.iconEl }}</span>
+                <span style="display:block">
+                  <span id="{{ c.titleId }}" style="display:block;font-weight:800;font-size:26px;line-height:1.02;letter-spacing:-.02em;text-wrap:pretty">{{ c.title }}</span>
+                  <span style="display:block;margin-top:16px">
+                    <span style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;opacity:.85">{{ c.section }}</span>
+                  </span>
+                </span>
+              </span>
 
-              <div style="position:absolute;inset:0;backface-visibility:hidden;transform:rotateY(180deg);border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
-                <div style="font-size:15.5px;line-height:1.48;text-wrap:pretty">{{ c.text }}</div>
-                <div style="border-top:3px solid var(--csm-ink);padding-top:12px">
-                  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--csm-purple)"><span>VODI NA</span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false" style="display:block;flex:none"><path d="M3 13L13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-                  <div style="font-weight:800;font-size:17px;line-height:1.12;letter-spacing:-.01em;margin-top:5px;text-wrap:pretty">{{ c.recipe }}</div>
-                </div>
-              </div>
-            </div>
-          </div>
+              <span style="position:absolute;inset:0;backface-visibility:hidden;transform:rotateY(180deg);border:3px solid var(--csm-ink);border-radius:14px;background:var(--csm-white);box-shadow:6px 6px 0 var(--csm-ink);padding:22px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
+                <span id="{{ c.textId }}" style="display:block;font-size:15.5px;line-height:1.48;text-wrap:pretty">{{ c.text }}</span>
+                <span style="display:block;border-top:3px solid var(--csm-ink);padding-top:12px">
+                  <span style="display:flex;justify-content:space-between;align-items:center;font-family:'Roboto Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--csm-purple)"><span id="{{ c.leadId }}">VODI NA</span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false" style="display:block;flex:none"><path d="M3 13L13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                  <span id="{{ c.recipeId }}" style="display:block;font-weight:800;font-size:17px;line-height:1.12;letter-spacing:-.01em;margin-top:5px;text-wrap:pretty">{{ c.recipe }}</span>
+                </span>
+              </span>
+            </span>
+          </button>
+          </li>
         </sc-for>
-      </div>
+      </ul>
     </div>
-  </div>
+  </section>
 
-  <div style="position:relative;background-color:{{ endBand }};background-image:radial-gradient(rgba(20,26,27,.22) 1.6px,transparent 1.7px);background-size:18px 18px;padding:{{ footPad }};overflow:hidden;border-bottom:3px solid var(--csm-ink)">
+  </main>
+
+  <footer style="position:relative;background-color:{{ endBand }};background-image:radial-gradient(rgba(20,26,27,.22) 1.6px,transparent 1.7px);background-size:18px 18px;padding:{{ footPad }};overflow:hidden;border-bottom:3px solid var(--csm-ink)">
     <div data-name="Footer — Content container" style="width:{{ track }};max-width:100%;margin:0 auto;padding:0 18px;box-sizing:border-box">
       <div style="display:grid;grid-template-columns:{{ footCols }};gap:{{ footGap }};align-items:center">
 
       <div style="display:flex;flex-direction:column;align-items:flex-start;gap:{{ footCopyGap }};min-width:0">
-        <div style="background:var(--csm-acid);border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 24px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--csm-ink);transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</div>
-        <div style="display:flex;flex-direction:column;align-items:flex-start">
-          <div style="font-weight:800;font-size:{{ footH1 }};line-height:.9;letter-spacing:-.045em;color:var(--csm-ink)">Coolie</div>
-          <div style="font-family:'Remock',sans-serif;font-size:{{ footH2 }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">SECRET</div>
-          <div style="font-family:'Remock',sans-serif;font-size:{{ footH2 }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">MENU</div>
-        </div>
+        <p class="csm-reset" style="background:var(--csm-acid);border:3px solid var(--csm-ink);border-radius:999px;box-shadow:4px 4px 0 var(--csm-ink);padding:11px 24px;font-family:'Roboto Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--csm-ink);transform:rotate(-1.5deg)">NOVI NAČIN KUHANJA</p>
+        <p class="csm-reset" style="display:flex;flex-direction:column;align-items:flex-start">
+          <span style="display:block;font-weight:800;font-size:{{ footH1 }};line-height:.9;letter-spacing:-.045em;color:var(--csm-ink)">Coolie</span>
+          <span style="display:block;font-family:'Remock',sans-serif;font-size:{{ footH2 }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">SECRET</span>
+          <span style="display:block;font-family:'Remock',sans-serif;font-size:{{ footH2 }};line-height:.8;letter-spacing:.005em;color:var(--csm-ink)">MENU</span>
+        </p>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="font-size:16px;font-weight:600;color:var(--csm-ink)">110 recepata za svaku situaciju u tvom danu</div>
-          <div style="font-size:16px;font-weight:600;color:var(--csm-ink)">220 foodhackova koji mijenjaju sve</div>
+          <p class="csm-reset" style="font-size:16px;font-weight:600;color:var(--csm-ink)">110 recepata za svaku situaciju u tvom danu</p>
+          <p class="csm-reset" style="font-size:16px;font-weight:600;color:var(--csm-ink)">210 foodhackova koji mijenjaju sve</p>
         </div>
       </div>
 
       <div style="position:relative;width:100%;max-width:{{ footArtMaxW }};aspect-ratio:1 / 1;margin:0 auto;justify-self:end">
-        <svg viewBox="0 0 500 500" fill="currentColor" style="display:{{ footDecoD }};position:absolute;left:0%;top:18%;width:36%;color:var(--csm-purple);z-index:0;animation:csm-spin 30s linear infinite"><path d="M250,486.87c-59.83,0-92.12-122.04-92.12-236.87S190.17,13.13,250,13.13s92.12,122.04,92.12,236.87-32.28,236.87-92.12,236.87ZM250,36.53c-32.5,0-68.72,87.67-68.72,213.47s36.22,213.47,68.72,213.47,68.72-87.67,68.72-213.47-36.22-213.47-68.72-213.47Z"></path><path d="M137.72,449.54c-10.45,0-19.87-2.71-27.91-8.62-48.23-35.41-2.02-152.89,65.94-245.44C243.71,102.92,341.96,23.67,390.19,59.07c48.23,35.41,2.02,152.89-65.94,245.45-56.63,77.13-134.3,145.03-186.53,145.03ZM361.93,73.83c-34.82,0-103.5,48.59-167.32,135.5-74.45,101.4-97.15,193.5-70.95,212.74,26.17,19.22,107.27-30,181.73-131.4,74.45-101.4,97.15-193.5,70.95-212.74-3.74-2.75-8.61-4.1-14.41-4.1Z"></path><path d="M137.78,358.25c-9.85,0-19.33-.39-28.35-1.17-50.29-4.35-81.73-21.02-88.54-46.94-15.19-57.87,94.65-120.08,205.72-149.24,59.44-15.61,117.68-22,163.96-17.98,50.29,4.35,81.73,21.02,88.54,46.94,15.19,57.87-94.65,120.08-205.72,149.24-47.85,12.56-94.92,19.15-135.61,19.15ZM362.09,165.15c-38.61,0-83.58,6.33-129.53,18.39-121.68,31.94-197.27,89.23-189.02,120.66,3.98,15.18,29.38,26.23,67.92,29.57,43.71,3.79,99.1-2.36,156-17.3,121.68-31.94,197.27-89.23,189.02-120.67-3.98-15.18-29.37-26.23-67.92-29.57-8.41-.73-17.26-1.09-26.47-1.09Z"></path><path d="M394.97,391.62c-52.03,0-125.29-25.44-189.58-61.02C104.93,274.99,13.79,187.65,42.76,135.3c12.98-23.45,47.55-31.86,97.37-23.69,45.85,7.52,100.72,28.04,154.48,57.8,100.46,55.6,191.6,142.95,162.63,195.3-10.43,18.85-33,26.91-62.27,26.91ZM105.34,131.92c-21.72,0-36.78,5.07-42.11,14.71-15.74,28.44,43.43,102.58,153.49,163.5,110.07,60.92,204.31,71.69,220.04,43.25,15.74-28.44-43.43-102.58-153.49-163.5-51.48-28.49-103.66-48.09-146.94-55.19-11.37-1.86-21.79-2.78-31-2.78Z"></path><path d="M351.25,457.59c-52.34,0-127.31-75.38-179.39-158.81-32.54-52.13-55.92-105.84-65.84-151.24-10.77-49.31-4.18-84.29,18.55-98.47,22.72-14.2,57.04-4.75,96.61,26.59,36.43,28.85,74.41,73.44,106.95,125.57,32.54,52.13,55.92,105.84,65.84,151.24,10.77,49.31,4.18,84.29-18.55,98.48-7.28,4.55-15.41,6.66-24.18,6.66ZM148.63,65.95c-4.55,0-8.47.98-11.66,2.97-13.31,8.31-16.34,35.84-8.08,73.63,9.36,42.84,31.67,93.92,62.82,143.84,66.61,106.72,143.75,161.89,171.33,144.7,13.31-8.31,16.33-35.84,8.08-73.63-9.36-42.85-31.67-93.93-62.82-143.84h0c-31.15-49.91-67.25-92.39-101.63-119.61-23.05-18.26-43.64-28.05-58.03-28.05Z"></path></svg>
-        <div data-name="Footer — Star position" style="display:block;position:absolute;right:{{ footStarR }};top:{{ footStarT }};width:{{ footStarW }};z-index:6"><svg viewBox="0 0 500 500" fill="currentColor" style="display:block;width:100%;height:auto;color:var(--csm-acid);animation:csm-spin 34s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg></div>
-        <img src="assets/character/coolie-crop-02.webp" alt="Coolie" style="position:absolute;left:17%;top:8%;width:66%;height:auto;z-index:2">
+        <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="display:{{ footDecoD }};position:absolute;left:0%;top:18%;width:36%;color:var(--csm-purple);z-index:0;animation:csm-spin 30s linear infinite"><path d="M250,486.87c-59.83,0-92.12-122.04-92.12-236.87S190.17,13.13,250,13.13s92.12,122.04,92.12,236.87-32.28,236.87-92.12,236.87ZM250,36.53c-32.5,0-68.72,87.67-68.72,213.47s36.22,213.47,68.72,213.47,68.72-87.67,68.72-213.47-36.22-213.47-68.72-213.47Z"></path><path d="M137.72,449.54c-10.45,0-19.87-2.71-27.91-8.62-48.23-35.41-2.02-152.89,65.94-245.44C243.71,102.92,341.96,23.67,390.19,59.07c48.23,35.41,2.02,152.89-65.94,245.45-56.63,77.13-134.3,145.03-186.53,145.03ZM361.93,73.83c-34.82,0-103.5,48.59-167.32,135.5-74.45,101.4-97.15,193.5-70.95,212.74,26.17,19.22,107.27-30,181.73-131.4,74.45-101.4,97.15-193.5,70.95-212.74-3.74-2.75-8.61-4.1-14.41-4.1Z"></path><path d="M137.78,358.25c-9.85,0-19.33-.39-28.35-1.17-50.29-4.35-81.73-21.02-88.54-46.94-15.19-57.87,94.65-120.08,205.72-149.24,59.44-15.61,117.68-22,163.96-17.98,50.29,4.35,81.73,21.02,88.54,46.94,15.19,57.87-94.65,120.08-205.72,149.24-47.85,12.56-94.92,19.15-135.61,19.15ZM362.09,165.15c-38.61,0-83.58,6.33-129.53,18.39-121.68,31.94-197.27,89.23-189.02,120.66,3.98,15.18,29.38,26.23,67.92,29.57,43.71,3.79,99.1-2.36,156-17.3,121.68-31.94,197.27-89.23,189.02-120.67-3.98-15.18-29.37-26.23-67.92-29.57-8.41-.73-17.26-1.09-26.47-1.09Z"></path><path d="M394.97,391.62c-52.03,0-125.29-25.44-189.58-61.02C104.93,274.99,13.79,187.65,42.76,135.3c12.98-23.45,47.55-31.86,97.37-23.69,45.85,7.52,100.72,28.04,154.48,57.8,100.46,55.6,191.6,142.95,162.63,195.3-10.43,18.85-33,26.91-62.27,26.91ZM105.34,131.92c-21.72,0-36.78,5.07-42.11,14.71-15.74,28.44,43.43,102.58,153.49,163.5,110.07,60.92,204.31,71.69,220.04,43.25,15.74-28.44-43.43-102.58-153.49-163.5-51.48-28.49-103.66-48.09-146.94-55.19-11.37-1.86-21.79-2.78-31-2.78Z"></path><path d="M351.25,457.59c-52.34,0-127.31-75.38-179.39-158.81-32.54-52.13-55.92-105.84-65.84-151.24-10.77-49.31-4.18-84.29,18.55-98.47,22.72-14.2,57.04-4.75,96.61,26.59,36.43,28.85,74.41,73.44,106.95,125.57,32.54,52.13,55.92,105.84,65.84,151.24,10.77,49.31,4.18,84.29-18.55,98.48-7.28,4.55-15.41,6.66-24.18,6.66ZM148.63,65.95c-4.55,0-8.47.98-11.66,2.97-13.31,8.31-16.34,35.84-8.08,73.63,9.36,42.84,31.67,93.92,62.82,143.84,66.61,106.72,143.75,161.89,171.33,144.7,13.31-8.31,16.33-35.84,8.08-73.63-9.36-42.85-31.67-93.93-62.82-143.84h0c-31.15-49.91-67.25-92.39-101.63-119.61-23.05-18.26-43.64-28.05-58.03-28.05Z"></path></svg>
+        <div data-name="Footer — Star position" style="display:block;position:absolute;right:{{ footStarR }};top:{{ footStarT }};width:{{ footStarW }};z-index:6"><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="display:block;width:100%;height:auto;color:var(--csm-acid);animation:csm-spin 34s linear infinite reverse"><polygon points="250 23.99 277.07 223.97 487.64 196.65 296.38 269.2 396.87 476.01 253.42 294.17 103.13 476.01 217.28 269.2 12.36 196.65 233.17 220.55 250 23.99"></polygon></svg></div>
+        <img src="assets/character/coolie-crop-02.webp" alt="Coolie, virtualni kulinarski asistent." width="860" height="1072" loading="lazy" style="position:absolute;left:17%;top:8%;width:66%;height:auto;z-index:2">
         <div style="position:absolute;left:-11.3%;top:-7.3%;width:30.4%;z-index:3">
-          <img src="assets/y2k/rola.webp" alt="" style="display:block;width:100%;height:auto;--r:-14deg;animation:csm-bob 9s ease-in-out infinite">
+          <img src="assets/y2k/rola.webp" alt="Retro rola u ljubičastim tonovima." width="720" height="720" loading="lazy" style="display:block;width:100%;height:auto;--r:-14deg;animation:csm-bob 9s ease-in-out infinite">
         </div>
         <div style="position:absolute;left:-3%;top:66%;width:37.8%;z-index:4">
-          <img src="assets/y2k/kazetofon.webp" alt="" style="display:block;width:100%;height:auto;--r:-2deg;animation:csm-bob 10s ease-in-out infinite">
+          <img src="assets/y2k/kazetofon.webp" alt="Retro kazetofon u ljubičastim tonovima." width="720" height="414" loading="lazy" style="display:block;width:100%;height:auto;--r:-2deg;animation:csm-bob 10s ease-in-out infinite">
         </div>
         <div data-name="Footer — Namaz position" style="position:absolute;right:4%;top:61%;width:25%;z-index:7">
-          <img src="assets/y2k/cokoladni-namaz.webp" alt="" style="display:block;width:100%;height:auto;--r:-6deg;animation:csm-bob 8.5s ease-in-out infinite">
+          <img src="assets/y2k/cokoladni-namaz.webp" alt="Otvorena staklenka čokoladnog namaza." width="700" height="700" loading="lazy" style="display:block;width:100%;height:auto;--r:-6deg;animation:csm-bob 8.5s ease-in-out infinite">
         </div>
-        <svg viewBox="0 0 500 500" fill="currentColor" style="position:absolute;right:2%;top:0%;width:19%;color:var(--csm-ink);z-index:5;animation:csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
+        <svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true" focusable="false" style="position:absolute;right:2%;top:0%;width:19%;color:var(--csm-ink);z-index:5;animation:csm-spin 24s linear infinite"><path d="M378.4,407.8l101.57,72.17-72.17-101.57c-54.63-76.88-54.63-179.92,0-256.8l72.17-101.57-101.57,72.17c-76.88,54.63-179.92,54.63-256.8,0L20.03,20.03l72.17,101.57c54.63,76.88,54.63,179.92,0,256.8l-72.17,101.57,101.57-72.17c76.88-54.63,179.92-54.63,256.8,0Z"></path></svg>
       </div>
 
       </div>
     </div>
 
     <div style="position:relative;text-align:center;margin-top:{{ footSigMt }};display:flex;flex-direction:column;gap:8px;align-items:center">
-      <div style="font-size:16px;font-weight:700;color:var(--csm-ink)">Coolinarika by Podravka</div>
-      <div style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--csm-ink)">© 2026. Podravka d.d. Sva prava pridržana.</div>
+      <p class="csm-reset" style="font-size:16px;font-weight:700;color:var(--csm-ink)">Coolinarika by Podravka</p>
+      <p class="csm-reset" style="font-family:'Roboto Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--csm-ink)">© 2026. Podravka d.d. Sva prava pridržana.</p>
     </div>
-  </div>
+  </footer>
 
 </div>
 </div>
@@ -442,7 +499,7 @@ const SCHEMES = {
     topBar: '#F7FFFF', badge: '#D9FF3F', endBand: '#AD8AFF', endEyebrow: '#111111',
     bandText: '#111111', bandEyebrow: '#111111', accent: '#D9FF3F', accent2: '#5C3BFF',
     tickerBg: '#111111', tickerText: '#D9FF3F', tickerSep: '#FF43B5',
-    coolieBg: '#FF43B5', labelStroke: '0', recipeNum: '#FF43B5',
+    coolieBg: '#FF43B5', labelStroke: '0', recipeNum: '#D90084',   // candy-magenta darkened for 4.5:1 on white
     gridLine: 'rgba(92,59,255,.14)', gridStep: '24px'
   }
 };
@@ -487,7 +544,11 @@ const SPINE_W = 58, HARD_BORDER = 3, SUBCOL_W = 238, SCROLLER_PAD = 26, CARD_PAD
 const SPINE_STEP = SPINE_W - HARD_BORDER;                                   // spines overlap by one border
 const PANEL_TO_TEXT = SUBCOL_W + HARD_BORDER + SCROLLER_PAD + HARD_BORDER + CARD_PAD;
 const SIDE_BEARING = 8;                                                     // optical, 132px ExtraBold
-
+const STICKY_BAND_H = 62, STICKY_GAP = 12;                                  // reflow: sticky category band height + visual gap below it
+const STICKY_BAND = STICKY_BAND_H + STICKY_GAP;                             // room kept above anything scrolled in under the band
+// Desktop/scaled bonus jump: accordion top below the viewport top. The big category label sits right on the
+// accordion and its lowest ink is ~26px (× stage zoom) above it, so the gap must stay well under that.
+const ACCORDION_LANDING_GAP = 12;
 const SHAPES = {
   'asterisk-solid': { vb: '0 0 102.968 102.97', d: ["m56.368,102.97h-9.766c-2.252,0-4.078-1.826-4.078-4.078v-23.27c0-.845-1.02-1.271-1.621-.677l-16.608,16.399c-1.591,1.591-4.173,1.591-5.764,0l-6.905-6.905c-.77-.77-1.196-1.795-1.194-2.886,0-1.089.426-2.114,1.196-2.882l16.451-16.452c.598-.598.178-1.62-.667-1.625l-23.334-.147c-2.248,0-4.078-1.83-4.078-4.078v-9.766c0-2.252,1.826-4.078,4.078-4.078h23.268c.845,0,1.271-1.02.677-1.621L11.627,24.298c-.768-.766-1.194-1.791-1.194-2.88-.002-1.091.424-2.116,1.194-2.886l6.905-6.905c1.592-1.592,4.172-1.592,5.764,0l16.456,16.456c.598.598,1.62.178,1.625-.667l.147-23.338c0-2.248,1.83-4.078,4.078-4.078h9.766c2.252,0,4.078,1.826,4.078,4.078v23.268c0,.845,1.02,1.271,1.621.677l16.606-16.397c1.591-1.591,4.173-1.591,5.764,0l6.905,6.905c.77.77,1.196,1.795,1.194,2.886,0,1.089-.426,2.114-1.196,2.882l-16.451,16.452c-.598.598-.178,1.62.667,1.625l23.334.147c2.248,0,4.078,1.83,4.078,4.078v9.766c0,2.252-1.826,4.078-4.078,4.078h-23.268c-.845,0-1.271,1.02-.677,1.621l16.397,16.606c.768.766,1.194,1.791,1.194,2.88.002,1.091-.424,2.116-1.194,2.886l-6.905,6.905c-1.592,1.592-4.172,1.592-5.764,0l-16.454-16.454c-.598-.598-1.62-.178-1.625.667l-.147,23.336c0,2.248-1.83,4.078-4.078,4.078Z"], p: [] },
   'star-8': { vb: '0 0 500 500', d: [], p: ["467.5 250 358.25 294.81 403.79 403.79 294.81 358.25 250 467.5 205.19 358.25 96.21 403.79 141.75 294.81 32.5 250 141.75 205.19 96.21 96.21 205.19 141.75 250 32.5 294.81 141.75 403.79 96.21 358.25 205.19 467.5 250"] },
@@ -517,7 +578,7 @@ function shapeEl(name) {
   const kids = s.d.map((d, i) => React.createElement('path', { key: 'd' + i, d: d }))
     .concat(s.p.map((p, i) => React.createElement('polygon', { key: 'p' + i, points: p })));
   return React.createElement('svg', {
-    viewBox: s.vb, fill: 'currentColor',
+    viewBox: s.vb, fill: 'currentColor', 'aria-hidden': 'true', focusable: 'false',
     style: { width: '100%', height: '100%', display: 'block' }
   }, kids);
 }
@@ -541,8 +602,16 @@ const CARDS = [
     text: 'Torta bez pečenja, kolač bez miksera. Sladak kraj dana bez pola sata uz pećnicu.' }
 ];
 
+// Smooth scrolling is motion too: honour the OS reduced-motion setting.
+const scrollBehavior = () => (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+
+// "Pauziraj animacije" survives a reload. Storage can be unavailable (private mode, blocked site
+// data), so every access is guarded and the page then simply starts animated.
+const PAUSE_KEY = 'csm-animations-paused';
+const readPaused = () => { try { return window.localStorage.getItem(PAUSE_KEY) === '1'; } catch (e) { return false; } };
+
 class Component extends DCLogic {
-  state = { open: 'rucak', subIdx: {}, prof: {}, active: 0, recall: {}, flipped: null, mode: 'desktop', spineHover: null };
+  state = { open: 'rucak', subIdx: {}, prof: {}, active: 0, recall: {}, flipped: null, mode: 'desktop', spineHover: null, paused: readPaused() };
 
   handleScroll = (e) => {
     const el = e.currentTarget;
@@ -579,11 +648,35 @@ class Component extends DCLogic {
   setStageWrap = (el) => { if (!el) return; this.stageWrap = el; this.applyScale(); };
   setStage = (el) => { if (!el) return; this.stage = el; this.applyScale(); };
 
-  // Neither window.resize (never fires in a preview frame) nor ResizeObserver (callbacks are not
-  // delivered in this host) nor setTimeout/setInterval (throttled to ~1s and sometimes stalled)
-  // is a reliable trigger. requestAnimationFrame is: it is driven by paint, which is exactly when
-  // a width change matters. One clientWidth read and an integer compare per frame.
+  // Width changes are event-driven. window resize is dispatched before rAF callbacks in the same
+  // frame, so a regime change is committed before paint. A ResizeObserver on the gauge covers what
+  // resize does not report — a vertical scrollbar appearing or disappearing changes the gauge, not
+  // the window. Its callbacks ignore height-only changes and are coalesced into one rAF.
+  // The dc editor preview frame is known to deliver neither resize nor ResizeObserver callbacks.
+  // ResizeObserver always reports once right after observe(), so if that first report never arrives
+  // the old per-frame poll starts as a fallback — in such a host only, never on the live site.
   observe = () => {
+    if (this._ro || this._raf || !this.gauge) return;
+    if (typeof ResizeObserver !== 'function') { this.poll(); return; }
+    this._ro = new ResizeObserver((entries) => {
+      this._roSeen = true;
+      if (this._raf) { cancelAnimationFrame(this._raf); this._raf = 0; }
+      const w = entries[entries.length - 1].contentRect.width;
+      if (w === this._roW) return;
+      this._roW = w;
+      if (!this._pending) this._pending = requestAnimationFrame(() => { this._pending = 0; this.applyScale(); });
+    });
+    this._ro.observe(this.gauge);
+    const check = () => {
+      if (this._roSeen) return;
+      // A background tab delivers nothing until it is shown; only a visible page proves the host.
+      if (document.visibilityState !== 'visible') { this._roCheck = setTimeout(check, 1500); return; }
+      this.poll();
+    };
+    this._roCheck = setTimeout(check, 1500);
+  };
+
+  poll = () => {
     if (this._raf) return;
     const tick = () => {
       this.applyScale();
@@ -602,6 +695,8 @@ class Component extends DCLogic {
   };
 
   regime = (w) => (w >= 1440 ? 'desktop' : (w >= 1152 ? 'scaled' : (w >= 768 ? 'tablet' : 'mobile')));
+
+  stickyStack = (mode) => (mode === 'tablet' || mode === 'mobile') && (this.props.stickyBand ?? true);
 
   settle = () => {
     [0, 1, 60, 200, 600, 1200].forEach((t) => setTimeout(this.applyScale, t));
@@ -626,6 +721,10 @@ class Component extends DCLogic {
     if (mode !== this._mode) {
       this._mode = mode;
       this.setState({ mode: mode });
+      // Reflow keeps the open category band sticky at the top of the viewport. Reserve its height in
+      // the page scroll area so keyboard focus never scrolls in underneath it; #menu cancels the
+      // offset with a matching negative scroll-margin, so the hero CTA still lands exactly on it.
+      document.documentElement.style.scrollPaddingTop = this.stickyStack(mode) ? STICKY_BAND + 'px' : '';
       // On reflow the menu opens on the first section: it reads as "start at the top of the day".
       // Desktop keeps its own default. Only applies before the user has touched the accordion.
       if ((mode === 'tablet' || mode === 'mobile') && !this._touched) {
@@ -656,40 +755,48 @@ class Component extends DCLogic {
         }
       }
       if (wrap) { wrap.style.overflow = ''; wrap.style.height = ''; }
-      if (this.props.logMode) console.log('[csm] mode', mode, 'w', Math.round(w),
-        'gauge', gauge.clientWidth + '/' + gauge.offsetWidth,
-        'wrap', wrap ? wrap.clientWidth + '/' + wrap.offsetWidth : '-');
     }
   };
 
   componentDidMount() {
     this._onResize = () => this.applyScale();
-    // Belt and braces: rAF covers the painting case, and these cover every way a user can meet
-    // the page after a size change that happened while it was not painting.
-    ['resize', 'orientationchange', 'load', 'focus', 'pageshow'].forEach((ev) =>
-      window.addEventListener(ev, this._onResize, true));
-    ['scroll', 'pointerdown', 'visibilitychange'].forEach((ev) =>
-      document.addEventListener(ev, this._onResize, true));
+    // Size changes arrive as events. load / pageshow / visibilitychange are one-off catch-ups for a
+    // change that happened while the page was not rendering (bfcache restore, background tab).
+    // Nothing measures per scroll, per pointer or per focus.
+    ['resize', 'orientationchange', 'load', 'pageshow'].forEach((ev) => window.addEventListener(ev, this._onResize));
+    document.addEventListener('visibilitychange', this._onResize);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(this.applyScale);
     this.observe();
     this.settle();
   }
 
   componentWillUnmount() {
-    ['resize', 'orientationchange', 'load', 'focus', 'pageshow'].forEach((ev) =>
-      window.removeEventListener(ev, this._onResize, true));
-    ['scroll', 'pointerdown', 'visibilitychange'].forEach((ev) =>
-      document.removeEventListener(ev, this._onResize, true));
+    ['resize', 'orientationchange', 'load', 'pageshow'].forEach((ev) => window.removeEventListener(ev, this._onResize));
+    document.removeEventListener('visibilitychange', this._onResize);
+    if (this._ro) this._ro.disconnect();
     if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._pending) cancelAnimationFrame(this._pending);
+    clearTimeout(this._roCheck);
     clearTimeout(this._retry);
   }
 
+  togglePause = () => {
+    const paused = !this.state.paused;
+    this.setState({ paused: paused });
+    try { window.localStorage.setItem(PAUSE_KEY, paused ? '1' : '0'); } catch (e) { /* storage unavailable: the choice lasts for this visit */ }
+  };
+
   // Bonus cards are deterministic shortcuts: each lands on the recipe it names.
-  openTarget = (cat, sub, rec) => {
+  openTarget = (cat, sub, rec, byKeyboard) => {
     this.setState((s) => ({ open: cat, subIdx: Object.assign({}, s.subIdx, { [cat]: sub }), active: rec }));
     requestAnimationFrame(() => {
-      const m = document.getElementById('menu');
-      if (m) window.scrollTo({ top: m.getBoundingClientRect().top + window.scrollY - 24, behavior: 'smooth' });
+      // Reflow brings the menu in first and then lands the recipe under the sticky band (below). Desktop and
+      // scaled land on the accordion box itself, not on the large category label above it; the live rect
+      // already includes the stage zoom, so no page coordinate is hardcoded.
+      const reflow = this.state.mode === 'tablet' || this.state.mode === 'mobile';
+      const anchor = document.getElementById(reflow ? 'menu' : 'csm-accordion');
+      const gap = reflow ? 24 : ACCORDION_LANDING_GAP;
+      if (anchor) window.scrollTo({ top: anchor.getBoundingClientRect().top + window.scrollY - gap, behavior: scrollBehavior() });
       setTimeout(() => {
         const el = this.el;
         if (!el) return;
@@ -697,10 +804,15 @@ class Component extends DCLogic {
         if (!card) return;
         // Reflowed modes have no inner scroller — the page itself carries the recipe list.
         if (this.state.mode === 'tablet' || this.state.mode === 'mobile') {
-          window.scrollTo({ top: card.getBoundingClientRect().top + window.scrollY - 16, behavior: 'smooth' });
+          // The open category band is sticky at the top; land the recipe below it, never underneath.
+          const off = this.stickyStack(this.state.mode) ? STICKY_BAND : 16;
+          window.scrollTo({ top: card.getBoundingClientRect().top + window.scrollY - off, behavior: scrollBehavior() });
         } else {
           el.scrollTop = card.offsetTop - el.children[0].offsetTop;
         }
+        // Keyboard users land on the promised recipe instead of staying on the card they left. A mouse click or
+        // tap leaves focus alone, so no :focus-visible ring appears after pointer navigation.
+        if (byKeyboard && typeof card.focus === 'function') card.focus({ preventScroll: true });
       }, 90);
     });
   };
@@ -717,7 +829,7 @@ class Component extends DCLogic {
         if (!el) return;
         requestAnimationFrame(() => {
           const t = el.getBoundingClientRect().top + window.scrollY - 12;
-          if (window.scrollY > t) window.scrollTo({ top: t, behavior: 'smooth' });
+          if (window.scrollY > t) window.scrollTo({ top: t, behavior: scrollBehavior() });
         });
       });
       return;
@@ -726,13 +838,29 @@ class Component extends DCLogic {
     if (this.el) this.el.scrollTop = 0;
   };
 
-  pick = (key, i) => {
+  // Reflow: a subsection button can sit far above its results, so after choosing one the page moves to the
+  // white results bar ("PALAČINKE · 1 / 5") directly under the sticky category band, with the first recipe
+  // right below it. Desktop keeps its inner scroller and never moves the page.
+  pick = (key, i, e) => {
     this._touched = true;
+    const byKeyboard = !!e && e.detail === 0;   // Enter/Space activate a button with a click of detail 0
     this.setState((s) => ({
       subIdx: Object.assign({}, s.subIdx, { [key]: i }),
       active: 0,
       recall: Object.assign({}, s.recall, { [key]: 0 })
-    }));
+    }), () => {
+      if (!(this.state.mode === 'tablet' || this.state.mode === 'mobile')) return;
+      requestAnimationFrame(() => {
+        const bar = document.getElementById('csm-results-' + key);
+        if (!bar) return;
+        const off = this.stickyStack(this.state.mode) ? STICKY_BAND_H : 0;
+        window.scrollTo({ top: bar.getBoundingClientRect().top + window.scrollY - off, behavior: scrollBehavior() });
+        if (!byKeyboard) return;
+        const panel = document.getElementById('csm-panel-' + key);
+        const first = panel && (panel.querySelector('article h4 > button') || panel.querySelector('article'));
+        if (first) first.focus({ preventScroll: true });
+      });
+    });
     if (this.el) this.el.scrollTop = 0;
   };
 
@@ -747,8 +875,8 @@ class Component extends DCLogic {
     }), () => {
       if (!el || closing) return;
       requestAnimationFrame(() => {
-        const off = (this.props.stickyBand ?? true) ? 74 : 10;
-        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+        const off = (this.props.stickyBand ?? true) ? STICKY_BAND : 10;
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: scrollBehavior() });
       });
     });
   };
@@ -772,6 +900,11 @@ class Component extends DCLogic {
     const stickyB = stack && (this.props.stickyBand ?? true);
     const R = {
       stack: stack,
+      accRec: accRec,
+      // The desktop recipe list scrolls inside its own box, so it must be reachable by keyboard.
+      scrTab: stack ? undefined : 0,
+      scrRole: stack ? undefined : 'region',
+      menuScrollMargin: stickyB ? '-' + STICKY_BAND + 'px' : '0px',
       // Never wider than the frame: a mis-detected desktop verdict must not create a horizontal
       // scroller. The scaled regime pins the shell to 1440px via applyScale instead.
       shellMinW: '0',
@@ -975,6 +1108,13 @@ class Component extends DCLogic {
         labelWM: stack ? 'horizontal-tb' : 'vertical-rl',
         labelRot: stack ? 'none' : 'rotate(180deg)',
         labelSize: stack ? '15px' : '18px',
+        btnId: 'csm-cat-' + c.key,
+        panelId: 'csm-panel-' + c.key,
+        subsLabelId: 'csm-subs-' + c.key,
+        resultsId: 'csm-results-' + c.key,
+        controls: isOpen ? 'csm-panel-' + c.key : undefined,
+        // Desktop always keeps one section open, so its header cannot collapse it; empty sections are inert.
+        ariaDisabled: inert ? 'true' : undefined,
         key: c.key, num: c.num, label: c.label, color: color, fg: fg,
         hover: inert ? color : lighten(color),
         open: isOpen,
@@ -987,9 +1127,10 @@ class Component extends DCLogic {
         toggle: has ? this.toggle(c.key) : () => {},
         subs: c.subs.map((s, i) => ({
           label: s.label, count: s.count, active: i === si,
+          current: i === si ? 'true' : undefined,
           bg: i === si ? (needsInvert(color) ? fg : INK) : 'transparent',
           fg: i === si ? (needsInvert(color) ? color : '#FFFFFF') : fg,
-          pick: () => this.pick(c.key, i)
+          pick: (e) => this.pick(c.key, i, e)
         }))
       };
     });
@@ -1008,10 +1149,17 @@ class Component extends DCLogic {
       const pIdx = this.state.prof[pk] || 0;
       const act = r.profiles ? r.profiles[Math.min(pIdx, r.profiles.length - 1)] : null;
       const base = act ? Object.assign({}, r, act) : r;
+      const rid = 'csm-r-' + openKey + '-' + (this.state.subIdx[openKey] || 0) + '-' + i;
+      // The pie shows each macro's share of energy, which the text rows (grams) do not state.
+      const share = (k) => ((((base.pie && base.pie.labels) || []).find((L) => String(L.col).indexOf('macro-' + k) !== -1)) || {}).txt || '';
       return Object.assign({}, base, {
+      titleId: rid + '-title', btnId: rid + '-btn', bodyId: rid + '-body',
+      ctrl: (accRec && i === this.state.active) ? rid + '-body' : undefined,
+      pieLabel: 'Udio energije: proteini ' + share('p') + ', ugljikohidrati ' + share('c') + ', masti ' + share('f'),
       hasTabs: !!r.profiles,
       tabs: (r.profiles || []).map((p, pi) => ({
         label: p.tab,
+        pressed: pi === pIdx,
         bg: pi === pIdx ? INK : 'transparent',
         fg: pi === pIdx ? '#FFFFFF' : INK,
         pick: () => this.setState((s) => ({ prof: Object.assign({}, s.prof, { [pk]: pi }) }))
@@ -1023,7 +1171,25 @@ class Component extends DCLogic {
       signFg: (accRec && i === this.state.active) ? '#FFFFFF' : INK,
       cursor: accRec ? 'pointer' : 'default',
       toggle: accRec ? this.openRecipe(i) : () => {},
-      cta: 'PUT DO TANJURA' + (r.servings ? ' (' + r.servings + ')' : ''),
+      ...(() => {
+        // On the button a count of people reads as portions: "2 OSOBE" → "2 PORCIJE", "1 OSOBA" → "1 PORCIJA".
+        const servings = String(r.servings || '')
+          .replace(/^(\d+)\s+OSOBA$/, '$1 PORCIJA')
+          .replace(/^(\d+)\s+OSOBE$/, '$1 PORCIJE');
+        // Mobile abbreviates a plain portion count so the CTA stays on one line: "(4 PORCIJE)" → "(4 PORC.)".
+        // Mixed and piece counts ("12 PORCIJA/KRIŠKI", "30 KUGLICA", "5 PORCIJA, 10 WAFFLA"…) keep the full
+        // text on every width and may wrap to two lines. Tablet/desktop always show the full text.
+        const plain = /^(\d+)\s+PORCIJ[AE]$/.exec(servings);
+        const short = mob && !!plain;
+        const cta = 'PUT DO TANJURA' + (servings ? ' (' + (short ? plain[1] + ' PORC.' : servings) + ')' : '');
+        return {
+          cta: cta,
+          ctaWs: short ? 'nowrap' : 'normal',
+          // A two-digit count is ~4 px too long for a 375 px phone at .16em; .14em keeps it on one line.
+          ctaLs: short && cta.length > 24 ? '.14em' : '.16em',
+          ctaAria: 'Put do tanjura' + (servings ? ', ' + servings.toLowerCase() : '') + ', otvara se u novoj kartici'
+        };
+      })(),
       pie: Object.assign({}, base.pie, {
         t1: 'translateX(-50%) rotate(' + base.pie.rot1 + ')',
         t2: 'translateX(-50%) rotate(' + base.pie.rot2 + ')',
@@ -1034,6 +1200,12 @@ class Component extends DCLogic {
 
     return Object.assign({}, R, {
       handleScroll: this.handleScroll,
+      rootClass: 'csm-root' + (this.state.paused ? ' csm-paused' : ''),
+      paused: !!this.state.paused,
+      togglePause: this.togglePause,
+      // The label names the action the button will take (no aria-pressed alongside a changing label).
+      pauseLabel: this.state.paused ? 'Nastavi animacije' : 'Pauziraj animacije',
+      scrLabel: stack ? undefined : 'Recepti' + (sub ? ': ' + sub.label : ''),
       cats, recipes,
       paper: S.paper, band: S.band, labelColor: S.labelColor,
       shp1: S.cat[0], shp2: S.cat[1], shp3: S.cat[2], shp4: S.cat[3], shp5: S.accent, shp6: S.accent2,
@@ -1071,13 +1243,33 @@ class Component extends DCLogic {
           bg: fill, fg: readableOn(fill),
           section: cat ? cat.label + ' · ' + (c.subLabel || (sub ? sub.label.toUpperCase() : '')) : '',
           recipe: rec ? rec.title : '',
+          titleId: 'csm-card-' + i + '-title', leadId: 'csm-card-' + i + '-lead',
+          recipeId: 'csm-card-' + i + '-recipe', textId: 'csm-card-' + i + '-text',
+          // Built here, not in the template: the runtime reads an attribute that starts with {{ and ends
+          // with }} as ONE binding, so "{{ a }} {{ b }}" would resolve to undefined.
+          labelledBy: ['title', 'lead', 'recipe'].map((p) => 'csm-card-' + i + '-' + p).join(' '),
+          // Keyboard focus turns the card the way hover does, so the promise on the back can be read
+          // before Enter keeps it. A tap never matches :focus-visible, so touch keeps tap-to-turn.
+          focus: (e) => {
+            let kb = false;
+            try { kb = e.currentTarget.matches(':focus-visible'); } catch (err) { kb = false; }
+            if (!kb) return;
+            this._focusFlip = i;
+            if (this.state.flipped !== i) this.setState({ flipped: i });
+          },
+          blur: () => {
+            if (this._focusFlip !== i) return;
+            this._focusFlip = null;
+            if (this.state.flipped === i) this.setState({ flipped: null });
+          },
           flip: this.state.flipped === i ? 'rotateY(180deg)' : 'rotateY(0deg)',
           // No hover on touch: first tap turns the card, second keeps the promise on its back.
           enter: stack ? () => {} : () => this.setState({ flipped: i }),
           leave: stack ? () => {} : () => this.setState({ flipped: null }),
+          // Enter/Space activate the button with a click of detail 0 — only that moves focus to the recipe.
           go: stack
-            ? () => { if (this.state.flipped === i) this.openTarget(c.cat, c.sub, c.rec); else this.setState({ flipped: i }); }
-            : () => this.openTarget(c.cat, c.sub, c.rec)
+            ? (e) => { if (this.state.flipped === i) this.openTarget(c.cat, c.sub, c.rec, !!e && e.detail === 0); else this.setState({ flipped: i }); }
+            : (e) => this.openTarget(c.cat, c.sub, c.rec, !!e && e.detail === 0)
         };
       })
     });
